@@ -1,0 +1,40 @@
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "this zero-dependency package will provide a swagger-client for github-all's web-apis, with a working web-demo",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "githubRepoAlias": "swgg-io/node-swgg-github-all",
+    "homepage": "https://github.com/kaizhu256/node-swgg-github-all",
+    "keywords": [
+        "github-all",
+        "swagger-client"
+    ],
+    "license": "MIT",
+    "main": "lib.swgg_github_all.js",
+    "name": "swgg-github-all",
+    "nameAliasPublish": "swgg-github",
+    "nameLib": "swgg_github_all",
+    "nameOriginal": "swgg-github-all",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kaizhu256/node-swgg-github-all.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
+    },
+    "version": "2018.1.19"
+}

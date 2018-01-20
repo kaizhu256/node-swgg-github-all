@@ -1,0 +1,1402 @@
+{
+    "basePath": "/",
+    "definitions": {
+        "github-gists.Gists.POST": {
+            "properties": {
+                "description": {
+                    "$ref": "#/parameters/github-gists.description"
+                },
+                "files": {
+                    "default": {
+                        "file1.txt": {
+                            "content": "String file contents"
+                        }
+                    },
+                    "type": "object"
+                },
+                "public": {
+                    "$ref": "#/parameters/github-gists.public"
+                }
+            },
+            "required": [
+                "files"
+            ],
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-gists.GistsGistId.PATCH": {
+            "properties": {
+                "description": {
+                    "$ref": "#/parameters/github-gists.description"
+                },
+                "files": {
+                    "default": {
+                        "description": "the description for this gist",
+                        "files": {
+                            "delete_this_file.txt": null,
+                            "file1.txt": {
+                                "content": "updated file contents"
+                            },
+                            "new_file.txt": {
+                                "content": "a new file"
+                            },
+                            "old_name.txt": {
+                                "content": "modified contents",
+                                "filename": "new_name.txt"
+                            }
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "files"
+            ],
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-gists.GistsGistIdComments.POST": {
+            "properties": {
+                "body": {
+                    "default": "Just commenting for the sake of commenting",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "body"
+            ],
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-repositories.ReposOwnerRepoContentsPath.PUT": {
+            "properties": {
+                "branch": {
+                    "$ref": "#/parameters/github-repositories.branch"
+                },
+                "content": {
+                    "$ref": "#/parameters/github-repositories.content"
+                },
+                "message": {
+                    "$ref": "#/parameters/github-repositories.message"
+                }
+            },
+            "required": [
+                "content",
+                "message"
+            ],
+            "x-swgg-tags0": "github-repositories"
+        },
+        "github-repositories.ReposOwnerRepoContentsPathShaRequired.PUT": {
+            "properties": {
+                "branch": {
+                    "$ref": "#/parameters/github-repositories.branch"
+                },
+                "content": {
+                    "$ref": "#/parameters/github-repositories.content"
+                },
+                "message": {
+                    "$ref": "#/parameters/github-repositories.message"
+                },
+                "sha": {
+                    "$ref": "#/parameters/github-repositories.sha"
+                }
+            },
+            "required": [
+                "content",
+                "message",
+                "sha"
+            ],
+            "x-swgg-tags0": "github-repositories"
+        }
+    },
+    "externalDocs": {
+        "description": "find out more about github-all's web-apis",
+        "url": "https://console.developers.google.com/apis/library"
+    },
+    "info": {
+        "description": "this zero-dependency package will provide a swagger-client for github-all's web-apis, with a working web-demo",
+        "title": "swgg-github-all",
+        "version": "2018.1.19",
+        "x-swgg-downloadStandaloneApp": "https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/app/assets.app.js",
+        "x-swgg-homepage": "https://github.com/kaizhu256/node-swgg-github-all"
+    },
+    "parameters": {
+        "github-activity.org": {
+            "default": "swgg-io",
+            "description": "github org",
+            "in": "path",
+            "name": "org",
+            "required": true,
+            "type": "string"
+        },
+        "github-all.content-length": {
+            "default": 0,
+            "description": "content-length header",
+            "in": "header",
+            "name": "content-length",
+            "required": true,
+            "type": "integer"
+        },
+        "github-all.key": {
+            "default": "xxxxxxxx",
+            "description": "OAuth2 token (sent as a parameter).\n\nhttps://developer.github.com/v3/#authentication",
+            "in": "query",
+            "name": "access_token",
+            "type": "string",
+            "x-swgg-apiKey": true
+        },
+        "github-all.owner": {
+            "default": "swgg-io",
+            "description": "github owner",
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+        },
+        "github-all.repo": {
+            "default": "node-swgg-google-all",
+            "description": "github repo",
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+        },
+        "github-all.user-agent": {
+            "default": "swgg",
+            "description": "user-agent header",
+            "in": "header",
+            "name": "user-agent",
+            "required": true,
+            "type": "string"
+        },
+        "github-all.username": {
+            "default": "swgg-user",
+            "description": "github username",
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+        },
+        "github-gists.comment_id": {
+            "default": "359660",
+            "description": "github comment_id",
+            "in": "path",
+            "name": "comment_id",
+            "required": true,
+            "type": "string",
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-gists.description": {
+            "default": "the description for this gist",
+            "description": "A description of the gist.",
+            "in": "query",
+            "name": "description",
+            "type": "string",
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-gists.gist_id": {
+            "default": "2209310",
+            "description": "github gist_id",
+            "in": "path",
+            "name": "gist_id",
+            "required": true,
+            "type": "string",
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-gists.public": {
+            "default": false,
+            "description": "Indicates whether the gist is public. Default: false",
+            "in": "query",
+            "name": "public",
+            "type": "boolean",
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-gists.since": {
+            "description": "A timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only gists updated at or after this time are returned.",
+            "format": "date-time",
+            "in": "query",
+            "name": "since",
+            "type": "string",
+            "x-swgg-tags0": "github-gists"
+        },
+        "github-repositories.branch": {
+            "default": "master",
+            "description": "The branch name. Default: the repository’s default branch (usually master).",
+            "in": "query",
+            "name": "branch",
+            "type": "string"
+        },
+        "github-repositories.content": {
+            "description": "The new file content, Base64 encoded.",
+            "format": "byte",
+            "in": "query",
+            "name": "content",
+            "required": true,
+            "type": "string"
+        },
+        "github-repositories.message": {
+            "default": "this is a commit message.",
+            "description": "The commit message.",
+            "in": "query",
+            "name": "message",
+            "required": true,
+            "type": "string"
+        },
+        "github-repositories.path": {
+            "default": "README.md",
+            "description": "The content path.",
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "type": "string"
+        },
+        "github-repositories.ref": {
+            "default": "master",
+            "description": "The name of the commit/branch/tag. Default: the repository’s default branch (usually master).",
+            "in": "query",
+            "name": "ref",
+            "type": "string"
+        },
+        "github-repositories.sha": {
+            "default": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "description": "The blob SHA of the file being replaced.",
+            "in": "query",
+            "name": "sha",
+            "required": true,
+            "type": "string"
+        }
+    },
+    "paths": {
+        "/events": {
+            "get": {
+                "description": "Events - List public events.\n\nhttps://developer.github.com/v3/activity/events/#list-public-events",
+                "operationId": "_2Fevents_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/gists": {
+            "get": {
+                "description": "Gists - List a user's gists. List the authenticated user's gists or if called anonymously, this will return all public gists.\n\nhttps://developer.github.com/v3/gists/#list-a-users-gists",
+                "operationId": "_2Fgists_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.since"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "post": {
+                "description": "Gists - Create a gist.\n\nhttps://developer.github.com/v3/gists/#create-a-gist",
+                "operationId": "_2Fgists_20POST",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github-gists.Gists.POST"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/public": {
+            "get": {
+                "description": "Gists - List all public gists. List all public gists sorted by most recently updated to least recently updated.\n\nhttps://developer.github.com/v3/gists/#list-all-public-gists",
+                "operationId": "_2Fgists_2Fpublic_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.since"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/starred": {
+            "get": {
+                "description": "Gists - List starred gists. List the authenticated user's starred gists.\n\nhttps://developer.github.com/v3/gists/#list-starred-gists",
+                "operationId": "_2Fgists_2Fstarred_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.since"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}": {
+            "delete": {
+                "description": "Gists - Delete a gist.\n\nhttps://developer.github.com/v3/gists/#delete-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "get": {
+                "description": "Gists - Get a single gist.\n\nhttps://developer.github.com/v3/gists/#get-a-single-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "patch": {
+                "description": "Gists - Edit a gist.\n\nhttps://developer.github.com/v3/gists/#edit-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_20PATCH",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github-gists.GistsGistId.PATCH"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}/comments": {
+            "get": {
+                "description": "Comments - List comments on a gist.\n\nhttps://developer.github.com/v3/gists/comments/#list-comments-on-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fcomments_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "post": {
+                "description": "Comments - Create a comment.\n\nhttps://developer.github.com/v3/gists/comments/#create-a-comment",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fcomments_20POST",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github-gists.GistsGistIdComments.POST"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}/comments/{comment_id}": {
+            "delete": {
+                "description": "Comments - Delete a comment.\n\nhttps://developer.github.com/v3/gists/comments/#delete-a-comment",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fcomments_2F_7Bcomment_id_7D_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.comment_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "get": {
+                "description": "Comments - Get a single comment.\n\nhttps://developer.github.com/v3/gists/comments/#get-a-single-comment",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fcomments_2F_7Bcomment_id_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.comment_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "patch": {
+                "description": "Comments - Edit a comment.\n\nhttps://developer.github.com/v3/gists/comments/#edit-a-comment",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fcomments_2F_7Bcomment_id_7D_20PATCH",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.comment_id"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github-gists.GistsGistIdComments.POST"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}/commits": {
+            "get": {
+                "description": "Gists - List gist commits.\n\nhttps://developer.github.com/v3/gists/#list-gist-commits",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fcommits_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}/forks": {
+            "get": {
+                "description": "Gists - List gist forks.\n\nhttps://developer.github.com/v3/gists/#list-gist-forks",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fforks_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "post": {
+                "description": "Gists - Fork a gist.\n\nhttps://developer.github.com/v3/gists/#fork-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fforks_20POST",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}/star": {
+            "delete": {
+                "description": "Gists - Unstar a gist.\n\nhttps://developer.github.com/v3/gists/#unstar-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fstar_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "get": {
+                "description": "Gists - Check if a gist is starred.\n\nhttps://developer.github.com/v3/gists/#check-if-a-gist-is-starred",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fstar_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            },
+            "put": {
+                "description": "Gists - Star a gist. Note that you'll need to set Content-Length to zero when calling out to this endpoint. For more information, see \"HTTP verbs\" (https://developer.github.com/v3/#http-verbs).\n\nhttps://developer.github.com/v3/gists/#star-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2Fstar_20PUT",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.content-length"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/gists/{gist_id}/{sha}": {
+            "get": {
+                "description": "Gists - Get a specific revision of a gist.\n\nhttps://developer.github.com/v3/gists/#get-a-specific-revision-of-a-gist",
+                "operationId": "_2Fgists_2F_7Bgist_id_7D_2F_7Bsha_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.gist_id"
+                    },
+                    {
+                        "default": "f7a5bda306e55c85726d7d3bd034ff6cec03c8d5",
+                        "description": "github sha revision",
+                        "in": "path",
+                        "name": "sha",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/networks/{owner}/{repo}/events": {
+            "get": {
+                "description": "Events - List public events for a network of repositories.\n\nhttps://developer.github.com/v3/activity/events/#list-public-events-for-a-network-of-repositories",
+                "operationId": "_2Fnetworks_2F_7Bowner_7D_2F_7Brepo_7D_2Fevents_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/orgs/{org}/events": {
+            "get": {
+                "description": "Events - List public events for an organization.\n\nhttps://developer.github.com/v3/activity/events/#list-public-events-for-an-organization",
+                "operationId": "_2Forgs_2F_7Borg_7D_2Fevents_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-activity.org"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/repos/{owner}/{repo}/contents/{path}": {
+            "delete": {
+                "description": "Contents - Delete a file. This method deletes a file in a repository.\n\nhttps://developer.github.com/v3/repos/contents/#delete-a-file",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fcontents_2F_7Bpath_7D_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.path"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.message"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.sha"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.branch"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-repositories"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-repositories"
+            },
+            "get": {
+                "description": "Contents - Get contents. This method returns the contents of a file or directory in a repository.\n\nhttps://developer.github.com/v3/repos/contents/#get-contents",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fcontents_2F_7Bpath_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.path"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.ref"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-repositories"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-repositories"
+            },
+            "put": {
+                "description": "Contents - Create a file. This method creates a new file in a repository.\n\nhttps://developer.github.com/v3/repos/contents/#create-a-file",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fcontents_2F_7Bpath_7D_20PUT",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.path"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github-repositories.ReposOwnerRepoContentsPath.PUT"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-repositories"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-repositories"
+            }
+        },
+        "/repos/{owner}/{repo}/contents/{path}#sha.required": {
+            "put": {
+                "description": "Contents - Update a file. This method updates a file in a repository.\n\nhttps://developer.github.com/v3/repos/contents/#update-a-file",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fcontents_2F_7Bpath_7D_23sha.required_20PUT",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.path"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github-repositories.ReposOwnerRepoContentsPathShaRequired.PUT"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-repositories"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-repositories"
+            }
+        },
+        "/repos/{owner}/{repo}/events": {
+            "get": {
+                "description": "Events - List repository events.\n\nhttps://developer.github.com/v3/activity/events/#list-repository-events",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fevents_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/repos/{owner}/{repo}/issues/events": {
+            "get": {
+                "description": "Events - List issue events for a repository. Repository issue events have a different format than other events, as documented in the Issue Events API.\n\nhttps://developer.github.com/v3/activity/events/#list-issue-events-for-a-repository",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fissues_2Fevents_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/repos/{owner}/{repo}/readme": {
+            "get": {
+                "description": "Contents - Get the README. This method returns the preferred README for a repository.\n\nhttps://developer.github.com/v3/repos/contents/#get-the-readme",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Freadme_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    },
+                    {
+                        "$ref": "#/parameters/github-repositories.ref"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-repositories"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-repositories"
+            }
+        },
+        "/repos/{owner}/{repo}/{archive_format}/{ref}": {
+            "get": {
+                "description": "Contents - Get archive link. This method will return a 302 to a URL to download a tarball or zipball archive for a repository.\n\nhttps://developer.github.com/v3/repos/contents/#get-archive-link",
+                "operationId": "_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2F_7Barchive_format_7D_2F_7Bref_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.owner"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.repo"
+                    },
+                    {
+                        "default": "tarball",
+                        "description": "Can be either tarball or zipball. Default: tarball.",
+                        "enum": [
+                            "tarball",
+                            "zipball"
+                        ],
+                        "in": "path",
+                        "name": "archive_format",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "master",
+                        "description": "A valid Git reference. Default: the repository’s default branch (usually master).",
+                        "in": "path",
+                        "name": "ref",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-repositories"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-repositories"
+            }
+        },
+        "/users/{username}/events": {
+            "get": {
+                "description": "Events - List events performed by a user. If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.\n\nhttps://developer.github.com/v3/activity/events/#list-events-performed-by-a-user",
+                "operationId": "_2Fusers_2F_7Busername_7D_2Fevents_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.username"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/users/{username}/events/orgs/{org}": {
+            "get": {
+                "description": "Events - List events for an organization. This is the user's organization dashboard. You must be authenticated as the user to view this.\n\nhttps://developer.github.com/v3/activity/events/#list-events-for-an-organization",
+                "operationId": "_2Fusers_2F_7Busername_7D_2Fevents_2Forgs_2F_7Borg_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.username"
+                    },
+                    {
+                        "$ref": "#/parameters/github-activity.org"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/users/{username}/events/public": {
+            "get": {
+                "description": "Events - List public events performed by a user.\n\nhttps://developer.github.com/v3/activity/events/#list-public-events-performed-by-a-user",
+                "operationId": "_2Fusers_2F_7Busername_7D_2Fevents_2Fpublic_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.username"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/users/{username}/gists": {
+            "get": {
+                "description": "Gists - List a user's gists. List public gists for the specified user.\n\nhttps://developer.github.com/v3/gists/#list-a-users-gists",
+                "operationId": "_2Fusers_2F_7Busername_7D_2Fgists_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.username"
+                    },
+                    {
+                        "$ref": "#/parameters/github-gists.since"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-gists"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-gists"
+            }
+        },
+        "/users/{username}/received_events": {
+            "get": {
+                "description": "Events - List events that a user has received. These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events.\n\nhttps://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received",
+                "operationId": "_2Fusers_2F_7Busername_7D_2Freceived_events_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.username"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        },
+        "/users/{username}/received_events/public": {
+            "get": {
+                "description": "Events - List public events that a user has received.\n\nhttps://developer.github.com/v3/activity/events/#list-public-events-that-a-user-has-received",
+                "operationId": "_2Fusers_2F_7Busername_7D_2Freceived_events_2Fpublic_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.username"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-activity"
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-tags0": "github-activity"
+            }
+        }
+    },
+    "schemes": [
+        "https"
+    ],
+    "swagger": "2.0",
+    "tags": [
+        {
+            "description": "Serving up the 'social' in Social Coding, the Activity APIs provide access to notifications, subscriptions, and timelines.\n\nhttps://developer.github.com/v3/activity/",
+            "name": "github-activity",
+            "x-swgg-tags0": "github-activity"
+        },
+        {
+            "description": "find out more about github-gists's.\n\nhttps://developer.github.com/v3/gists/",
+            "name": "github-gists",
+            "x-swgg-tags0": "github-gists"
+        },
+        {
+            "description": "find out more about github-repositories's web-apis.\n\nhttps://developer.github.com/v3/repos/",
+            "name": "github-repositories",
+            "x-swgg-tags0": "github-repositories"
+        }
+    ],
+    "x-swgg-operationIdFromPath": true,
+    "x-swgg-tags0-override": {
+        "github-activity": {
+            "externalDocs": {
+                "description": "Serving up the 'social' in Social Coding, the Activity APIs provide access to notifications, subscriptions, and timelines",
+                "url": "https://developer.github.com/v3/activity/"
+            }
+        },
+        "github-gists": {
+            "externalDocs": {
+                "description": "find out more about github-gists's web-apis",
+                "url": "https://developer.github.com/v3/gists/"
+            }
+        },
+        "github-repositories": {
+            "externalDocs": {
+                "description": "find out more about github-repositories's web-apis",
+                "url": "https://developer.github.com/v3/repos/"
+            }
+        }
+    }
+}
