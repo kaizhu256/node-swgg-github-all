@@ -61,17 +61,9 @@ this zero-dependency package will provide a swagger-client for github-all's web-
 - programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.2.1
-- npm publish 2018.2.1
-- documented all github v3 api's as of 2018.1.31
-- directly access github-api through cors instead of proxy
-- procedurally generate assets.swgg.swagger.json in function testCase_buildReadme_default
-- add swaggerJson property x-swgg-descriptionLineList
-- add file .apidoc.raw.html
-- add github-migrations-migrations web-apis
-- add github-migrations-source-imports web-apis
-- enable heroku-demo
-- ignore env var \$npm_package_swggAll and \$npm_package_swggTags0 if package-name has -all sufix
+#### changelog for v2018.2.2
+- npm publish 2018.2.2
+- fix npm test for published packaged
 - none
 
 #### this package requires
@@ -364,7 +356,7 @@ instruction
     },
     "swggAll": "github-all",
     "swggTags0": "github-all",
-    "version": "2018.2.1"
+    "version": "2018.2.2"
 }
 ```
 
@@ -383,6 +375,7 @@ instruction
 # this shell script will run the build for this package
 
 shBuildCiAfter() {(set -e
+    # shDeployCustom
     shDeployGithub
     shDeployHeroku
     shReadmeTest example.sh

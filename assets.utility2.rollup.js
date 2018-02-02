@@ -24275,7 +24275,7 @@ document.querySelector(".swggUiContainer > .thead > .td2").value =\n\
                 self._ajaxToString = self.ajax.toString()
                     .replace('{', ('{\n' +
                         '/*\n' +
-                        ' * this function will make the api-call ' +
+                        ' * this function will run the api-call ' +
                         JSON.stringify(self._methodPath) + '\n' +
                         ' * example usage:' + ('\n' +
                         'swgg.apiDict[' + JSON.stringify(key.join('.')) + '].ajax(' +

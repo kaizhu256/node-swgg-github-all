@@ -72,7 +72,8 @@
                 tmp,
                 url,
                 urlParsed;
-            if (local.modeJs !== 'node') {
+            textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');
+            if (!textAll) {
                 onError(null, options);
                 return;
             }
@@ -168,7 +169,6 @@ swaggerJson =
                 type: 'string',
                 url: 'string'
             };
-            textAll = local.fs.readFileSync('.apidoc.raw.html', 'utf8');
             textAll.replace((
                 /\n<p><strong>Custom media type:<\/strong> <code>(.*)<\/code>/g
             ), function (match0, match1) {
