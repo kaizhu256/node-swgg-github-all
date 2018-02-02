@@ -17,6 +17,7 @@ this zero-dependency package will provide a swagger-client for github-all's web-
 | git-branch : | [master](https://github.com/kaizhu256/node-swgg-github-all/tree/master) | [beta](https://github.com/kaizhu256/node-swgg-github-all/tree/beta) | [alpha](https://github.com/kaizhu256/node-swgg-github-all/tree/alpha)|
 |--:|:--|:--|:--|
 | test-server-github : | [![github.com test-server](https://kaizhu256.github.io/node-swgg-github-all/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-swgg-github-all/build..master..travis-ci.org/app) | [![github.com test-server](https://kaizhu256.github.io/node-swgg-github-all/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/app) | [![github.com test-server](https://kaizhu256.github.io/node-swgg-github-all/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-swgg-github-all/build..alpha..travis-ci.org/app)|
+| test-server-heroku : | [![heroku.com test-server](https://kaizhu256.github.io/node-swgg-github-all/heroku-logo.75x25.png)](https://h1-swgg-github-all-master.herokuapp.com) | [![heroku.com test-server](https://kaizhu256.github.io/node-swgg-github-all/heroku-logo.75x25.png)](https://h1-swgg-github-all-beta.herokuapp.com) | [![heroku.com test-server](https://kaizhu256.github.io/node-swgg-github-all/heroku-logo.75x25.png)](https://h1-swgg-github-all-alpha.herokuapp.com)|
 | test-report : | [![test-report](https://kaizhu256.github.io/node-swgg-github-all/build..master..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build..master..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-swgg-github-all/build..alpha..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build..alpha..travis-ci.org/test-report.html)|
 | coverage : | [![coverage](https://kaizhu256.github.io/node-swgg-github-all/build..master..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build..master..travis-ci.org/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-swgg-github-all/build..alpha..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build..alpha..travis-ci.org/coverage.html/index.html)|
 | build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-swgg-github-all/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-swgg-github-all/tree/gh-pages/build..master..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-swgg-github-all/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-swgg-github-all/tree/gh-pages/build..beta..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-swgg-github-all/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-swgg-github-all/tree/gh-pages/build..alpha..travis-ci.org)|
@@ -55,15 +56,22 @@ this zero-dependency package will provide a swagger-client for github-all's web-
 [![apidoc](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
-- continue adding extra github-all web-apis
+- programmatically enum custom media types
+- programmatically create enum
+- programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.1.19
-- npm publish 2018.1.19
-- add github-activity-events web-apis
-- add github-gists web-apis
-- add github-gists-comments web-apis
-- add github-repositories-contents web-apis
+#### changelog for v2018.2.1
+- npm publish 2018.2.1
+- documented all github v3 api's as of 2018.1.31
+- directly access github-api through cors instead of proxy
+- procedurally generate assets.swgg.swagger.json in function testCase_buildReadme_default
+- add swaggerJson property x-swgg-descriptionLineList
+- add file .apidoc.raw.html
+- add github-migrations-migrations web-apis
+- add github-migrations-source-imports web-apis
+- enable heroku-demo
+- ignore env var \$npm_package_swggAll and \$npm_package_swggTags0 if package-name has -all sufix
 - none
 
 #### this package requires
@@ -291,6 +299,15 @@ instruction
 1. [https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployGithubTest.browser.%252Fnode-swgg-github-all%252Fbuild%252Fapp.png](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployGithubTest.browser.%252Fnode-swgg-github-all%252Fbuild%252Fapp.png)
 [![screenshot](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployGithubTest.browser.%252Fnode-swgg-github-all%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployGithubTest.browser.%252Fnode-swgg-github-all%252Fbuild%252Fapp.png)
 
+1. [https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252Fassets.swgg.html.png](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252Fassets.swgg.html.png)
+[![screenshot](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252Fassets.swgg.html.png)](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252Fassets.swgg.html.png)
+
+1. [https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252F.png](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252F.png)
+[![screenshot](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252F.png)](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHeroku.browser.%252F.png)
+
+1. [https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHerokuTest.browser.%252F.png](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHerokuTest.browser.%252F.png)
+[![screenshot](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHerokuTest.browser.%252F.png)](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.deployHerokuTest.browser.%252F.png)
+
 1. [https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.npmTest.browser.%252F.png](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.npmTest.browser.%252F.png)
 [![screenshot](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.npmTest.browser.%252F.png)](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.npmTest.browser.%252F.png)
 
@@ -323,7 +340,7 @@ instruction
     "license": "MIT",
     "main": "lib.swgg_github_all.js",
     "name": "swgg-github-all",
-    "nameAliasPublish": "swgg-github",
+    "nameAliasPublish": "swgg-github, webapi-github",
     "nameLib": "swgg_github_all",
     "nameOriginal": "swgg-github-all",
     "os": [
@@ -335,14 +352,19 @@ instruction
         "url": "https://github.com/kaizhu256/node-swgg-github-all.git"
     },
     "scripts": {
+        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawCreate",
+        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",
-        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "nameAliasPublish": "",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2018.1.19"
+    "swggAll": "github-all",
+    "swggTags0": "github-all",
+    "version": "2018.2.1"
 }
 ```
 
@@ -362,7 +384,7 @@ instruction
 
 shBuildCiAfter() {(set -e
     shDeployGithub
-    # shDeployHeroku
+    shDeployHeroku
     shReadmeTest example.sh
 )}
 
