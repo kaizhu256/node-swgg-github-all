@@ -56,14 +56,16 @@ this zero-dependency package will provide a swagger-client for github-all's web-
 [![apidoc](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
-- programmatically enum custom media types
-- programmatically create enum
+- parse curl examples like https://developer.github.com/v3/enterprise-admin/search_indexing/#example
 - programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.2.2
-- npm publish 2018.2.2
-- fix npm test for published packaged
+#### changelog for v2018.2.12
+- npm publish v2018.2.12
+- update file .apidoc.raw.html and added github-teams webapi
+- programmatically create general enum
+- programmatically enum custom media types
+- revamp build-process with function swaggerJsonFromAjax
 - none
 
 #### this package requires
@@ -332,7 +334,7 @@ instruction
     "license": "MIT",
     "main": "lib.swgg_github_all.js",
     "name": "swgg-github-all",
-    "nameAliasPublish": "swgg-github, webapi-github",
+    "nameAliasPublish": "swgg-github webapi-github",
     "nameLib": "swgg_github_all",
     "nameOriginal": "swgg-github-all",
     "os": [
@@ -356,7 +358,7 @@ instruction
     },
     "swggAll": "github-all",
     "swggTags0": "github-all",
-    "version": "2018.2.2"
+    "version": "2018.2.12"
 }
 ```
 

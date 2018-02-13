@@ -17,7 +17,7 @@
     "license": "MIT",
     "main": "lib.swgg_github_all.js",
     "name": "swgg-github-all",
-    "nameAliasPublish": "swgg-github, webapi-github",
+    "nameAliasPublish": "swgg-github webapi-github",
     "nameLib": "swgg_github_all",
     "nameOriginal": "swgg-github-all",
     "os": [
@@ -41,5 +41,5 @@
     },
     "swggAll": "github-all",
     "swggTags0": "github-all",
-    "version": "2018.2.2"
+    "version": "2018.2.12"
 }
