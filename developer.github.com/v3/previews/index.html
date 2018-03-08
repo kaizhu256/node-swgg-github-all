@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -306,6 +302,8 @@
 <li><a href="#add-lock-reason" id="markdown-toc-add-lock-reason">Add lock reason</a></li>
 <li><a href="#organization-invitations" id="markdown-toc-organization-invitations">Organization invitations</a></li>
 <li><a href="#team-discussions" id="markdown-toc-team-discussions">Team discussions</a></li>
+<li><a href="#label-emoji-search-and-descriptions" id="markdown-toc-label-emoji-search-and-descriptions">Label emoji, search, and descriptions</a></li>
+<li><a href="#require-signed-commits" id="markdown-toc-require-signed-commits">Require signed commits</a></li>
 </ul>
 
 <p>API previews let you try out new APIs and changes to existing API methods before they become part of the official GitHub API.</p>
@@ -483,6 +481,22 @@
 
 <p><strong>Custom media type:</strong> <code>echo-preview</code>
 <strong>Announced:</strong> <a href="/changes/2018-02-07-team-discussions-api">2018-02-07</a></p>
+
+<h2>
+<a id="label-emoji-search-and-descriptions" class="anchor" href="#label-emoji-search-and-descriptions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Label emoji, search, and descriptions</h2>
+
+<p>You can now use emoji in <a href="/v3/issues/labels/#create-a-label">label names</a>, add descriptions to labels, and <a href="/v3/search/#search-labels">search</a> for labels in a repository.</p>
+
+<p><strong>Custom media type:</strong> <code>symmetra-preview</code>
+<strong>Announced:</strong> <a href="/changes//2018-02-22-label-description-search-preview">2018-02-22</a></p>
+
+<h2>
+<a id="require-signed-commits" class="anchor" href="#require-signed-commits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Require signed commits</h2>
+
+<p>You can now use the API to manage the setting for <a href="/v3/repos/branches">requiring signed commits on protected branches</a>.</p>
+
+<p><strong>Custom media type:</strong> <code>zzzax-preview</code>
+<strong>Announced:</strong> <a href="/changes/2018-02-22-protected-branches-required-signatures">2018-02-22</a></p>
       </div>
 
       <div class="nav-select nav-select-bottom hide-lg hide-xl">
@@ -767,9 +781,7 @@
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

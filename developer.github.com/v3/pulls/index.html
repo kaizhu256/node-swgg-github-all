@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -373,6 +369,21 @@ can read more about the use of media types in the API
 <a id="list-pull-requests" class="anchor" href="#list-pull-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List pull requests<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
 </h2>
 
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
+
 <pre><code>GET /repos/:owner/:repo/pulls
 </code></pre>
 
@@ -468,6 +479,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">208045946</span><span class="p">,</span><span class="w">
         </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Houston, we have a problem"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f29513"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -819,6 +831,21 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
 <a id="get-a-single-pull-request" class="anchor" href="#get-a-single-pull-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get a single pull request<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
 </h2>
 
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
+
 <pre><code>GET /repos/:owner/:repo/pulls/:number
 </code></pre>
 
@@ -895,6 +922,7 @@ response will include a non-<code>null</code> value for the <code>mergeable</cod
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">208045946</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Houston, we have a problem"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f29513"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1273,6 +1301,21 @@ response will include a non-<code>null</code> value for the <code>mergeable</cod
 <a id="create-a-pull-request" class="anchor" href="#create-a-pull-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a pull request<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
 </h2>
 
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
+
 <pre><code>POST /repos/:owner/:repo/pulls
 </code></pre>
 
@@ -1414,6 +1457,7 @@ Location: https://api.github.com/repos/octocat/Hello-World/pulls/1347
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">208045946</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Houston, we have a problem"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f29513"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1764,6 +1808,21 @@ Location: https://api.github.com/repos/octocat/Hello-World/pulls/1347
 <a id="update-a-pull-request" class="anchor" href="#update-a-pull-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update a pull request<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
 </h2>
 
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
+
 <pre><code>PATCH /repos/:owner/:repo/pulls/:number
 </code></pre>
 
@@ -1866,6 +1925,7 @@ Location: https://api.github.com/repos/octocat/Hello-World/pulls/1347
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">208045946</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Houston, we have a problem"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f29513"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2764,9 +2824,7 @@ application/vnd.github.VERSION.patch
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

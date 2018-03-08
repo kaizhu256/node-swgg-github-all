@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -502,14 +498,14 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
 <p>To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.</p>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-when-the-invitee-is-already-a-collaborator" class="anchor" href="#response-when-the-invitee-is-already-a-collaborator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response when the invitee is already a collaborator</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 204 No Content
 </code></pre>
 
 
 <h3>
-<a id="response-with-preview-media-type" class="anchor" href="#response-with-preview-media-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response with preview media type</h3>
+<a id="response-when-a-new-invitation-is-created" class="anchor" href="#response-when-a-new-invitation-is-created" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response when a new invitation is created</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 201 Created
 </code></pre>
@@ -542,7 +538,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
     </span><span class="nt">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"octocat/Hello-World"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This your first repo!"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fork"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fork"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"html_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/octocat/Hello-World"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"archive_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}"</span><span class="p">,</span><span class="w">
@@ -673,7 +669,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
 </code></pre>
 
 <h3>
-<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 204 No Content
 </code></pre>
@@ -962,9 +958,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -350,6 +346,21 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
 <h2>
 <a id="create-a-review-request" class="anchor" href="#create-a-review-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a review request</h2>
 
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
+
 <pre><code>POST /repos/:owner/:repo/pulls/:number/requested_reviewers
 </code></pre>
 
@@ -450,6 +461,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">208045946</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Houston, we have a problem"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f29513"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -543,7 +555,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
       </span><span class="nt">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"octocat/Hello-World"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This your first repo!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"fork"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"fork"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"html_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/octocat/Hello-World"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archive_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}"</span><span class="p">,</span><span class="w">
@@ -669,7 +681,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
       </span><span class="nt">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"octocat/Hello-World"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This your first repo!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"fork"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"fork"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/Hello-World"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"html_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/octocat/Hello-World"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archive_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}"</span><span class="p">,</span><span class="w">
@@ -1208,9 +1220,7 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

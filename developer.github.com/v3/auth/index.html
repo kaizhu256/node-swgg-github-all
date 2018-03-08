@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -347,7 +343,6 @@ want to take advantage of OAuth access token security features.</p>
 
 <pre class="command-line">
 <span class="command">curl -v -H "Authorization: token TOKEN" https://api.github.com/repos/octodocs-test/test</span>
-
 <span class="output">X-GitHub-SSO: required; url=https://github.com/orgs/octodocs-test/sso?authorization_request=AZSCKtL4U8yX1H3sCQIVnVgmjmon5fWxks5YrqhJgah0b2tlbl9pZM4EuMz4</span>
 {
   "message": "Resource protected by organization SAML enforcement. You must grant your personal token access to this organization.",
@@ -359,7 +354,6 @@ want to take advantage of OAuth access token security features.</p>
 
 <pre class="command-line">
 <span class="command">curl -v -H "Authorization: token TOKEN" https://api.github.com/user/issues</span>
-
 <span class="output">X-GitHub-SSO: partial-results; organizations=21955855,20582480</span>
 </pre>
 
@@ -667,9 +661,7 @@ token to <a href="/v3/#authentication">authenticate via OAuth</a> for most API a
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

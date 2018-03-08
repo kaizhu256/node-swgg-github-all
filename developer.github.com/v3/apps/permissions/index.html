@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -326,7 +322,9 @@
 <li><a href="/v3/search/#search-code"><code>GET /search/code</code></a></li>
 <li><a href="/v3/search/#search-commits"><code>GET /search/commits</code></a></li>
 <li><a href="/v3/search/#search-issues"><code>GET /search/issues</code></a></li>
+<li><a href="/v3/search/#search-labels"><code>GET /search/labels</code></a></li>
 <li><a href="/v3/search/#search-repositories"><code>GET /search/repositories</code></a></li>
+<li><a href="/v3/search/#search-topics"><code>GET /search/topics</code></a></li>
 <li><a href="/v3/search/#search-users"><code>GET /search/users</code></a></li>
 <li><a href="/v3/repos#list-all-topics-for-a-repository"><code>GET /repos/:owner/:repo/topics</code></a></li>
 <li><a href="/v3/users/gpg_keys/#list-gpg-keys-for-a-user"><code>GET /users/:username/gpg_keys</code></a></li>
@@ -436,6 +434,12 @@
 <a href="/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch"><code>PATCH /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews</code></a> (:write)</li>
 <li>
 <a href="/v3/repos/branches/#remove-pull-request-review-enforcement-of-protected-branch"><code>DELETE /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews</code></a> (:write)</li>
+<li>
+<a href="/v3/repos/branches/#get-required-signatures-of-protected-branch"><code>GET /repos/:owner/:repo/branches/:branch/protection/required_signatures</code> </a> (:read)</li>
+<li>
+<a href="/v3/repos/branches/#add-required-signatures-of-protected-branch"><code>POST /repos/:owner/:repo/branches/:branch/protection/required_signatures</code></a> (:write)</li>
+<li>
+<a href="/v3/repos/branches/#remove-required-signatures-of-protected-branch"><code>DELETE /repos/:owner/:repo/branches/:branch/protection/required_signatures</code></a> (:write)</li>
 <li>
 <a href="/v3/repos/branches/#get-required-status-checks-of-protected-branch"><code>GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks</code></a> (:read)</li>
 <li>
@@ -1385,9 +1389,7 @@
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

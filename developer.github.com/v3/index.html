@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -325,7 +321,6 @@ sent and received as JSON.</p>
 
 <pre class="command-line">
 <span class="command">curl -i https://api.github.com/users/octocat/orgs</span>
-
 <span class="output">HTTP/1.1 200 OK</span>
 <span class="output">Server: nginx</span>
 <span class="output">Date: Fri, 12 Oct 2012 23:33:14 GMT</span>
@@ -438,7 +433,6 @@ OAuth application's client secret to your users.</p>
 <pre class="command-line">
 <span class="command">curl -i https://api.github.com -u foo:bar</span>
 <span class="output">HTTP/1.1 401 Unauthorized</span>
-
 <span class="output">{</span>
 <span class="output">  "message": "Bad credentials",</span>
 <span class="output">  "documentation_url": "https://developer.github.com/v3"</span>
@@ -452,7 +446,6 @@ the API will temporarily reject all authentication attempts for that user
 <pre class="command-line">
 <span class="command">curl -i https://api.github.com -u valid_username:valid_password</span>
 <span class="output">HTTP/1.1 403 Forbidden</span>
-
 <span class="output">{</span>
 <span class="output">  "message": "Maximum number of login attempts exceeded. Please try again later.",</span>
 <span class="output">  "documentation_url": "https://developer.github.com/v3"</span>
@@ -898,7 +891,6 @@ Unauthenticated requests are associated with the originating IP address, and not
 <span class="output">X-RateLimit-Limit: 60</span>
 <span class="output">X-RateLimit-Remaining: 0</span>
 <span class="output">X-RateLimit-Reset: 1377013266</span>
-
 <span class="output">{</span>
 <span class="output">   "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",</span>
 <span class="output">   "documentation_url": "https://developer.github.com/v3/#rate-limiting"</span>
@@ -946,7 +938,6 @@ Unauthenticated requests are associated with the originating IP address, and not
 <span class="output">HTTP/1.1 403 Forbidden</span>
 <span class="output">Content-Type: application/json; charset=utf-8</span>
 <span class="output">Connection: close</span>
-
 <span class="output">{</span>
 <span class="output">  "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",</span>
 <span class="output">  "documentation_url": "https://developer.github.com/v3/#abuse-rate-limits"</span>
@@ -973,7 +964,6 @@ User-Agent: Awesome-Octocat-App
 <span class="output">HTTP/1.0 403 Forbidden</span>
 <span class="output">Connection: close</span>
 <span class="output">Content-Type: text/html</span>
-
 <span class="output">Request forbidden by administrative rules.</span>
 <span class="output">Please make sure your request has a User-Agent header.</span>
 <span class="output">Check https://developer.github.com for other possible causes.</span>
@@ -1006,7 +996,6 @@ whenever possible.</p>
 <span class="output">X-RateLimit-Limit: 5000</span>
 <span class="output">X-RateLimit-Remaining: 4996</span>
 <span class="output">X-RateLimit-Reset: 1372700873</span>
-
 <span class="command">curl -i https://api.github.com/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'</span>
 <span class="output">HTTP/1.1 304 Not Modified</span>
 <span class="output">Cache-Control: private, max-age=60</span>
@@ -1017,7 +1006,6 @@ whenever possible.</p>
 <span class="output">X-RateLimit-Limit: 5000</span>
 <span class="output">X-RateLimit-Remaining: 4996</span>
 <span class="output">X-RateLimit-Reset: 1372700873</span>
-
 <span class="command">curl -i https://api.github.com/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"</span>
 <span class="output">HTTP/1.1 304 Not Modified</span>
 <span class="output">Cache-Control: private, max-age=60</span>
@@ -1071,7 +1059,6 @@ plus the relevant HTTP Header information.</p>
 
 <pre class="command-line">
 <span class="command">curl https://api.github.com?callback=foo</span>
-
 <span class="output">/**/foo({</span>
 <span class="output">  "meta": {</span>
 <span class="output">    "status": 200,</span>
@@ -1473,9 +1460,7 @@ to create the git commit.</p>
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

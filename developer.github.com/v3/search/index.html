@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -291,6 +287,7 @@
 <li><a href="#search-issues" id="markdown-toc-search-issues">Search issues</a></li>
 <li><a href="#search-users" id="markdown-toc-search-users">Search users</a></li>
 <li><a href="#search-topics" id="markdown-toc-search-topics">Search topics</a></li>
+<li><a href="#search-labels" id="markdown-toc-search-labels">Search labels</a></li>
 <li><a href="#text-match-metadata" id="markdown-toc-text-match-metadata">Text match metadata</a></li>
 </ul>
 
@@ -310,7 +307,7 @@
 </div>
 
 <h3>
-<a id="about-the-search-api" class="anchor" href="#about-the-search-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the Search API</h3>
+<a id="about-the-search-api" class="anchor" href="#about-the-search-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the search API</h3>
 
 <p>The Search API is optimized to help you find the specific item you're looking
 for (e.g., a specific user, a specific file in a repository, etc.). Think of it
@@ -503,12 +500,12 @@ X-RateLimit-Remaining: 19
 
 
 <h3>
-<a id="highlighting-repository-search-results" class="anchor" href="#highlighting-repository-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting Repository Search Results</h3>
+<a id="highlighting-repository-search-results" class="anchor" href="#highlighting-repository-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting repository search results</h3>
 
-<p>Some API consumers will want to highlight the matching search terms when
+<p>You might want to highlight the matching search terms when
 displaying search results. The API offers additional metadata to support this
 use case. To get this metadata in your search results, specify the <code>text-match</code>
-media type in your Accept header. For example, via curl, the above query would
+media type in your <code>Accept</code> header. For example, via cURL, the above query would
 look like this:</p>
 
 <pre class="command-line">
@@ -518,12 +515,11 @@ curl -H 'Accept: application/vnd.github.v3.text-match+json' \
 
 <p>This produces the same JSON payload as above, with an extra key called
 <code>text_matches</code>, an array of objects. These objects provide information such as
-the position of your search terms within the text, as well as the property that
+the position of your search terms within the text, as well as the <code>property</code> that
 included the search term.</p>
 
 <p>When searching for repositories, you can get text match metadata for the
-<strong>name</strong> and <strong>description</strong> fields. (See the section on <a href="#text-match-metadata">text match metadata
-</a> for full details.)</p>
+<strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href="#text-match-metadata">text match metadata</a>.</p>
 
 <p>Here's an example response:</p>
 
@@ -834,10 +830,10 @@ X-RateLimit-Remaining: 19
 
 
 <h3>
-<a id="highlighting-code-search-results" class="anchor" href="#highlighting-code-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting Code Search Results</h3>
+<a id="highlighting-code-search-results" class="anchor" href="#highlighting-code-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting code search results</h3>
 
 <p>When searching for commits, you can get text match metadata for the
-<strong>message</strong> field. (See the section on <a href="#text-match-metadata">text match metadata</a> for full details.)</p>
+<strong>message</strong> field. See the section on <a href="#text-match-metadata">text match metadata</a> for full details.</p>
 
 <h2>
 <a id="search-code" class="anchor" href="#search-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search code<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
@@ -1034,12 +1030,12 @@ X-RateLimit-Remaining: 19
 
 
 <h3>
-<a id="highlighting-code-search-results-1" class="anchor" href="#highlighting-code-search-results-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting Code Search Results</h3>
+<a id="highlighting-code-search-results-1" class="anchor" href="#highlighting-code-search-results-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting code search results</h3>
 
-<p>Some API consumers will want to highlight the matching search terms when
+<p>You might want to highlight the matching search terms when
 displaying search results. The API offers additional metadata to support this
 use case. To get this metadata in your search results, specify the <code>text-match</code>
-media type in your Accept header. For example, via curl, the above query would
+media type in your <code>Accept</code> header. For example, via cURL, the above query would
 look like this:</p>
 
 <pre class="command-line">
@@ -1049,12 +1045,11 @@ curl -H 'Accept: application/vnd.github.v3.text-match+json' \
 
 <p>This produces the same JSON payload as above, with an extra key called
 <code>text_matches</code>, an array of objects. These objects provide information such as
-the position of your search terms within the text, as well as the property that
+the position of your search terms within the text, as well as the <code>property</code> that
 included the search term.</p>
 
 <p>When searching for code, you can get text match metadata for the file
-<strong>content</strong> and file <strong>path</strong> fields. (See the section on
-<a href="#text-match-metadata">text match metadata</a> for full details.)</p>
+<strong>content</strong> and file <strong>path</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href="#text-match-metadata">text match metadata</a>.</p>
 
 <p>Here's an example response:</p>
 
@@ -1098,6 +1093,21 @@ included the search term.</p>
 <h2>
 <a id="search-issues" class="anchor" href="#search-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search issues<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
 </h2>
+
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
 
 <p>Find issues by state and keyword. This method returns up to 100 results <a href="/v3/#pagination">per page</a>.</p>
 
@@ -1211,7 +1221,7 @@ Filters issues or pull requests based on whether they are in an archived reposit
 
 <p>If you know the specific SHA hash of a commit, you can use also <a href="https://help.github.com/articles/searching-issues#search-by-the-commit-shas-within-a-pull-request">use it to search for pull requests</a> that contain that SHA. Note that the SHA syntax must be at least seven characters.</p>
 
-<h4 id="issue-search-example">
+<h4 id="issue-search-example" data-proofer-ignore>
 <a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 
 <p>Let's say you want to find the oldest unresolved Python bugs on Windows. Your
@@ -1293,12 +1303,12 @@ X-RateLimit-Remaining: 19
 
 
 <h3>
-<a id="highlighting-issue-search-results" class="anchor" href="#highlighting-issue-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting Issue Search Results</h3>
+<a id="highlighting-issue-search-results" class="anchor" href="#highlighting-issue-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting issue search results</h3>
 
-<p>Some API consumers will want to highlight the matching search terms when
+<p>You might want to highlight the matching search terms when
 displaying search results. The API offers additional metadata to support this
 use case. To get this metadata in your search results, specify the <code>text-match</code>
-media type in your Accept header. For example, via curl, the above query would
+media type in your <code>Accept</code> header. For example, via cURL, the above query would
 look like this:</p>
 
 <pre class="command-line">
@@ -1308,12 +1318,11 @@ curl -H 'Accept: application/vnd.github.v3.text-match+json' \
 
 <p>This produces the same JSON payload as above, with an extra key called
 <code>text_matches</code>, an array of objects. These objects provide information such as
-the position of your search terms within the text, as well as the property that
+the position of your search terms within the text, as well as the <code>property</code> that
 included the search term.</p>
 
 <p>When searching for issues, you can get text match metadata for the issue
-<strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields. (See the section
-on <a href="#text-match-metadata">text match metadata </a> for full details.)</p>
+<strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href="#text-match-metadata">text match metadata</a>.</p>
 
 <p>Here's an example response:</p>
 
@@ -1474,12 +1483,12 @@ X-RateLimit-Remaining: 19
 
 
 <h3>
-<a id="highlighting-user-search-results" class="anchor" href="#highlighting-user-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting User Search Results</h3>
+<a id="highlighting-user-search-results" class="anchor" href="#highlighting-user-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting user search results</h3>
 
-<p>Some API consumers will want to highlight the matching search terms when
+<p>You might want to highlight the matching search terms when
 displaying search results. The API offers additional metadata to support this
 use case. To get this metadata in your search results, specify the <code>text-match</code>
-media type in your Accept header. For example, via curl, the above query would
+media type in your <code>Accept</code> header. For example, via cURL, the above query would
 look like this:</p>
 
 <pre class="command-line">
@@ -1489,12 +1498,11 @@ curl -H 'Accept: application/vnd.github.v3.text-match+json' \
 
 <p>This produces the same JSON payload as above, with an extra key called
 <code>text_matches</code>, an array of objects. These objects provide information such as
-the position of your search terms within the text, as well as the property that
+the position of your search terms within the text, as well as the <code>property</code> that
 included the search term.</p>
 
 <p>When searching for users, you can get text match metadata for the issue
-<strong>login</strong>, <strong>email</strong>, and <strong>name</strong> fields. (See the section on <a href="#text-match-metadata">text match
-metadata</a> for full details.)</p>
+<strong>login</strong>, <strong>email</strong>, and <strong>name</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href="#text-match-metadata">text match metadata</a>.</p>
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1602,7 +1610,7 @@ curl -H 'Accept: application/vnd.github.mercy-preview+json' \
 
 <div class="alert note">
 
-<p><strong>Note:</strong> A search for featured Ruby topics only has 5 total results, so a <a href="/v3/#link-header">Link header</a> indicating pagination is not included in the response.</p>
+<p><strong>Note:</strong> A search for featured Ruby topics only has 6 total results, so a <a href="/v3/#link-header">Link header</a> indicating pagination is not included in the response.</p>
 
 </div>
 
@@ -1613,22 +1621,9 @@ X-RateLimit-Remaining: 19
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
   </span><span class="nt">"incomplete_results"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"python"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language designed by Guido Van Rossum. Much like the programming language Ruby, Python was designed to be easily read by programmers. Because of its large following and many libraries, Python can be implemented and used to do anything from webpages to scientific research."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guido van Rossum"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"February 20, 1991"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-07T00:07:02Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-27T22:45:43Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">110.53404</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
@@ -1640,7 +1635,7 @@ X-RateLimit-Remaining: 19
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-30T18:16:32Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1654.4354</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.5872</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rails"</span><span class="p">,</span><span class="w">
@@ -1653,20 +1648,20 @@ X-RateLimit-Remaining: 19
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-30T16:20:19Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">184.66095</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">192.49863</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sass"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stable extension to classic CSS."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stylesheet language with a main implementation in Ruby. It is an extension of CSS that makes improvements to the old stylesheet format, such as being able to declare variables and using a cleaner nesting syntax."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampton Catlin, Natalie Weizenbaum, Chris Eppstein"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"November 28, 2006"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T21:53:45Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-16T16:30:40Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"python"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language designed by Guido Van Rossum. Much like the programming language Ruby, Python was designed to be easily read by programmers. Because of its large following and many libraries, Python can be implemented and used to do anything from webpages to scientific research."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guido van Rossum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"February 20, 1991"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-07T00:07:02Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-27T22:45:43Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.08008</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">111.92691</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jekyll"</span><span class="p">,</span><span class="w">
@@ -1679,7 +1674,510 @@ X-RateLimit-Remaining: 19
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-27T19:00:24Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.98746</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.06729</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sass"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stable extension to classic CSS."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stylesheet language with a main implementation in Ruby. It is an extension of CSS that makes improvements to the old stylesheet format, such as being able to declare variables and using a cleaner nesting syntax."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampton Catlin, Natalie Weizenbaum, Chris Eppstein"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"November 28, 2006"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T21:53:45Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-16T16:30:40Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.455986</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homebrew"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew is a package manager for macOS."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew is a package manager for Apple's macOS operating system. It simplifies the installation of software and is popular in the Ruby on Rails community."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max Howell"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-17T20:30:44Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-06T16:14:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.194168</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="highlighting-topic-search-results" class="anchor" href="#highlighting-topic-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting topic search results</h3>
+
+<p>You might want to highlight the matching search terms when
+displaying search results. The API offers additional metadata to support this
+use case. To get this metadata in your search results, specify the <code>text-match</code>
+media type in your Accept header. For example, via cURL, the above query would
+look like this:</p>
+
+<pre class="command-line">
+curl -H 'Accept: application/vnd.github.v3.text-match+json, application/vnd.github.mercy-preview' \
+  'https://api.github.com/search/topics?q=ruby+is:featured'
+</pre>
+
+<p>This produces the same JSON payload as above, with an extra key called
+<code>text_matches</code>, which is an array of objects. These objects provide information such as
+the position of your search terms within the text, as well as the <code>property</code> that
+included the search term.</p>
+
+<p>When searching for topics, you can get text match metadata for the topic's <strong>short_description</strong>, <strong>description</strong>, <strong>name</strong>, or <strong>display_name</strong> field. For details on the attributes present in the <code>text_matches</code> array, see <a href="#text-match-metadata">text match metadata</a>.</p>
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"incomplete_results"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby is a scripting language designed for simplified object-oriented programming."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby was developed by Yukihiro \"Matz\" Matsumoto in 1995 with the intent of having an easily readable programming language. It is integrated with the Rails framework to create dynamic web-applications. Ruby's syntax is similar to that of Perl and Python."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yukihiro Matsumoto"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"December 21, 1995"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-28T22:03:59Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-30T18:16:32Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.5697</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:ruby"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby is a scripting language designed for simplified object-oriented programming."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">4</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:ruby"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby was developed by Yukihiro \"Matz\" Matsumoto in 1995 with the intent of having an easily readable programming language. It is integrated with the Rails framework to create dynamic web-applications. Ruby's syntax is similar to that of Perl and Python."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">4</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">201</span><span class="p">,</span><span class="w">
+                </span><span class="mi">205</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:ruby"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"display_name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">4</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:ruby"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">4</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rails"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rails"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby on Rails (Rails) is a web application framework written in Ruby."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby on Rails (Rails) is a web application framework written in Ruby. It is meant to help simplify the building of complex websites."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David Heinemeier Hansson"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"December 13 2005"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09T17:03:50Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-30T16:20:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">192.49652</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:rails"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby on Rails (Rails) is a web application framework written in Ruby."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">4</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">64</span><span class="p">,</span><span class="w">
+                </span><span class="mi">68</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:rails"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby on Rails (Rails) is a web application framework written in Ruby. It is meant to help simplify the building of complex websites."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">4</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">64</span><span class="p">,</span><span class="w">
+                </span><span class="mi">68</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"python"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language designed by Guido Van Rossum. Much like the programming language Ruby, Python was designed to be easily read by programmers. Because of its large following and many libraries, Python can be implemented and used to do anything from webpages to scientific research."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guido van Rossum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"February 20, 1991"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-07T00:07:02Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-27T22:45:43Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">112.94006</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:python"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python is a dynamically typed programming language designed by Guido Van Rossum. Much like the programming language Ruby, Python was designed to be easily read by programmers. Because of its large"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">116</span><span class="p">,</span><span class="w">
+                </span><span class="mi">120</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jekyll"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jekyll"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jekyll is a simple, blog-aware static site generator."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jekyll is a blog-aware, site generator written in Ruby. It takes raw text files, runs it through a renderer and produces a publishable static website."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Preston-Werner"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2008"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T21:53:08Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-27T19:00:24Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.475624</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:jekyll"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jekyll is a blog-aware, site generator written in Ruby. It takes raw text files, runs it through a renderer and produces a publishable static website."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">50</span><span class="p">,</span><span class="w">
+                </span><span class="mi">54</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sass"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stable extension to classic CSS."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stylesheet language with a main implementation in Ruby. It is an extension of CSS that makes improvements to the old stylesheet format, such as being able to declare variables and using a cleaner nesting syntax."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampton Catlin, Natalie Weizenbaum, Chris Eppstein"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"November 28, 2006"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T21:53:45Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-16T16:30:40Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.83278</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:sass"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sass is a stylesheet language with a main implementation in Ruby. It is an extension of CSS that makes improvements to the old stylesheet format, such as being able to declare variables and using a cleaner nesting syntax."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">60</span><span class="p">,</span><span class="w">
+                </span><span class="mi">64</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homebrew"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew is a package manager for macOS."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew is a package manager for Apple's macOS operating system. It simplifies the installation of software and is popular in the Ruby on Rails community."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max Howell"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"released"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2009"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-17T20:30:44Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-06T16:14:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"curated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.368078</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/search/repositories?q=topic:homebrew"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homebrew is a package manager for Apple's macOS operating system. It simplifies the installation of software and is popular in the Ruby on Rails community."</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruby"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">131</span><span class="p">,</span><span class="w">
+                </span><span class="mi">135</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="search-labels" class="anchor" href="#search-labels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search labels<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+</h2>
+
+<div class="alert note">
+
+<p><strong>Note:</strong> You can now use emoji in label names, add descriptions to labels, and search for labels in a repository. See the <a href="/changes/2018-02-22-label-description-search-preview">blog post</a> for full details. To access these features and receive payloads with this data during the preview period, you must provide a custom <a href="/v3/media">media type</a> in the <code>Accept</code> header:</p>
+
+<pre><code>application/vnd.github.symmetra-preview+json
+</code></pre>
+
+</div>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact <a href="https://github.com/contact">GitHub support</a>.</p>
+
+</div>
+
+<p>Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results <a href="/v3/#pagination">per page</a>.</p>
+
+<pre><code>GET /search/labels
+</code></pre>
+
+<h3>
+<a id="parameters-6" class="anchor" href="#parameters-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>repository_id</code></td>
+<td><code>integer</code></td>
+<td>The id of the repository.</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>string</code></td>
+<td>The search keywords.</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td><code>string</code></td>
+<td>The sort field. Can be one of <code>created</code> or <code>updated</code>. Default: results are sorted by best match.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td><code>string</code></td>
+<td>The sort order if the sort parameter is provided. Can be one of <code>asc</code> or <code>desc</code>. Default: <code>desc</code>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="label-search-example">
+<a id="example-6" class="anchor" href="#example-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+
+<p>Suppose you want to find labels in the <code>linguist</code> repository that match <code>bug</code>, <code>defect</code>, or <code>enhancement</code>. Your query might look like this:</p>
+
+<pre class="command-line">
+curl -H 'Accept: application/vnd.github.symmetra-preview+json' \
+  'https://api.github.com/search/labels?repository_id=64778136&amp;q=bug+defect+enhancement'
+</pre>
+
+<p>The labels that best match for the query appear first in the search results.</p>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"incomplete_results"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">418327088</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/linguist/labels/enhancement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enhancement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84b6eb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New feature or request."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1193385</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">418327086</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/linguist/labels/bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee0701"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Something isn't working."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.11928606</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="highlighting-label-search-results" class="anchor" href="#highlighting-label-search-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highlighting label search results</h3>
+
+<p>You might want to highlight the matching search terms when
+displaying search results. The API offers additional metadata to support this
+use case. To get this metadata in your search results, specify the <code>text-match</code>
+media type in your <code>Accept</code> header. For example, via cURL, the above query would
+look like this:</p>
+
+<pre class="command-line">
+curl -H 'Accept: application/vnd.github.symmetra-preview+json, \
+ application/vnd.github.v3.text-match+json' \
+  'https://api.github.com/search/labels?repository_id=64778136&amp;q=bug+defect+enhancement'
+</pre>
+
+<p>This produces the same JSON payload as above, with an extra key called
+<code>text_matches</code>, an array of objects. These objects provide information such as
+the position of your search terms within the text, as well as the <code>property</code> that
+included the search term.</p>
+
+<p>When searching for labels, you can get text match metadata for the label <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href="#text-match-metadata">text match metadata</a>.</p>
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"incomplete_results"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">418327088</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/linguist/labels/enhancement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enhancement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84b6eb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New feature or request."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.119338505</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/linguist/labels/enhancement"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enhancement"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enhancement"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">11</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">418327086</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/linguist/labels/bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee0701"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Something isn't working."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.119286075</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text_matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"object_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/repos/octocat/linguist/labels/bug"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">3</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1699,7 +2197,7 @@ receive those text fragments in the response, and every fragment is accompanied
 by numeric offsets identifying the exact location of each matching search term.</p>
 
 <p>To get this metadata in your search results, specify the <code>text-match</code> media type
-in your Accept header.</p>
+in your <code>Accept</code> header.</p>
 
 <pre><code>application/vnd.github.v3.text-match+json
 </code></pre>
@@ -1740,9 +2238,9 @@ the following attributes:</p>
 </table>
 
 <h3>
-<a id="example-6" class="anchor" href="#example-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
+<a id="example-7" class="anchor" href="#example-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
-<p>Using curl, and the <a href="#issue-search-example">example issue search</a> above, our API
+<p>Using cURL, and the <a href="#search-issues">example issue search</a> above, our API
 request would look like this:</p>
 
 <pre class="command-line">
@@ -2089,9 +2587,7 @@ within that fragment.</p>
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">

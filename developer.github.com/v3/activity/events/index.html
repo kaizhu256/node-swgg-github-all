@@ -28,9 +28,7 @@
       <div class="dropdown">
           <button onclick="DropDownShow()" class="dropdown-button">API Docs <div class="dropdown-caret"></div></button>
           <div id="js-dropdown-menu" class="dropdown-menu">
-            
             <a class="dropdown-menu-item" href="/v4/">GraphQL API v4</a>
-            
             <a class="dropdown-menu-item" href="/v3/">REST API v3</a>
             <a class="dropdown-menu-item" href="/apps/">Apps</a>
             <a class="dropdown-menu-item" href="/webhooks/">Webhooks</a>
@@ -50,8 +48,6 @@
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.10</a>
-            
-            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.9</a>
             
           </div>
       </div>
@@ -311,7 +307,6 @@ server load, the time may increase.  Please obey the header.</p>
 <span class="output">HTTP/1.1 200 OK</span>
 <span class="output">X-Poll-Interval: 60</span>
 <span class="output">ETag: "a18c3bded88eb5dbb5c849a489412bf3"</span>
-
 <span class="comment"># The quotes around the ETag value are important</span>
 <span class="command">curl -I https://api.github.com/users/tater/events \</span>
 <span class="command">   -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'</span>
@@ -731,9 +726,7 @@ the user to view this.</p>
           <li><a href="/v3/licenses/">Licenses</a></li>
           <li><a href="/v3/markdown/">Markdown</a></li>
           <li><a href="/v3/meta/">Meta</a></li>
-          
           <li><a href="/v3/rate_limit/">Rate Limit</a></li>
-          
         </ul>
       </li>
       <li class="js-topic">
