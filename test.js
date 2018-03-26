@@ -1,4 +1,5 @@
 /* istanbul instrument in package swgg_github_all */
+/* jslint-utility2 */
 /*jslint
     bitwise: true,
     browser: true,
@@ -48,6 +49,7 @@
 
     // run shared js-env code - function
     (function () {
+        /* istanbul-ignore-next */
         local.testCase_buildReadme_default = function (options, onError) {
         /*
          * this function will test buildReadme's default handling-behavior
@@ -58,21 +60,16 @@
                 operation,
                 operationIdDict,
                 schemaPMediaType,
+                stringUniqueKey,
                 swaggerJson,
                 tagDict,
                 textAll,
                 title,
                 typeDict,
-                tag,
-                tag2,
+                tagMain,
+                tagSub,
                 tmp,
                 url;
-            options = options || {};
-            textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');
-            if (!textAll) {
-                onError(null, options);
-                return;
-            }
             htmlToDescription = function (options) {
             /*
              * this function will format options.html to swagger markdown-description
@@ -80,33 +77,54 @@
                 var text;
                 text = options.html
                     // format whitespace
+                    .replace((/<pre\b.*?><code>([\S\s]*?)<\/code><\/pre>/g), '<pre>$1</pre>')
+                    .replace((/<code>([\S\s]*?)<\/code>/g), '<pre>$1</pre>')
+                    .replace((/<pre\b.*?>[\S\s]*?<\/pre>/g), function (match0) {
+                        return ('```' + match0
+                            .replace((/<[\S\s]*?>/g), '')
+                            .trim()
+                            .replace((/^"([\S\s]+?)"$/), '$1') + '```')
+                            .replace((/^```([\S\s]*?\n[\S\s]*?)```$/g), '\n```\n$1\n```\n')
+                            .replace((/\n/g), stringUniqueKey);
+                    })
                     .replace((/\n+/g), ' ')
                     .replace((/<(?:dt|li)>(.*?<\/(?:dt|li)>)/g), '\n- $1')
                     .replace((/<\/dt>[\S\s]*?<dd>/g), ' - ')
                     .replace((/<h.>/g), '\n\n#### ')
                     .replace((/<p>/g), '\n\n')
                     .replace((/<(?:br|pre)>/g), '\n')
-                    .replace((/[\s"']*?(\bapplication\/[\w\+\-\.]*)[\s"']*/g), '$1\n')
+                    // bug-workaround - format application/vnd.xxx
+                    .replace((/```(application\/.*?)```/g), '\n```\n$1\n```\n')
                     // format <a>
                     .replace((/<a href="\//g), '<a href="https://developer.github.com/')
                     .replace((/<a href="#/g), '<a href="' + options.url + '#')
                     .replace((/<a href="(.*?)".*?>(.*?)<\/a>/g), '[$2]($1)')
-                    // format <code>
-                    .replace((/<code>\s*([\S\s]*?)\s*?<\/code>/g), '```$1```')
-                    // bug-workaround - format <code>
-                    .replace((/```(application\/[\S\s]*?)```/g), '```\n$1\n```')
                     // format <xxx>
                     .replace((/<(?:b|strong)>(.*?)<\/(?:b|strong)>/g), '**$1**')
-                    .replace(new RegExp('<\\/{0,1}(?:' +
+                    .replace(new RegExp('<\\/?(?:' +
                         'a|dd|div|dl|em|h.|img|li|p|pre|select|span|t\\w*?|ul' +
                         ')\\b[^<>]*?>', 'g'), '')
                     // format whitespace
-                    .replace((/^ *| *$/gm), '')
+                    .replace((/^ +/gm), '')
                     .replace((/\n{3,}/g), '\n\n')
+                    .replace(new RegExp(stringUniqueKey, 'g'), '\n')
+                    .replace((/ +$/gm), '')
                     .trim();
-                local.assert(text.indexOf('<') < 0, text.split(/[<>]/).slice(1));
+                local.assert(
+                    text.indexOf('<') < 0,
+                    [url, local.stringTruncate(text.replace((/[\S\s]*?</), '<'), 100)]
+                );
                 return text.split('\n');
             };
+            // init options
+            options = options || {};
+            textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');
+            if (!textAll) {
+                onError(null, options);
+                return;
+            }
+            // init stringUniqueKey
+            stringUniqueKey = local.stringUniqueKey(textAll);
             // init swaggerJson
             swaggerJson = {};
 /* jslint-ignore-begin */
@@ -192,11 +210,11 @@ swaggerJson =
                     return;
                 }
                 textPage = textPage.trim().replace((/\s+$/gm), '');
-                tmp = (/^tmp\/(developer.github.com\/v3\/(.*?))\/index.html\n/).exec(textPage);
-                // init tag
-                tag2 = 'github-' + tmp[2].replace((/\//g), '-');
-                tag = tagDict[tag2];
-                if (!tag) {
+                tmp = (/^(developer.github.com\/v3\/(.*?))\/index.html\n/).exec(textPage);
+                // init tagMain
+                tagSub = 'github-' + tmp[2].replace((/\//g), '-');
+                tagMain = tagDict[tagSub];
+                if (!tagMain) {
                     return;
                 }
                 // init schemaPMediaType
@@ -216,7 +234,12 @@ swaggerJson =
                 // init schemaPMediaType.enum
                 schemaPMediaType.enum = {};
                 textPage.replace((/\bapplication\/vnd\.[\w\+\-\.]+/g), function (match0) {
-                    schemaPMediaType.enum[match0.trim().replace('VERSION', 'v3')] = true;
+                    match0 = match0.trim().replace('VERSION', 'v3');
+                    schemaPMediaType.enum[match0] = true;
+                    if (match0.indexOf('preview') >= 0) {
+                        schemaPMediaType.default = [match0];
+                        schemaPMediaType.required = true;
+                    }
                 });
                 schemaPMediaType.enum['application/vnd.github.v3+json'] = true;
                 schemaPMediaType.enum = Object.keys(schemaPMediaType.enum);
@@ -234,17 +257,19 @@ swaggerJson =
                         // init tag.description
                         tmp = '';
                         textOperation.replace((
-                            /(\n<p>[\S\s]*?)(?:$|<option |<pre )/
+                            /(\n<p>[\S\s]*?)(?:$|<option |<pre><code>[A-Z]+ \/)/
                         ), function (match0, match1) {
                             match0 = match1;
-                            tmp += match0;
+                            if ((/[^\s<>]<|>[^\s<>]/).test(match0)) {
+                                tmp += match0;
+                            }
                         });
                         tmp += descriptionMediaType;
-                        swaggerJson['x-swgg-tags0-override'][tag][
+                        swaggerJson['x-swgg-tags0-override'][tagMain][
                             'x-swgg-descriptionLineList'
-                        ][tag2] = htmlToDescription({
+                        ][tagSub] = htmlToDescription({
                             html: '# [' + title + '](' + url + ')\n<p>' +
-                                (tmp || 'no description'),
+                                (tmp.trim() || 'no description'),
                             url: url
                         });
                     }
@@ -255,12 +280,12 @@ swaggerJson =
                     }
                     // init options
                     options.method = tmp[4];
-                    options.tags = [tag];
+                    options.tags = [tagMain];
                     options.url = tmp[5].replace((/:([\w\-]+)/g), '{$1}');
                     if (options.url[0] === '/') {
                         options.url = 'https://api.github.com' + options.url;
                     }
-                    options['x-swgg-tags0'] = tag;
+                    options['x-swgg-tags0'] = tagMain;
                     // init options.data
                     options.data = null;
                     textOperation.replace((
@@ -268,9 +293,7 @@ swaggerJson =
                     ), function (match0, match1) {
                         match0 = match1;
                         match0 = match0.replace((/<.*?>/g), '').trim().replace((/'$/g), '');
-                        local.tryCatchOnError(function () {
-                            options.data = JSON.stringify(JSON.parse(match0));
-                        }, local.onErrorDefault);
+                        options.data = JSON.stringify(JSON.parse(match0));
                     });
                     // init operation
                     operation = {};
@@ -316,6 +339,9 @@ swaggerJson =
                         type = type.toLowerCase();
                         // init schemaP
                         schemaP = {
+                            default: definition &&
+                                definition.properties[name] &&
+                                definition.properties[name].default,
                             in: 'query',
                             name: name,
                             required: description.indexOf('<strong>Required</strong>') > 0,
@@ -330,7 +356,8 @@ swaggerJson =
                             / Default:.*?<code>(.*?)<\/code>/
                         ), function (match0, match1) {
                             match0 = match1;
-                            schemaP.default = match0.trim();
+                            schemaP.default = match0.trim().replace((/^"|"$/g), '') ||
+                                schemaP.default;
                         });
                         // init enum
                         description.replace((
@@ -346,46 +373,57 @@ swaggerJson =
                                 /<code>([^,]+?)<\/code>/g
                             ), function (match0, match1) {
                                 match0 = match1;
-                                match0 = match0.trim();
-                                schemaP.enum[match0.trim()] = true;
+                                match0 = match0.trim().replace((/^"|"$/g), '');
+                                if (match0.indexOf('&lt;') >= 0) {
+                                    schemaP.enum = undefined;
+                                }
+                                if (schemaP.enum) {
+                                    schemaP.enum[match0] = true;
+                                }
                             });
-                            schemaP.enum = Object.keys(schemaP.enum);
+                            if (schemaP.enum) {
+                                schemaP.enum = Object.keys(schemaP.enum);
+                            }
                         });
-                        if (schemaP.type === 'array' && !schemaP.enum) {
-                            schemaP.items = { type: 'string' };
-                            schemaP.default = [schemaP.default];
-                        }
-                        if (schemaP.type !== 'string' && typeof schemaP.default === 'string') {
+                        local.tryCatchOnError(function () {
                             schemaP.default = JSON.parse(schemaP.default);
+                        }, local.nop);
+                        if (schemaP.type === 'array') {
+                            schemaP.items = { type: schemaP.default
+                                ? typeof schemaP.default[0]
+                                : 'string' };
                         }
                         // init parameters
                         if (operation.parameters.some(function (element) {
                                 if (element.name === schemaP.name) {
-                                    [
-                                        'default',
-                                        'required',
-                                        'x-swgg-descriptionLineList'
-                                    ].forEach(function (key) {
-                                        element[key] = schemaP[key] || element[key];
+                                    local.objectSetOverride(element, {
+                                        default: element.in === 'body'
+                                            ? undefined
+                                            : schemaP.element,
+                                        required: schemaP.required || undefined,
+                                        'x-swgg-descriptionLineList':
+                                            schemaP['x-swgg-descriptionLineList']
                                     });
                                     return true;
                                 }
                             })) {
                             return;
                         }
-                        if (definition) {
-                            local.objectSetOverride(definition.properties[name], {
-                                default: schemaP.default,
-                                items: schemaP.items,
-                                type: schemaP.type,
-                                'x-swgg-descriptionLineList': schemaP['x-swgg-descriptionLineList']
-                            });
-                            if (schemaP.required) {
-                                definition.required = definition.required || [];
-                                definition.required.push(name);
-                            }
-                        } else {
+                        if (!definition) {
                             operation.parameters.push(schemaP);
+                            return;
+                        }
+                        definition.properties[name] = definition.properties[name] || {};
+                        local.objectSetOverride(definition.properties[name], {
+                            default: schemaP.default,
+                            enum: schemaP.enum,
+                            items: schemaP.items,
+                            type: schemaP.type,
+                            'x-swgg-descriptionLineList': schemaP['x-swgg-descriptionLineList']
+                        });
+                        if (schemaP.required) {
+                            definition.required = definition.required || [];
+                            definition.required.push(name);
                         }
                     });
                 });

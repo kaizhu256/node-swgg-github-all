@@ -1,5 +1,5 @@
 # swgg-github-all
-this zero-dependency package will provide a swagger-client for github-all's web-apis, with a working web-demo
+this zero-dependency package will provide a (nodejs-compatible) swagger-client for github-all's web-apis, with a working web-demo
 
 # live web demo
 - [https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/app](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/app)
@@ -8,7 +8,7 @@ this zero-dependency package will provide a swagger-client for github-all's web-
 
 
 
-[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-swgg-github-all.svg)](https://travis-ci.org/kaizhu256/node-swgg-github-all) [![coverage](https://kaizhu256.github.io/node-swgg-github-all/build/coverage.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build/coverage.html/index.html) [![snyk.io vulnerabilities](https://snyk.io/test/github/kaizhu256/node-swgg-github-all/badge.svg)](https://snyk.io/test/github/kaizhu256/node-swgg-github-all)
+[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-swgg-github-all.svg)](https://travis-ci.org/kaizhu256/node-swgg-github-all) [![coverage](https://kaizhu256.github.io/node-swgg-github-all/build/coverage.badge.svg)](https://kaizhu256.github.io/node-swgg-github-all/build/coverage.html/index.html)
 
 [![NPM](https://nodei.co/npm/swgg-github-all.png?downloads=true)](https://www.npmjs.com/package/swgg-github-all)
 
@@ -56,16 +56,17 @@ this zero-dependency package will provide a swagger-client for github-all's web-
 [![apidoc](https://kaizhu256.github.io/node-swgg-github-all/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-swgg-github-all/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
+- parse responses
 - parse curl examples like https://developer.github.com/v3/enterprise-admin/search_indexing/#example
 - programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.2.12
-- npm publish v2018.2.12
-- update file .apidoc.raw.html and added github-teams webapi
-- programmatically create general enum
-- programmatically enum custom media types
-- revamp build-process with function swaggerJsonFromAjax
+#### changelog for v2018.3.25
+- npm publish v2018.3.25
+- update shell-function shNpmScriptApidocRawFetch to use local.ajax instead of wget
+- fix whitespace bugs in markdown description
+- enable required-flag for preview headers
+- fix ascii-diagrams in descriptions
 - none
 
 #### this package requires
@@ -119,6 +120,7 @@ instruction
 
 
 /* istanbul instrument in package swgg_github_all */
+/* jslint-utility2 */
 /*jslint
     bitwise: true,
     browser: true,
@@ -184,7 +186,7 @@ instruction
         module.exports = local;
         // require builtins
         Object.keys(process.binding('natives')).forEach(function (key) {
-            if (!local[key] && !(/\/|^_|^sys$/).test(key)) {
+            if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
                 local[key] = require(key);
             }
         });
@@ -205,12 +207,11 @@ instruction
                 );
             }
         });
+/* validateLineSortedReset */
         local.assetsDict['/'] =
             local.assetsDict['/assets.example.html'] =
             local.assetsDict['/assets.index.template.html']
             .replace((/\{\{env\.(\w+?)\}\}/g), function (match0, match1) {
-                // jslint-hack
-                String(match0);
                 switch (match1) {
                 case 'npm_package_description':
                     return 'the greatest app in the world!';
@@ -317,7 +318,7 @@ instruction
 ```json
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "this zero-dependency package will provide a swagger-client for github-all's web-apis, with a working web-demo",
+    "description": "this zero-dependency package will provide a (nodejs-compatible) swagger-client for github-all's web-apis, with a working web-demo",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
@@ -358,7 +359,7 @@ instruction
     },
     "swggAll": "github-all",
     "swggTags0": "github-all",
-    "version": "2018.2.12"
+    "version": "2018.3.25"
 }
 ```
 

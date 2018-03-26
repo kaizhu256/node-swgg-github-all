@@ -1,4 +1,5 @@
 /* istanbul instrument in package swgg_github_all */
+/* jslint-utility2 */
 /*jslint
     bitwise: true,
     browser: true,
@@ -52,7 +53,7 @@
         } else {
             // require builtins
             Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^sys$/).test(key)) {
+                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
                     local[key] = require(key);
                 }
             });
