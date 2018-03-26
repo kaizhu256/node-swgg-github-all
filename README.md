@@ -61,8 +61,8 @@ this zero-dependency package will provide a (nodejs-compatible) swagger-client f
 - programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.3.25
-- npm publish v2018.3.25
+#### changelog for v2018.3.26-alpha
+- npm publish v2018.3.26-alpha
 - update shell-function shNpmScriptApidocRawFetch to use local.ajax instead of wget
 - fix whitespace bugs in markdown description
 - enable required-flag for preview headers
@@ -352,14 +352,13 @@ instruction
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",
-        "nameAliasPublish": "",
         "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
     "swggAll": "github-all",
     "swggTags0": "github-all",
-    "version": "2018.3.25"
+    "version": "2018.3.26-alpha"
 }
 ```
 

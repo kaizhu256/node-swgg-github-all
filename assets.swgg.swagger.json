@@ -2589,7 +2589,7 @@
     },
     "info": {
         "title": "swgg-github-all",
-        "version": "2018.3.25",
+        "version": "2018.3.26-alpha",
         "x-swgg-description": "this zero-dependency package will provide a (nodejs-compatible) swagger-client for github-all's web-apis, with a working web-demo",
         "x-swgg-homepage": "https://github.com/kaizhu256/node-swgg-github-all"
     },
