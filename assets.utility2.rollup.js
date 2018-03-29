@@ -8,7 +8,7 @@
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -49,7 +49,7 @@
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -1117,7 +1117,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -3158,7 +3158,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -3983,7 +3983,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -6758,7 +6758,7 @@ local.templateCoverageBadgeSvg =
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -13567,7 +13567,7 @@ local.CSSLint = CSSLint; local.JSLINT = JSLINT, local.jslintEs6 = jslint; }());
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -13821,7 +13821,7 @@ local.marked = module.exports; }());
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -14262,7 +14262,7 @@ s=0;s<i;s++)n[r+s]=e[t+s]|0},sjcl.misc.scrypt.blockxor=function(e,t,n,r,i){var s
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -15086,7 +15086,7 @@ split_lines=split_lines,exports.MAP=MAP,exports.ast_squeeze_more=require("./sque
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -15327,13 +15327,12 @@ local.assetsDict['/assets.index.template.html'] = '\
 <div id="ajaxProgressDiv1" style="background: #d00; height: 2px; left: 0; margin: 0; padding: 0; position: fixed; top: 0; transition: background 500ms, width 1500ms; width: 0%; z-index: 1;"></div>\n\
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>\n\
 <code style="display: none;"></code><div class="button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel" style="display: none;"></div><pre style="display: none;"></pre><textarea readonly style="display: none;"></textarea>\n\
-<code style="display: none;"></code><div class="button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel" style="display: none;"></div><pre style="display: none;"></pre><textarea readonly style="display: none;"></textarea>\n\
 <script>\n\
 /* jslint-utility2 */\n\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -15456,7 +15455,7 @@ instruction\n\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -15689,7 +15688,7 @@ local.assetsDict['/assets.lib.template.js'] = '\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -16078,7 +16077,7 @@ local.assetsDict['/assets.test.template.js'] = '\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -16284,7 +16283,7 @@ local.assetsDict['/assets.utility2.rollup.begin.js'] = '\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -22790,7 +22789,7 @@ instruction\n\
 /*jslint
     bitwise: true,
     browser: true,
-    maxerr: 8,
+    maxerr: 4,
     maxlen: 100,
     node: true,
     nomen: true,
@@ -23816,8 +23815,8 @@ function (error, data) {\n\
 // https://github.com/swagger-api/swagger-ui/blob/v2.1.3/src/main/template/resource.handlebars
 local.templateUiResource = '\
 <li\n\
-    class="resource\n\
-        eventDelegateChange eventDelegateClick eventDelegateKeyup eventDelegateSubmit\n\
+    class="\n\
+        eventDelegateChange eventDelegateClick eventDelegateKeyup eventDelegateSubmit resource\n\
     "\n\
     data-name="{{name}}"\n\
     id="{{id}}"\n\
@@ -24236,7 +24235,7 @@ local.assetsDict['/assets.swgg.html'] = local.assetsDict['/assets.index.default.
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -27727,7 +27726,7 @@ instruction\n\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -28218,8 +28217,6 @@ textarea {\\n\
 \\\n\
 <code style=\"display: none;\"></code><div class=\"button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel\" style=\"display: none;\"></div><pre style=\"display: none;\"></pre><textarea readonly style=\"display: none;\"></textarea>\\n\
 \\\n\
-<code style=\"display: none;\"></code><div class=\"button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel\" style=\"display: none;\"></div><pre style=\"display: none;\"></pre><textarea readonly style=\"display: none;\"></textarea>\\n\
-\\\n\
 <script>\\n\
 \\\n\
 /* jslint-utility2 */\\n\
@@ -28230,7 +28227,7 @@ textarea {\\n\
 \\\n\
     browser: true,\\n\
 \\\n\
-    maxerr: 8,\\n\
+    maxerr: 4,\\n\
 \\\n\
     maxlen: 100,\\n\
 \\\n\
@@ -28630,7 +28627,7 @@ local.assetsDict["/assets.utility2.html"] = "<!doctype html>\n\
 <meta charset=\"UTF-8\">\n\
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\
 <!-- \"assets.index.default.template.html\" -->\n\
-<title>utility2 (v2018.3.7-alpha)</title>\n\
+<title>utility2 (v2018.3.28-alpha)</title>\n\
 <style>\n\
 /* jslint-utility2 */\n\
 /*csslint\n\
@@ -28738,13 +28735,12 @@ textarea {\n\
 <div id=\"ajaxProgressDiv1\" style=\"background: #d00; height: 2px; left: 0; margin: 0; padding: 0; position: fixed; top: 0; transition: background 500ms, width 1500ms; width: 0%; z-index: 1;\"></div>\n\
 <div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n\
 <code style=\"display: none;\"></code><div class=\"button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel\" style=\"display: none;\"></div><pre style=\"display: none;\"></pre><textarea readonly style=\"display: none;\"></textarea>\n\
-<code style=\"display: none;\"></code><div class=\"button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel\" style=\"display: none;\"></div><pre style=\"display: none;\"></pre><textarea readonly style=\"display: none;\"></textarea>\n\
 <script>\n\
 /* jslint-utility2 */\n\
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
@@ -28794,7 +28790,7 @@ textarea {\n\
         target=\"_blank\"\n\
     >\n\
 \n\
-        utility2 (v2018.3.7-alpha)\n\
+        utility2 (v2018.3.28-alpha)\n\
 \n\
     </a>\n\
 \n\
@@ -28903,7 +28899,7 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
 /*jslint\n\
     bitwise: true,\n\
     browser: true,\n\
-    maxerr: 8,\n\
+    maxerr: 4,\n\
     maxlen: 100,\n\
     node: true,\n\
     nomen: true,\n\
