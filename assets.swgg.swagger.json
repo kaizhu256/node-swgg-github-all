@@ -415,6 +415,65 @@
             ],
             "x-swgg-tags0": "github-projects"
         },
+        "_2Forgs_2F_7Borg_7D_2Fteams_20POST.body": {
+            "properties": {
+                "description": {
+                    "default": "A great team",
+                    "type": "string",
+                    "x-swgg-descriptionLineList": [
+                        "The description of the team."
+                    ]
+                },
+                "name": {
+                    "default": "Justice League",
+                    "type": "string",
+                    "x-swgg-descriptionLineList": [
+                        "**Required**. The name of the team."
+                    ]
+                },
+                "parent_team_id": {
+                    "type": "integer",
+                    "x-swgg-descriptionLineList": [
+                        "The ID of a team to set as the parent team. **Note**: You must pass the ```hellcat-preview``` media type to use this parameter."
+                    ]
+                },
+                "permission": {
+                    "default": "admin",
+                    "enum": [
+                        "pull",
+                        "push",
+                        "admin"
+                    ],
+                    "type": "string",
+                    "x-swgg-descriptionLineList": [
+                        "**Deprecated**. The permission that new repositories will be added to the team with when none is specified. Can be one of:",
+                        "* ```pull``` - team members can pull, but not push to or administer newly-added repositories.",
+                        "* ```push``` - team members can pull and push, but not administer newly-added repositories.",
+                        "* ```admin``` - team members can pull, push and administer newly-added repositories.",
+                        "Default: ```pull```"
+                    ]
+                },
+                "privacy": {
+                    "default": "closed",
+                    "type": "string",
+                    "x-swgg-descriptionLineList": [
+                        "The level of privacy this team should have. The options are:",
+                        "**For a non-nested team:**",
+                        "* ```secret``` - only visible to organization owners and members of this team.",
+                        "* ```closed``` - visible to all members of this organization.",
+                        "Default: ```secret```",
+                        "**For a parent or child team:**",
+                        "* ```closed``` - visible to all members of this organization.",
+                        "Default for child team: ```closed```",
+                        "**Note**: You must pass the ```hellcat-preview``` media type to set privacy default to ```closed``` for child teams."
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "x-swgg-tags0": "github-teams"
+        },
         "_2Fprojects_2F_7Bproject_id_7D_20PATCH.body": {
             "properties": {
                 "body": {
@@ -426,6 +485,25 @@
                     "type": "string",
                     "x-swgg-descriptionLineList": [
                         "The name of the project."
+                    ]
+                },
+                "organization_permission": {
+                    "type": "string",
+                    "x-swgg-descriptionLineList": [
+                        "The permission level that all members of the project's organization will have on this project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by ```organization_permission```. Updating a project's organization permission requires ```admin``` access to the project. Setting the organization permission is only available for organization projects."
+                    ]
+                },
+                "public": {
+                    "enum": [
+                        "admin",
+                        "true",
+                        "false"
+                    ],
+                    "type": "boolean",
+                    "x-swgg-descriptionLineList": [
+                        "Sets visibility of the project within the organization. Updating a project's visibility requires ```admin``` access to the project. Setting visibility is only available for organization projects. Can be one of:",
+                        "* ```true``` - Anyone that can view the organization can see the project.",
+                        "* ```false``` - The project must be an organization project to set project visibility."
                     ]
                 },
                 "state": {
@@ -8105,11 +8183,11 @@
                     {
                         "collectionFormat": "csv",
                         "default": [
-                            "application/vnd.github.inertia-preview+json"
+                            "application/vnd.github.jean-grey-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -8172,11 +8250,11 @@
                     {
                         "collectionFormat": "csv",
                         "default": [
-                            "application/vnd.github.inertia-preview+json"
+                            "application/vnd.github.jean-grey-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -8583,6 +8661,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -8649,6 +8728,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -8675,62 +8755,11 @@
                         "type": "string"
                     },
                     {
-                        "in": "query",
-                        "name": "name",
-                        "required": true,
-                        "type": "string",
-                        "x-swgg-descriptionLineList": [
-                            "**Required**. The name of the team."
-                        ]
-                    },
-                    {
-                        "in": "query",
-                        "name": "description",
-                        "type": "string",
-                        "x-swgg-descriptionLineList": [
-                            "The description of the team."
-                        ]
-                    },
-                    {
-                        "in": "query",
-                        "name": "privacy",
-                        "type": "string",
-                        "x-swgg-descriptionLineList": [
-                            "The level of privacy this team should have. The options are:",
-                            "**For a non-nested team:**",
-                            "* ```secret``` - only visible to organization owners and members of this team.",
-                            "* ```closed``` - visible to all members of this organization.",
-                            "Default: ```secret```",
-                            "**For a parent or child team:**",
-                            "* ```closed``` - visible to all members of this organization.",
-                            "Default for child team: ```closed```",
-                            "**Note**: You must pass the ```hellcat-preview``` media type to set privacy default to ```closed``` for child teams."
-                        ]
-                    },
-                    {
-                        "enum": [
-                            "pull",
-                            "push",
-                            "admin"
-                        ],
-                        "in": "query",
-                        "name": "permission",
-                        "type": "string",
-                        "x-swgg-descriptionLineList": [
-                            "**Deprecated**. The permission that new repositories will be added to the team with when none is specified. Can be one of:",
-                            "* ```pull``` - team members can pull, but not push to or administer newly-added repositories.",
-                            "* ```push``` - team members can pull and push, but not administer newly-added repositories.",
-                            "* ```admin``` - team members can pull, push and administer newly-added repositories.",
-                            "Default: ```pull```"
-                        ]
-                    },
-                    {
-                        "in": "query",
-                        "name": "parent_team_id",
-                        "type": "integer",
-                        "x-swgg-descriptionLineList": [
-                            "The ID of a team to set as the parent team. **Note**: You must pass the ```hellcat-preview``` media type to use this parameter."
-                        ]
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/_2Forgs_2F_7Borg_7D_2Fteams_20POST.body"
+                        }
                     }
                 ],
                 "responses": {
@@ -8773,11 +8802,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -8785,7 +8810,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -8830,11 +8854,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -8842,7 +8862,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -8887,11 +8906,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -8899,7 +8914,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -8954,11 +8968,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -8966,7 +8976,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9020,11 +9029,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9032,7 +9037,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9077,11 +9081,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9089,7 +9089,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9134,11 +9133,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9146,7 +9141,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9202,11 +9196,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9214,7 +9204,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9259,11 +9248,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9271,7 +9256,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9342,11 +9326,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9354,7 +9334,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9396,9 +9375,9 @@
                 "x-swgg-tags0": "github-projects"
             }
         },
-        "/projects/{project_id}": {
-            "delete": {
-                "operationId": "_2Fprojects_2F_7Bproject_id_7D_20DELETE",
+        "/projects/{id}/collaborators": {
+            "get": {
+                "operationId": "_2Fprojects_2F_7Bid_7D_2Fcollaborators_20GET",
                 "parameters": [
                     {
                         "$ref": "#/parameters/github-all.key"
@@ -9412,8 +9391,334 @@
                             "application/vnd.github.inertia-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "enum": [
+                            "outside",
+                            "direct",
+                            "all"
+                        ],
+                        "in": "query",
+                        "name": "affiliation",
+                        "type": "string",
+                        "x-swgg-descriptionLineList": [
+                            "Filters the collaborators by their affiliation. Can be one of:",
+                            "* ```outside```: Outside collaborators of a project that are not a member of the project's organization.",
+                            "* ```direct```: Collaborators with permissions to a project, regardless of organization membership status.",
+                            "* ```all```: All collaborators the authenticated user can see.",
+                            "Default: ```all```"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-projects"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#list-collaborators) - List collaborators",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.  You must be an organization owner or a project ```admin``` to list collaborators."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#list-collaborators) - List collaborators",
+                "x-swgg-tags0": "github-projects"
+            }
+        },
+        "/projects/{id}/collaborators/{username}": {
+            "delete": {
+                "operationId": "_2Fprojects_2F_7Bid_7D_2Fcollaborators_2F_7Busername_7D_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.inertia-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "username",
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-projects"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator) - Remove user as a collaborator",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Removes a collaborator from an organization project. You must be an organization owner or a project ```admin``` to remove a collaborator."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator) - Remove user as a collaborator",
+                "x-swgg-tags0": "github-projects"
+            },
+            "put": {
+                "operationId": "_2Fprojects_2F_7Bid_7D_2Fcollaborators_2F_7Busername_7D_20PUT",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.inertia-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "username",
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "enum": [
+                            "Content-Length",
+                            "read",
+                            "write",
+                            "admin"
+                        ],
+                        "in": "query",
+                        "name": "permission",
+                        "type": "string",
+                        "x-swgg-descriptionLineList": [
+                            "The permission to grant the collaborator. Note that, if you choose not to pass any parameters, you'll need to set ```Content-Length``` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\" Can be one of:",
+                            "* ```read``` - can read, but not write to or administer this project.",
+                            "* ```write``` - can read and write, but not administer this project.",
+                            "* ```admin``` - can read, write and administer this project.",
+                            "Default: ```write```"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-projects"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator) - Add user as a collaborator",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project ```admin``` to add a collaborator."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator) - Add user as a collaborator",
+                "x-swgg-tags0": "github-projects"
+            }
+        },
+        "/projects/{id}/collaborators/{username}/permission": {
+            "get": {
+                "operationId": "_2Fprojects_2F_7Bid_7D_2Fcollaborators_2F_7Busername_7D_2Fpermission_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.inertia-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "username",
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-projects"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level) - Review a user's permission level",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Returns the collaborator's permission level for an organization project. Possible values for the ```permission``` key: ```admin```, ```write```, ```read```, ```none```. You must be an organization owner or a project ```admin``` to review a user's permission level."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Project collaborators](https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level) - Review a user's permission level",
+                "x-swgg-tags0": "github-projects"
+            }
+        },
+        "/projects/{project_id}": {
+            "delete": {
+                "operationId": "_2Fprojects_2F_7Bproject_id_7D_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9467,11 +9772,11 @@
                     {
                         "collectionFormat": "csv",
                         "default": [
-                            "application/vnd.github.inertia-preview+json"
+                            "application/vnd.github.jean-grey-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9525,11 +9830,11 @@
                     {
                         "collectionFormat": "csv",
                         "default": [
-                            "application/vnd.github.inertia-preview+json"
+                            "application/vnd.github.jean-grey-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9594,11 +9899,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9606,7 +9907,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -9651,11 +9951,7 @@
                     },
                     {
                         "collectionFormat": "csv",
-                        "default": [
-                            "application/vnd.github.inertia-preview+json"
-                        ],
                         "enum": [
-                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -9663,7 +9959,6 @@
                             "type": "string"
                         },
                         "name": "accept",
-                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -12804,7 +13099,11 @@
                     "application/vnd.github.hellcat-preview+json",
                     "```",
                     "",
-                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact)."
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.",
+                    "",
+                    "If you pass the ```hellcat-preview``` media type, team members will include the members of child teams."
                 ],
                 "x-swgg-host": "api.github.com",
                 "x-swgg-schemes": [
@@ -12955,7 +13254,11 @@
                     "application/vnd.github.hellcat-preview+json",
                     "```",
                     "",
-                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact)."
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.",
+                    "",
+                    "If you pass the ```hellcat-preview``` media type, team members will include the members of child teams."
                 ],
                 "x-swgg-host": "api.github.com",
                 "x-swgg-schemes": [
@@ -22502,11 +22805,11 @@
                     {
                         "collectionFormat": "csv",
                         "default": [
-                            "application/vnd.github.inertia-preview+json"
+                            "application/vnd.github.jean-grey-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -22576,11 +22879,11 @@
                     {
                         "collectionFormat": "csv",
                         "default": [
-                            "application/vnd.github.inertia-preview+json"
+                            "application/vnd.github.jean-grey-preview+json"
                         ],
                         "enum": [
-                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3+json"
                         ],
                         "in": "header",
@@ -24341,7 +24644,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24350,6 +24657,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -24408,7 +24716,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24417,6 +24729,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -24488,7 +24801,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24497,6 +24814,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -24562,7 +24880,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24571,6 +24893,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -24638,7 +24961,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24647,6 +24974,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -24714,7 +25042,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24723,6 +25055,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -24798,7 +25131,11 @@
                     },
                     {
                         "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.jean-grey-preview+json"
+                        ],
                         "enum": [
+                            "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.v3.diff",
                             "application/vnd.github.v3+json"
                         ],
@@ -24807,6 +25144,7 @@
                             "type": "string"
                         },
                         "name": "accept",
+                        "required": true,
                         "type": "array",
                         "x-swgg-descriptionLineList": [
                             "https://developer.github.com/v3/media/",
@@ -28417,6 +28755,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -28487,6 +28826,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -28553,6 +28893,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -29231,6 +29572,336 @@
                 "x-swgg-tags0": "github-teams"
             }
         },
+        "/teams/{id}/projects": {
+            "get": {
+                "operationId": "_2Fteams_2F_7Bid_7D_2Fprojects_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.hellcat-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
+                            "application/vnd.github.hellcat-preview+json",
+                            "application/vnd.github.v3.repository+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-teams"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Organization Teams](https://developer.github.com/v3/teams/#list-team-projects) - List team projects",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Note:** The Nested Teams API is currently available for developers to preview. See the [blog post](https://developer.github.com/changes/2017-08-30-preview-nested-teams) for full details. To access the API, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.hellcat-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Lists the organization projects for a team. If you pass the ```hellcat-preview``` media type, the response will include projects inherited from a parent team."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Organization Teams](https://developer.github.com/v3/teams/#list-team-projects) - List team projects",
+                "x-swgg-tags0": "github-teams"
+            }
+        },
+        "/teams/{id}/projects/{project_id}": {
+            "delete": {
+                "operationId": "_2Fteams_2F_7Bid_7D_2Fprojects_2F_7Bproject_id_7D_20DELETE",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.hellcat-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
+                            "application/vnd.github.hellcat-preview+json",
+                            "application/vnd.github.v3.repository+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "project_id",
+                        "in": "path",
+                        "name": "project_id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-teams"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Organization Teams](https://developer.github.com/v3/teams/#remove-team-project) - Remove team project",
+                    "",
+                    "Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have ```read``` access to both the team and project, or ```admin``` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Organization Teams](https://developer.github.com/v3/teams/#remove-team-project) - Remove team project",
+                "x-swgg-tags0": "github-teams"
+            },
+            "get": {
+                "operationId": "_2Fteams_2F_7Bid_7D_2Fprojects_2F_7Bproject_id_7D_20GET",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.hellcat-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
+                            "application/vnd.github.hellcat-preview+json",
+                            "application/vnd.github.v3.repository+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "project_id",
+                        "in": "path",
+                        "name": "project_id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-teams"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Organization Teams](https://developer.github.com/v3/teams/#review-a-team-project) - Review a team project",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Note:** The Nested Teams API is currently available for developers to preview. See the [blog post](https://developer.github.com/changes/2017-08-30-preview-nested-teams) for full details. To access the API, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.hellcat-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Checks whether a team has ```read```, ```write```, or ```admin``` permissions for an organization project. If you pass the ```hellcat-preview``` media type, the response will include projects inherited from a parent team."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Organization Teams](https://developer.github.com/v3/teams/#review-a-team-project) - Review a team project",
+                "x-swgg-tags0": "github-teams"
+            },
+            "put": {
+                "operationId": "_2Fteams_2F_7Bid_7D_2Fprojects_2F_7Bproject_id_7D_20PUT",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/github-all.key"
+                    },
+                    {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    },
+                    {
+                        "collectionFormat": "csv",
+                        "default": [
+                            "application/vnd.github.hellcat-preview+json"
+                        ],
+                        "enum": [
+                            "application/vnd.github.inertia-preview+json",
+                            "application/vnd.github.jean-grey-preview+json",
+                            "application/vnd.github.hellcat-preview+json",
+                            "application/vnd.github.v3.repository+json",
+                            "application/vnd.github.v3+json"
+                        ],
+                        "in": "header",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "accept",
+                        "required": true,
+                        "type": "array",
+                        "x-swgg-descriptionLineList": [
+                            "https://developer.github.com/v3/media/",
+                            "",
+                            "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                        ]
+                    },
+                    {
+                        "default": "id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "project_id",
+                        "in": "path",
+                        "name": "project_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "enum": [
+                            "read",
+                            "write",
+                            "admin",
+                            "permission",
+                            "Content-Length",
+                            "hellcat-preview"
+                        ],
+                        "in": "query",
+                        "name": "permission",
+                        "type": "string",
+                        "x-swgg-descriptionLineList": [
+                            "The permission to grant to the team for this project. Can be one of:",
+                            "* ```read``` - team members can read, but not write to or administer this project.",
+                            "* ```write``` - team members can read and write, but not administer this project.",
+                            "* ```admin``` - team members can read, write and administer this project.",
+                            "Default: the team's ```permission``` attribute will be used to determine what permission to grant the team on this project. Note that, if you choose not to pass any parameters, you'll need to set ```Content-Length``` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"",
+                            "**Note**: If you pass the ```hellcat-preview``` media type, you can promote—but not demote—a ```permission``` attribute inherited from a parent team."
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response"
+                    }
+                },
+                "tags": [
+                    "github-teams"
+                ],
+                "x-swgg-descriptionLineList": [
+                    "[Organization Teams](https://developer.github.com/v3/teams/#add-or-update-team-project) - Add or update team project",
+                    "",
+                    "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.inertia-preview+json",
+                    "```",
+                    "",
+                    "**Note:** The Nested Teams API is currently available for developers to preview. See the [blog post](https://developer.github.com/changes/2017-08-30-preview-nested-teams) for full details. To access the API, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                    "```",
+                    "application/vnd.github.hellcat-preview+json",
+                    "```",
+                    "",
+                    "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
+                    "",
+                    "Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have ```admin``` permissions for the project. The project and team must be part of the same organization."
+                ],
+                "x-swgg-host": "api.github.com",
+                "x-swgg-schemes": [
+                    "https"
+                ],
+                "x-swgg-sortValue": "[Organization Teams](https://developer.github.com/v3/teams/#add-or-update-team-project) - Add or update team project",
+                "x-swgg-tags0": "github-teams"
+            }
+        },
         "/teams/{id}/repos": {
             "get": {
                 "operationId": "_2Fteams_2F_7Bid_7D_2Frepos_20GET",
@@ -29247,6 +29918,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -29317,6 +29989,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -29422,6 +30095,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -29497,6 +30171,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -29581,6 +30256,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -33314,6 +33990,7 @@
                             "application/vnd.github.hellcat-preview+json"
                         ],
                         "enum": [
+                            "application/vnd.github.inertia-preview+json",
                             "application/vnd.github.jean-grey-preview+json",
                             "application/vnd.github.hellcat-preview+json",
                             "application/vnd.github.v3.repository+json",
@@ -34725,6 +35402,43 @@
                 "",
                 "The following endpoints are available for use by GitHub Apps. For more information, see \"[GitHub Apps](https://developer.github.com/apps/building-github-apps/).\"",
                 "",
+                "#### Members",
+                "- [Members list](https://developer.github.com/v3/orgs/members/#members-list)",
+                "- [Check membership](https://developer.github.com/v3/orgs/members/#check-membership)",
+                "- [Remove a member](https://developer.github.com/v3/orgs/members/#remove-a-member)",
+                "- [Get organization membership](https://developer.github.com/v3/orgs/members/#get-organization-membership)",
+                "- [Add or update organization membership](https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership)",
+                "- [Remove organization membership](https://developer.github.com/v3/orgs/members/#remove-organization-membership)",
+                "",
+                "#### Outside Collaborators",
+                "- [List outside collaborators](https://developer.github.com/v3/orgs/outside_collaborators/#list-outside-collaborators)",
+                "- [Remove outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator)",
+                "- [Convert member to outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator)",
+                "",
+                "#### Projects",
+                "- [List repository projects](https://developer.github.com/v3/projects/#list-repository-projects)",
+                "- [List organization projects](https://developer.github.com/v3/projects/#list-organization-projects)",
+                "- [Get a project](https://developer.github.com/v3/projects/#get-a-project)",
+                "- [Create a repository project](https://developer.github.com/v3/projects/#create-a-repository-project)",
+                "- [Create an organization project](https://developer.github.com/v3/projects/#create-an-organization-project)",
+                "- [Update a project](https://developer.github.com/v3/projects/#update-a-project)",
+                "- [Delete a project](https://developer.github.com/v3/projects/#delete-a-project)",
+                "",
+                "#### Teams",
+                "- [List teams](https://developer.github.com/v3/teams/#list-teams)",
+                "- [Get team](https://developer.github.com/v3/teams/#get-team)",
+                "- [Edit team](https://developer.github.com/v3/teams/#edit-team)",
+                "- [Delete team](https://developer.github.com/v3/teams/#delete-team)",
+                "- [List child teams](https://developer.github.com/v3/teams/#list-child-teams)",
+                "- [List team repos](https://developer.github.com/v3/teams/#list-team-repos)",
+                "",
+                "#### Users",
+                "- [Get a single user](https://developer.github.com/v3/users/#get-a-single-user)",
+                "- [Get all users](https://developer.github.com/v3/users/#get-all-users)",
+                "",
+                "#### Overview",
+                "- [Root endpoint](https://developer.github.com/v3/#root-endpoint)",
+                "",
                 "#### Review Comments",
                 "- [List comments on a pull request](https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request)",
                 "- [List comments in a repository](https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository)",
@@ -34738,64 +35452,30 @@
                 "- [Get comments for a single review](https://developer.github.com/v3/pulls/reviews/#get-comments-for-a-single-review)",
                 "- [Create a pull request review](https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review)",
                 "",
-                "#### Teams",
-                "- [List teams](https://developer.github.com/v3/teams/#list-teams)",
-                "- [Get team](https://developer.github.com/v3/teams/#get-team)",
-                "- [Edit team](https://developer.github.com/v3/teams/#edit-team)",
-                "- [Delete team](https://developer.github.com/v3/teams/#delete-team)",
-                "- [List child teams](https://developer.github.com/v3/teams/#list-child-teams)",
-                "- [List team repos](https://developer.github.com/v3/teams/#list-team-repos)",
+                "#### Team Discussion Comments",
+                "- [List comments](https://developer.github.com/v3/teams/discussion_comments/#list-comments)",
+                "- [Get a single comment](https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment)",
+                "- [Create a comment](https://developer.github.com/v3/teams/discussion_comments/#create-a-comment)",
+                "- [Edit a comment](https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment)",
+                "- [Delete a comment](https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment)",
                 "",
-                "#### Commits",
-                "- [Get a Commit](https://developer.github.com/v3/git/commits/#get-a-commit)",
-                "- [Create a Commit](https://developer.github.com/v3/git/commits/#create-a-commit)",
-                "- [List commits on a repository](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository)",
-                "- [Get a single commit](https://developer.github.com/v3/repos/commits/#get-a-single-commit)",
-                "- [Get the SHA-1 of a commit reference](https://developer.github.com/v3/repos/commits/#get-the-sha-1-of-a-commit-reference)",
+                "#### Team Discussions",
+                "- [List discussions](https://developer.github.com/v3/teams/discussions/#list-discussions)",
+                "- [Get a single discussion](https://developer.github.com/v3/teams/discussions/#get-a-single-discussion)",
+                "- [Create a discussion](https://developer.github.com/v3/teams/discussions/#create-a-discussion)",
+                "- [Edit a discussion](https://developer.github.com/v3/teams/discussions/#edit-a-discussion)",
+                "- [Delete a discussion](https://developer.github.com/v3/teams/discussions/#delete-a-discussion)",
                 "",
-                "#### Tags",
-                "- [Get a Tag](https://developer.github.com/v3/git/tags/#get-a-tag)",
-                "- [Create a Tag Object](https://developer.github.com/v3/git/tags/#create-a-tag-object)",
+                "#### Team Members",
+                "- [List team members](https://developer.github.com/v3/teams/members/#list-team-members)",
+                "- [Get team member](https://developer.github.com/v3/teams/members/#get-team-member)",
+                "- [Get team membership](https://developer.github.com/v3/teams/members/#get-team-membership)",
+                "- [Add or update team membership](https://developer.github.com/v3/teams/members/#add-or-update-team-membership)",
+                "- [Remove team membership](https://developer.github.com/v3/teams/members/#remove-team-membership)",
+                "- [List pending team invitations](https://developer.github.com/v3/teams/members/#list-pending-team-invitations)",
                 "",
-                "#### Blobs",
-                "- [Get a Blob](https://developer.github.com/v3/git/blobs/#get-a-blob)",
-                "- [Create a Blob](https://developer.github.com/v3/git/blobs/#create-a-blob)",
-                "",
-                "#### Trees",
-                "- [Get a Tree](https://developer.github.com/v3/git/trees/#get-a-tree)",
-                "- [Create a Tree](https://developer.github.com/v3/git/trees/#create-a-tree)",
-                "",
-                "#### References",
-                "- [Get a Reference](https://developer.github.com/v3/git/refs/#get-a-reference)",
-                "- [Get all References](https://developer.github.com/v3/git/refs/#get-all-references)",
-                "- [Create a Reference](https://developer.github.com/v3/git/refs/#create-a-reference)",
-                "- [Update a Reference](https://developer.github.com/v3/git/refs/#update-a-reference)",
-                "- [Delete a Reference](https://developer.github.com/v3/git/refs/#delete-a-reference)",
-                "",
-                "#### Issues",
-                "- [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository)",
-                "- [Get a single issue](https://developer.github.com/v3/issues/#get-a-single-issue)",
-                "- [Create an issue](https://developer.github.com/v3/issues/#create-an-issue)",
-                "- [Edit an issue](https://developer.github.com/v3/issues/#edit-an-issue)",
-                "- [Lock an issue](https://developer.github.com/v3/issues/#lock-an-issue)",
-                "- [Unlock an issue](https://developer.github.com/v3/issues/#unlock-an-issue)",
-                "",
-                "#### Source Imports",
-                "- [Start an import](https://developer.github.com/v3/migration/source_imports/#start-an-import)",
-                "- [Get import progress](https://developer.github.com/v3/migration/source_imports/#get-import-progress)",
-                "- [Update existing import](https://developer.github.com/v3/migration/source_imports/#update-existing-import)",
-                "- [Get commit authors](https://developer.github.com/v3/migration/source_imports/#get-commit-authors)",
-                "- [Map a commit author](https://developer.github.com/v3/migration/source_imports/#map-a-commit-author)",
-                "- [Set Git LFS preference](https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference)",
-                "- [Get large files](https://developer.github.com/v3/migration/source_imports/#get-large-files)",
-                "- [Cancel an import](https://developer.github.com/v3/migration/source_imports/#cancel-an-import)",
-                "",
-                "#### Organizations",
-                "- [List all organizations](https://developer.github.com/v3/orgs/#list-all-organizations)",
-                "- [List user organizations](https://developer.github.com/v3/orgs/#list-user-organizations)",
-                "",
-                "#### Watching",
-                "- [List watchers](https://developer.github.com/v3/activity/watching/#list-watchers)",
+                "#### Feeds",
+                "- [List Feeds](https://developer.github.com/v3/activity/feeds/#list-feeds)",
                 "",
                 "#### Starring",
                 "- [List Stargazers](https://developer.github.com/v3/activity/starring/#list-stargazers)",
@@ -34813,59 +35493,37 @@
                 "- [List events for a repository](https://developer.github.com/v3/issues/events/#list-events-for-a-repository)",
                 "- [Get a single event](https://developer.github.com/v3/issues/events/#get-a-single-event)",
                 "",
-                "#### Feeds",
-                "- [List Feeds](https://developer.github.com/v3/activity/feeds/#list-feeds)",
+                "#### Watching",
+                "- [List watchers](https://developer.github.com/v3/activity/watching/#list-watchers)",
                 "",
-                "#### Meta",
-                "- [Meta](https://developer.github.com/v3/meta/#meta)",
+                "#### References",
+                "- [Get a Reference](https://developer.github.com/v3/git/refs/#get-a-reference)",
+                "- [Get all References](https://developer.github.com/v3/git/refs/#get-all-references)",
+                "- [Create a Reference](https://developer.github.com/v3/git/refs/#create-a-reference)",
+                "- [Update a Reference](https://developer.github.com/v3/git/refs/#update-a-reference)",
+                "- [Delete a Reference](https://developer.github.com/v3/git/refs/#delete-a-reference)",
                 "",
-                "#### Codes of Conduct",
-                "- [List all codes of conduct](https://developer.github.com/v3/codes_of_conduct/#list-all-codes-of-conduct)",
-                "- [Get an individual code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-an-individual-code-of-conduct)",
-                "- [Get a repository's code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-a-repositorys-code-of-conduct)",
+                "#### Commits",
+                "- [Get a Commit](https://developer.github.com/v3/git/commits/#get-a-commit)",
+                "- [Create a Commit](https://developer.github.com/v3/git/commits/#create-a-commit)",
+                "- [List commits on a repository](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository)",
+                "- [Get a single commit](https://developer.github.com/v3/repos/commits/#get-a-single-commit)",
+                "- [Get the SHA-1 of a commit reference](https://developer.github.com/v3/repos/commits/#get-the-sha-1-of-a-commit-reference)",
                 "",
-                "#### Labels",
-                "- [List all labels for this repository](https://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository)",
-                "- [Get a single label](https://developer.github.com/v3/issues/labels/#get-a-single-label)",
-                "- [Create a label](https://developer.github.com/v3/issues/labels/#create-a-label)",
-                "- [Update a label](https://developer.github.com/v3/issues/labels/#update-a-label)",
-                "- [Delete a label](https://developer.github.com/v3/issues/labels/#delete-a-label)",
-                "- [List labels on an issue](https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue)",
-                "- [Add labels to an issue](https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue)",
-                "- [Remove a label from an issue](https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue)",
-                "- [Replace all labels for an issue](https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue)",
-                "- [Remove all labels from an issue](https://developer.github.com/v3/issues/labels/#remove-all-labels-from-an-issue)",
-                "- [Get labels for every issue in a milestone](https://developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone)",
+                "#### Trees",
+                "- [Get a Tree](https://developer.github.com/v3/git/trees/#get-a-tree)",
+                "- [Create a Tree](https://developer.github.com/v3/git/trees/#create-a-tree)",
                 "",
-                "#### Comments",
-                "- [List comments on an issue](https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue)",
-                "- [List comments in a repository](https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository)",
-                "- [Get a single comment](https://developer.github.com/v3/issues/comments/#get-a-single-comment)",
-                "- [Create a comment](https://developer.github.com/v3/issues/comments/#create-a-comment)",
-                "- [Edit a comment](https://developer.github.com/v3/issues/comments/#edit-a-comment)",
-                "- [Delete a comment](https://developer.github.com/v3/issues/comments/#delete-a-comment)",
-                "- [List commit comments for a repository](https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository)",
-                "- [List comments for a single commit](https://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit)",
-                "- [Create a commit comment](https://developer.github.com/v3/repos/comments/#create-a-commit-comment)",
-                "- [Get a single commit comment](https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment)",
-                "- [Update a commit comment](https://developer.github.com/v3/repos/comments/#update-a-commit-comment)",
-                "- [Delete a commit comment](https://developer.github.com/v3/repos/comments/#delete-a-commit-comment)",
+                "#### Blobs",
+                "- [Get a Blob](https://developer.github.com/v3/git/blobs/#get-a-blob)",
+                "- [Create a Blob](https://developer.github.com/v3/git/blobs/#create-a-blob)",
                 "",
-                "#### Assignees",
-                "- [List assignees](https://developer.github.com/v3/issues/assignees/#list-assignees)",
-                "- [Check assignee](https://developer.github.com/v3/issues/assignees/#check-assignee)",
-                "- [Add assignees to an issue](https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue)",
-                "- [Remove assignees from an issue](https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue)",
+                "#### Tags",
+                "- [Get a Tag](https://developer.github.com/v3/git/tags/#get-a-tag)",
+                "- [Create a Tag Object](https://developer.github.com/v3/git/tags/#create-a-tag-object)",
                 "",
-                "#### Milestones",
-                "- [List milestones for a repository](https://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository)",
-                "- [Get a single milestone](https://developer.github.com/v3/issues/milestones/#get-a-single-milestone)",
-                "- [Create a milestone](https://developer.github.com/v3/issues/milestones/#create-a-milestone)",
-                "- [Update a milestone](https://developer.github.com/v3/issues/milestones/#update-a-milestone)",
-                "- [Delete a milestone](https://developer.github.com/v3/issues/milestones/#delete-a-milestone)",
-                "",
-                "#### Timeline",
-                "- [List events for an issue](https://developer.github.com/v3/issues/timeline/#list-events-for-an-issue)",
+                "#### Miscellaneous",
+                "- [Emojis](https://developer.github.com/v3/misc/#emojis)",
                 "",
                 "#### Pull Requests",
                 "- [List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)",
@@ -34876,47 +35534,59 @@
                 "- [List pull requests files](https://developer.github.com/v3/pulls/#list-pull-requests-files)",
                 "- [Get if a pull request has been merged](https://developer.github.com/v3/pulls/#get-if-a-pull-request-has-been-merged)",
                 "",
-                "#### Miscellaneous",
-                "- [Emojis](https://developer.github.com/v3/misc/#emojis)",
+                "#### Issues",
+                "- [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository)",
+                "- [Get a single issue](https://developer.github.com/v3/issues/#get-a-single-issue)",
+                "- [Create an issue](https://developer.github.com/v3/issues/#create-an-issue)",
+                "- [Edit an issue](https://developer.github.com/v3/issues/#edit-an-issue)",
+                "- [Lock an issue](https://developer.github.com/v3/issues/#lock-an-issue)",
+                "- [Unlock an issue](https://developer.github.com/v3/issues/#unlock-an-issue)",
                 "",
-                "#### Installations",
-                "- [List repositories](https://developer.github.com/v3/apps/installations/#list-repositories)",
-                "",
-                "#### GitHub Apps",
-                "- [Get a single GitHub App](https://developer.github.com/v3/apps/#get-a-single-github-app)",
-                "- [Get the authenticated GitHub App](https://developer.github.com/v3/apps/#get-the-authenticated-github-app)",
-                "- [Find installations](https://developer.github.com/v3/apps/#find-installations)",
-                "- [Get a single installation](https://developer.github.com/v3/apps/#get-a-single-installation)",
-                "- [Create a new installation token](https://developer.github.com/v3/apps/#create-a-new-installation-token)",
-                "",
-                "#### Users",
-                "- [Get a single user](https://developer.github.com/v3/users/#get-a-single-user)",
-                "- [Get all users](https://developer.github.com/v3/users/#get-all-users)",
-                "",
-                "#### Projects",
-                "- [List repository projects](https://developer.github.com/v3/projects/#list-repository-projects)",
-                "- [List organization projects](https://developer.github.com/v3/projects/#list-organization-projects)",
-                "- [Get a project](https://developer.github.com/v3/projects/#get-a-project)",
-                "- [Create a repository project](https://developer.github.com/v3/projects/#create-a-repository-project)",
-                "- [Create an organization project](https://developer.github.com/v3/projects/#create-an-organization-project)",
-                "- [Update a project](https://developer.github.com/v3/projects/#update-a-project)",
-                "- [Delete a project](https://developer.github.com/v3/projects/#delete-a-project)",
+                "#### Organizations",
+                "- [List all organizations](https://developer.github.com/v3/orgs/#list-all-organizations)",
+                "- [List user organizations](https://developer.github.com/v3/orgs/#list-user-organizations)",
                 "",
                 "#### Rate Limit",
                 "- [Get your current rate limit status](https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status)",
                 "",
-                "#### Markdown",
-                "- [Render an arbitrary Markdown document](https://developer.github.com/v3/markdown/#render-an-arbitrary-markdown-document)",
-                "- [Render a Markdown document in raw mode](https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode)",
+                "#### Source Imports",
+                "- [Start an import](https://developer.github.com/v3/migration/source_imports/#start-an-import)",
+                "- [Get import progress](https://developer.github.com/v3/migration/source_imports/#get-import-progress)",
+                "- [Update existing import](https://developer.github.com/v3/migration/source_imports/#update-existing-import)",
+                "- [Get commit authors](https://developer.github.com/v3/migration/source_imports/#get-commit-authors)",
+                "- [Map a commit author](https://developer.github.com/v3/migration/source_imports/#map-a-commit-author)",
+                "- [Set Git LFS preference](https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference)",
+                "- [Get large files](https://developer.github.com/v3/migration/source_imports/#get-large-files)",
+                "- [Cancel an import](https://developer.github.com/v3/migration/source_imports/#cancel-an-import)",
                 "",
-                "#### Forks",
-                "- [List forks](https://developer.github.com/v3/repos/forks/#list-forks)",
-                "- [Create a fork](https://developer.github.com/v3/repos/forks/#create-a-fork)",
+                "#### Repositories",
+                "- [List user repositories](https://developer.github.com/v3/repos/#list-user-repositories)",
+                "- [List all public repositories](https://developer.github.com/v3/repos/#list-all-public-repositories)",
+                "- [Create](https://developer.github.com/v3/repos/#create)",
+                "- [Get](https://developer.github.com/v3/repos/#get)",
+                "- [Edit](https://developer.github.com/v3/repos/#edit)",
+                "- [List all topics for a repository](https://developer.github.com/v3/repos/#list-all-topics-for-a-repository)",
+                "- [Replace all topics for a repository](https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository)",
+                "- [List contributors](https://developer.github.com/v3/repos/#list-contributors)",
+                "- [List languages](https://developer.github.com/v3/repos/#list-languages)",
+                "- [List teams](https://developer.github.com/v3/repos/#list-teams)",
+                "- [List tags](https://developer.github.com/v3/repos/#list-tags)",
+                "- [Delete a repository](https://developer.github.com/v3/repos/#delete-a-repository)",
                 "",
-                "#### Statuses",
-                "- [Create a status](https://developer.github.com/v3/repos/statuses/#create-a-status)",
-                "- [List statuses for a specific ref](https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref)",
-                "- [Get the combined status for a specific ref](https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref)",
+                "#### Project columns",
+                "- [Get a project column](https://developer.github.com/v3/projects/columns/#get-a-project-column)",
+                "- [Create a project column](https://developer.github.com/v3/projects/columns/#create-a-project-column)",
+                "- [Update a project column](https://developer.github.com/v3/projects/columns/#update-a-project-column)",
+                "- [Delete a project column](https://developer.github.com/v3/projects/columns/#delete-a-project-column)",
+                "- [Move a project column](https://developer.github.com/v3/projects/columns/#move-a-project-column)",
+                "",
+                "#### Project cards",
+                "- [List project cards](https://developer.github.com/v3/projects/cards/#list-project-cards)",
+                "- [Get a project card](https://developer.github.com/v3/projects/cards/#get-a-project-card)",
+                "- [Create a project card](https://developer.github.com/v3/projects/cards/#create-a-project-card)",
+                "- [Update a project card](https://developer.github.com/v3/projects/cards/#update-a-project-card)",
+                "- [Delete a project card](https://developer.github.com/v3/projects/cards/#delete-a-project-card)",
+                "- [Move a project card](https://developer.github.com/v3/projects/cards/#move-a-project-card)",
                 "",
                 "#### Branches",
                 "- [List branches](https://developer.github.com/v3/repos/branches/#list-branches)",
@@ -34951,11 +35621,46 @@
                 "- [Add user restrictions of protected branch](https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch)",
                 "- [Remove user restrictions of protected branch](https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch)",
                 "",
-                "#### Deploy Keys",
-                "- [List deploy keys](https://developer.github.com/v3/repos/keys/#list-deploy-keys)",
-                "- [Get a deploy key](https://developer.github.com/v3/repos/keys/#get-a-deploy-key)",
-                "- [Add a new deploy key](https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key)",
-                "- [Remove a deploy key](https://developer.github.com/v3/repos/keys/#remove-a-deploy-key)",
+                "#### Forks",
+                "- [List forks](https://developer.github.com/v3/repos/forks/#list-forks)",
+                "- [Create a fork](https://developer.github.com/v3/repos/forks/#create-a-fork)",
+                "",
+                "#### Comments",
+                "- [List commit comments for a repository](https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository)",
+                "- [List comments for a single commit](https://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit)",
+                "- [Create a commit comment](https://developer.github.com/v3/repos/comments/#create-a-commit-comment)",
+                "- [Get a single commit comment](https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment)",
+                "- [Update a commit comment](https://developer.github.com/v3/repos/comments/#update-a-commit-comment)",
+                "- [Delete a commit comment](https://developer.github.com/v3/repos/comments/#delete-a-commit-comment)",
+                "- [List comments on an issue](https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue)",
+                "- [List comments in a repository](https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository)",
+                "- [Get a single comment](https://developer.github.com/v3/issues/comments/#get-a-single-comment)",
+                "- [Create a comment](https://developer.github.com/v3/issues/comments/#create-a-comment)",
+                "- [Edit a comment](https://developer.github.com/v3/issues/comments/#edit-a-comment)",
+                "- [Delete a comment](https://developer.github.com/v3/issues/comments/#delete-a-comment)",
+                "",
+                "#### Merging",
+                "- [Perform a merge](https://developer.github.com/v3/repos/merging/#perform-a-merge)",
+                "",
+                "#### Contents",
+                "- [Get the README](https://developer.github.com/v3/repos/contents/#get-the-readme)",
+                "- [Get contents](https://developer.github.com/v3/repos/contents/#get-contents)",
+                "- [Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)",
+                "- [Update a file](https://developer.github.com/v3/repos/contents/#update-a-file)",
+                "- [Delete a file](https://developer.github.com/v3/repos/contents/#delete-a-file)",
+                "- [Get archive link](https://developer.github.com/v3/repos/contents/#get-archive-link)",
+                "",
+                "#### Statuses",
+                "- [Create a status](https://developer.github.com/v3/repos/statuses/#create-a-status)",
+                "- [List statuses for a specific ref](https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref)",
+                "- [Get the combined status for a specific ref](https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref)",
+                "",
+                "#### Pages",
+                "- [Get information about a Pages site](https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site)",
+                "- [Request a page build](https://developer.github.com/v3/repos/pages/#request-a-page-build)",
+                "- [List Pages builds](https://developer.github.com/v3/repos/pages/#list-pages-builds)",
+                "- [List latest Pages build](https://developer.github.com/v3/repos/pages/#list-latest-pages-build)",
+                "- [List a specific Pages build](https://developer.github.com/v3/repos/pages/#list-a-specific-pages-build)",
                 "",
                 "#### Community Profile",
                 "- [Retrieve community profile metrics](https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics)",
@@ -34968,13 +35673,18 @@
                 "- [Get a single deployment status](https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status)",
                 "- [Create a deployment status](https://developer.github.com/v3/repos/deployments/#create-a-deployment-status)",
                 "",
-                "#### Contents",
-                "- [Get the README](https://developer.github.com/v3/repos/contents/#get-the-readme)",
-                "- [Get contents](https://developer.github.com/v3/repos/contents/#get-contents)",
-                "- [Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)",
-                "- [Update a file](https://developer.github.com/v3/repos/contents/#update-a-file)",
-                "- [Delete a file](https://developer.github.com/v3/repos/contents/#delete-a-file)",
-                "- [Get archive link](https://developer.github.com/v3/repos/contents/#get-archive-link)",
+                "#### Deploy Keys",
+                "- [List deploy keys](https://developer.github.com/v3/repos/keys/#list-deploy-keys)",
+                "- [Get a deploy key](https://developer.github.com/v3/repos/keys/#get-a-deploy-key)",
+                "- [Add a new deploy key](https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key)",
+                "- [Remove a deploy key](https://developer.github.com/v3/repos/keys/#remove-a-deploy-key)",
+                "",
+                "#### Statistics",
+                "- [Get contributors list with additions, deletions, and commit counts](https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts)",
+                "- [Get the last year of commit activity data](https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data)",
+                "- [Get the number of additions and deletions per week](https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week)",
+                "- [Get the weekly commit count for the repository owner and everyone else](https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else)",
+                "- [Get the number of commits per hour in each day](https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day)",
                 "",
                 "#### Releases",
                 "- [List releases for a repository](https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository)",
@@ -34997,35 +35707,35 @@
                 "- [Add user as a collaborator](https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator)",
                 "- [Remove user as a collaborator](https://developer.github.com/v3/repos/collaborators/#remove-user-as-a-collaborator)",
                 "",
-                "#### Statistics",
-                "- [Get contributors list with additions, deletions, and commit counts](https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts)",
-                "- [Get the last year of commit activity data](https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data)",
-                "- [Get the number of additions and deletions per week](https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week)",
-                "- [Get the weekly commit count for the repository owner and everyone else](https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else)",
-                "- [Get the number of commits per hour in each day](https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day)",
+                "#### Search",
+                "- [Search repositories](https://developer.github.com/v3/search/#search-repositories)",
+                "- [Search commits](https://developer.github.com/v3/search/#search-commits)",
+                "- [Search code](https://developer.github.com/v3/search/#search-code)",
+                "- [Search issues](https://developer.github.com/v3/search/#search-issues)",
+                "- [Search users](https://developer.github.com/v3/search/#search-users)",
+                "- [Search topics](https://developer.github.com/v3/search/#search-topics)",
+                "- [Search labels](https://developer.github.com/v3/search/#search-labels)",
                 "",
-                "#### Merging",
-                "- [Perform a merge](https://developer.github.com/v3/repos/merging/#perform-a-merge)",
+                "#### Meta",
+                "- [Meta](https://developer.github.com/v3/meta/#meta)",
                 "",
-                "#### Pages",
-                "- [Get information about a Pages site](https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site)",
-                "- [Request a page build](https://developer.github.com/v3/repos/pages/#request-a-page-build)",
-                "- [List Pages builds](https://developer.github.com/v3/repos/pages/#list-pages-builds)",
-                "- [List latest Pages build](https://developer.github.com/v3/repos/pages/#list-latest-pages-build)",
-                "- [List a specific Pages build](https://developer.github.com/v3/repos/pages/#list-a-specific-pages-build)",
+                "#### Codes of Conduct",
+                "- [List all codes of conduct](https://developer.github.com/v3/codes_of_conduct/#list-all-codes-of-conduct)",
+                "- [Get an individual code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-an-individual-code-of-conduct)",
+                "- [Get a repository's code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-a-repositorys-code-of-conduct)",
                 "",
-                "#### Members",
-                "- [Members list](https://developer.github.com/v3/orgs/members/#members-list)",
-                "- [Check membership](https://developer.github.com/v3/orgs/members/#check-membership)",
-                "- [Remove a member](https://developer.github.com/v3/orgs/members/#remove-a-member)",
-                "- [Get organization membership](https://developer.github.com/v3/orgs/members/#get-organization-membership)",
-                "- [Add or update organization membership](https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership)",
-                "- [Remove organization membership](https://developer.github.com/v3/orgs/members/#remove-organization-membership)",
+                "#### Public Keys",
+                "- [List public keys for a user](https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user)",
                 "",
-                "#### Outside Collaborators",
-                "- [List outside collaborators](https://developer.github.com/v3/orgs/outside_collaborators/#list-outside-collaborators)",
-                "- [Remove outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator)",
-                "- [Convert member to outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator)",
+                "#### GitHub Apps",
+                "- [Get a single GitHub App](https://developer.github.com/v3/apps/#get-a-single-github-app)",
+                "- [Get the authenticated GitHub App](https://developer.github.com/v3/apps/#get-the-authenticated-github-app)",
+                "- [Find installations](https://developer.github.com/v3/apps/#find-installations)",
+                "- [Get a single installation](https://developer.github.com/v3/apps/#get-a-single-installation)",
+                "- [Create a new installation token](https://developer.github.com/v3/apps/#create-a-new-installation-token)",
+                "",
+                "#### Installations",
+                "- [List repositories](https://developer.github.com/v3/apps/installations/#list-repositories)",
                 "",
                 "#### Licenses",
                 "- [List all licenses](https://developer.github.com/v3/licenses/#list-all-licenses)",
@@ -35039,71 +35749,38 @@
                 "- [List reactions for a team discussion](https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion)",
                 "- [List reactions for a team discussion comment](https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment)",
                 "",
-                "#### Public Keys",
-                "- [List public keys for a user](https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user)",
+                "#### Markdown",
+                "- [Render an arbitrary Markdown document](https://developer.github.com/v3/markdown/#render-an-arbitrary-markdown-document)",
+                "- [Render a Markdown document in raw mode](https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode)",
                 "",
-                "#### Team Members",
-                "- [List team members](https://developer.github.com/v3/teams/members/#list-team-members)",
-                "- [Get team member](https://developer.github.com/v3/teams/members/#get-team-member)",
-                "- [Get team membership](https://developer.github.com/v3/teams/members/#get-team-membership)",
-                "- [Add or update team membership](https://developer.github.com/v3/teams/members/#add-or-update-team-membership)",
-                "- [Remove team membership](https://developer.github.com/v3/teams/members/#remove-team-membership)",
-                "- [List pending team invitations](https://developer.github.com/v3/teams/members/#list-pending-team-invitations)",
+                "#### Milestones",
+                "- [List milestones for a repository](https://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository)",
+                "- [Get a single milestone](https://developer.github.com/v3/issues/milestones/#get-a-single-milestone)",
+                "- [Create a milestone](https://developer.github.com/v3/issues/milestones/#create-a-milestone)",
+                "- [Update a milestone](https://developer.github.com/v3/issues/milestones/#update-a-milestone)",
+                "- [Delete a milestone](https://developer.github.com/v3/issues/milestones/#delete-a-milestone)",
                 "",
-                "#### Team Discussion Comments",
-                "- [List comments](https://developer.github.com/v3/teams/discussion_comments/#list-comments)",
-                "- [Get a single comment](https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment)",
-                "- [Create a comment](https://developer.github.com/v3/teams/discussion_comments/#create-a-comment)",
-                "- [Edit a comment](https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment)",
-                "- [Delete a comment](https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment)",
+                "#### Labels",
+                "- [List all labels for this repository](https://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository)",
+                "- [Get a single label](https://developer.github.com/v3/issues/labels/#get-a-single-label)",
+                "- [Create a label](https://developer.github.com/v3/issues/labels/#create-a-label)",
+                "- [Update a label](https://developer.github.com/v3/issues/labels/#update-a-label)",
+                "- [Delete a label](https://developer.github.com/v3/issues/labels/#delete-a-label)",
+                "- [List labels on an issue](https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue)",
+                "- [Add labels to an issue](https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue)",
+                "- [Remove a label from an issue](https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue)",
+                "- [Replace all labels for an issue](https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue)",
+                "- [Remove all labels from an issue](https://developer.github.com/v3/issues/labels/#remove-all-labels-from-an-issue)",
+                "- [Get labels for every issue in a milestone](https://developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone)",
                 "",
-                "#### Team Discussions",
-                "- [List discussions](https://developer.github.com/v3/teams/discussions/#list-discussions)",
-                "- [Get a single discussion](https://developer.github.com/v3/teams/discussions/#get-a-single-discussion)",
-                "- [Create a discussion](https://developer.github.com/v3/teams/discussions/#create-a-discussion)",
-                "- [Edit a discussion](https://developer.github.com/v3/teams/discussions/#edit-a-discussion)",
-                "- [Delete a discussion](https://developer.github.com/v3/teams/discussions/#delete-a-discussion)",
+                "#### Timeline",
+                "- [List events for an issue](https://developer.github.com/v3/issues/timeline/#list-events-for-an-issue)",
                 "",
-                "#### Overview",
-                "- [Root endpoint](https://developer.github.com/v3/#root-endpoint)",
-                "",
-                "#### Repositories",
-                "- [List user repositories](https://developer.github.com/v3/repos/#list-user-repositories)",
-                "- [List all public repositories](https://developer.github.com/v3/repos/#list-all-public-repositories)",
-                "- [Create](https://developer.github.com/v3/repos/#create)",
-                "- [Get](https://developer.github.com/v3/repos/#get)",
-                "- [Edit](https://developer.github.com/v3/repos/#edit)",
-                "- [List all topics for a repository](https://developer.github.com/v3/repos/#list-all-topics-for-a-repository)",
-                "- [Replace all topics for a repository](https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository)",
-                "- [List contributors](https://developer.github.com/v3/repos/#list-contributors)",
-                "- [List languages](https://developer.github.com/v3/repos/#list-languages)",
-                "- [List teams](https://developer.github.com/v3/repos/#list-teams)",
-                "- [List tags](https://developer.github.com/v3/repos/#list-tags)",
-                "- [Delete a repository](https://developer.github.com/v3/repos/#delete-a-repository)",
-                "",
-                "#### Project columns",
-                "- [Get a project column](https://developer.github.com/v3/projects/columns/#get-a-project-column)",
-                "- [Create a project column](https://developer.github.com/v3/projects/columns/#create-a-project-column)",
-                "- [Update a project column](https://developer.github.com/v3/projects/columns/#update-a-project-column)",
-                "- [Delete a project column](https://developer.github.com/v3/projects/columns/#delete-a-project-column)",
-                "- [Move a project column](https://developer.github.com/v3/projects/columns/#move-a-project-column)",
-                "",
-                "#### Project cards",
-                "- [List project cards](https://developer.github.com/v3/projects/cards/#list-project-cards)",
-                "- [Get a project card](https://developer.github.com/v3/projects/cards/#get-a-project-card)",
-                "- [Create a project card](https://developer.github.com/v3/projects/cards/#create-a-project-card)",
-                "- [Update a project card](https://developer.github.com/v3/projects/cards/#update-a-project-card)",
-                "- [Delete a project card](https://developer.github.com/v3/projects/cards/#delete-a-project-card)",
-                "- [Move a project card](https://developer.github.com/v3/projects/cards/#move-a-project-card)",
-                "",
-                "#### Search",
-                "- [Search repositories](https://developer.github.com/v3/search/#search-repositories)",
-                "- [Search commits](https://developer.github.com/v3/search/#search-commits)",
-                "- [Search code](https://developer.github.com/v3/search/#search-code)",
-                "- [Search issues](https://developer.github.com/v3/search/#search-issues)",
-                "- [Search users](https://developer.github.com/v3/search/#search-users)",
-                "- [Search topics](https://developer.github.com/v3/search/#search-topics)",
-                "- [Search labels](https://developer.github.com/v3/search/#search-labels)",
+                "#### Assignees",
+                "- [List assignees](https://developer.github.com/v3/issues/assignees/#list-assignees)",
+                "- [Check assignee](https://developer.github.com/v3/issues/assignees/#check-assignee)",
+                "- [Add assignees to an issue](https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue)",
+                "- [Remove assignees from an issue](https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue)",
                 "",
                 "# [GitHub Marketplace](https://developer.github.com/v3/apps/marketplace/)",
                 "",
@@ -35628,6 +36305,11 @@
             "x-swgg-descriptionLineList": [
                 "# [Projects](https://developer.github.com/v3/projects/)",
                 "",
+                "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                "```",
+                "application/vnd.github.inertia-preview+json",
+                "```",
+                "",
                 "**Note:** To help with migrating from our REST API v3 to GraphQL API v4, we're introducing a preview period to include the [GraphQL ```node_id```](https://developer.github.com/v3/#graphql-global-relay-ids) in the response for many REST API v3 resources. See the [blog post](https://developer.github.com/changes/2017-12-19-graphql-node-id) for full details. To access ```node_id``` during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
                 "```",
                 "application/vnd.github.jean-grey-preview+json",
@@ -35635,30 +36317,17 @@
                 "",
                 "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
                 "",
-                "The Projects API is currently available for developers to preview.   During the preview period, the API may change without advance notice. Please   see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details.",
-                "",
-                "To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
-                "```",
-                "application/vnd.github.inertia-preview+json",
-                "```",
-                "",
                 "# [Project cards](https://developer.github.com/v3/projects/cards/)",
                 "",
-                "The Projects API is currently available for developers to preview.   During the preview period, the API may change without advance notice. Please   see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details.",
+                "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
                 "",
-                "To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
-                "```",
-                "application/vnd.github.inertia-preview+json",
-                "```",
+                "# [Project collaborators](https://developer.github.com/v3/projects/collaborators/)",
+                "",
+                "This API allows you to interact with an organization's projects.",
                 "",
                 "# [Project columns](https://developer.github.com/v3/projects/columns/)",
                 "",
-                "The Projects API is currently available for developers to preview.   During the preview period, the API may change without advance notice. Please   see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details.",
-                "",
-                "To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
-                "```",
-                "application/vnd.github.inertia-preview+json",
-                "```"
+                "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact)."
             ]
         },
         {
@@ -35711,7 +36380,14 @@
                 "",
                 "# [Reviews](https://developer.github.com/v3/pulls/reviews/)",
                 "",
-                "Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment."
+                "Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment.",
+                "",
+                "**Note:** To help with migrating from our REST API v3 to GraphQL API v4, we're introducing a preview period to include the [GraphQL ```node_id```](https://developer.github.com/v3/#graphql-global-relay-ids) in the response for many REST API v3 resources. See the [blog post](https://developer.github.com/changes/2017-12-19-graphql-node-id) for full details. To access ```node_id``` during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                "```",
+                "application/vnd.github.jean-grey-preview+json",
+                "```",
+                "",
+                "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact)."
             ]
         },
         {
@@ -36001,6 +36677,11 @@
                 "",
                 "This API is only available to authenticated members of the team's [organization](https://developer.github.com/v3/orgs). OAuth access tokens require the ```read:org``` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
                 "",
+                "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                "```",
+                "application/vnd.github.inertia-preview+json",
+                "```",
+                "",
                 "**Note:** To help with migrating from our REST API v3 to GraphQL API v4, we're introducing a preview period to include the [GraphQL ```node_id```](https://developer.github.com/v3/#graphql-global-relay-ids) in the response for many REST API v3 resources. See the [blog post](https://developer.github.com/changes/2017-12-19-graphql-node-id) for full details. To access ```node_id``` during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
                 "```",
                 "application/vnd.github.jean-grey-preview+json",
@@ -36282,6 +36963,43 @@
                 "",
                 "The following endpoints are available for use by GitHub Apps. For more information, see \"[GitHub Apps](https://developer.github.com/apps/building-github-apps/).\"",
                 "",
+                "#### Members",
+                "- [Members list](https://developer.github.com/v3/orgs/members/#members-list)",
+                "- [Check membership](https://developer.github.com/v3/orgs/members/#check-membership)",
+                "- [Remove a member](https://developer.github.com/v3/orgs/members/#remove-a-member)",
+                "- [Get organization membership](https://developer.github.com/v3/orgs/members/#get-organization-membership)",
+                "- [Add or update organization membership](https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership)",
+                "- [Remove organization membership](https://developer.github.com/v3/orgs/members/#remove-organization-membership)",
+                "",
+                "#### Outside Collaborators",
+                "- [List outside collaborators](https://developer.github.com/v3/orgs/outside_collaborators/#list-outside-collaborators)",
+                "- [Remove outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator)",
+                "- [Convert member to outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator)",
+                "",
+                "#### Projects",
+                "- [List repository projects](https://developer.github.com/v3/projects/#list-repository-projects)",
+                "- [List organization projects](https://developer.github.com/v3/projects/#list-organization-projects)",
+                "- [Get a project](https://developer.github.com/v3/projects/#get-a-project)",
+                "- [Create a repository project](https://developer.github.com/v3/projects/#create-a-repository-project)",
+                "- [Create an organization project](https://developer.github.com/v3/projects/#create-an-organization-project)",
+                "- [Update a project](https://developer.github.com/v3/projects/#update-a-project)",
+                "- [Delete a project](https://developer.github.com/v3/projects/#delete-a-project)",
+                "",
+                "#### Teams",
+                "- [List teams](https://developer.github.com/v3/teams/#list-teams)",
+                "- [Get team](https://developer.github.com/v3/teams/#get-team)",
+                "- [Edit team](https://developer.github.com/v3/teams/#edit-team)",
+                "- [Delete team](https://developer.github.com/v3/teams/#delete-team)",
+                "- [List child teams](https://developer.github.com/v3/teams/#list-child-teams)",
+                "- [List team repos](https://developer.github.com/v3/teams/#list-team-repos)",
+                "",
+                "#### Users",
+                "- [Get a single user](https://developer.github.com/v3/users/#get-a-single-user)",
+                "- [Get all users](https://developer.github.com/v3/users/#get-all-users)",
+                "",
+                "#### Overview",
+                "- [Root endpoint](https://developer.github.com/v3/#root-endpoint)",
+                "",
                 "#### Review Comments",
                 "- [List comments on a pull request](https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request)",
                 "- [List comments in a repository](https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository)",
@@ -36295,64 +37013,30 @@
                 "- [Get comments for a single review](https://developer.github.com/v3/pulls/reviews/#get-comments-for-a-single-review)",
                 "- [Create a pull request review](https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review)",
                 "",
-                "#### Teams",
-                "- [List teams](https://developer.github.com/v3/teams/#list-teams)",
-                "- [Get team](https://developer.github.com/v3/teams/#get-team)",
-                "- [Edit team](https://developer.github.com/v3/teams/#edit-team)",
-                "- [Delete team](https://developer.github.com/v3/teams/#delete-team)",
-                "- [List child teams](https://developer.github.com/v3/teams/#list-child-teams)",
-                "- [List team repos](https://developer.github.com/v3/teams/#list-team-repos)",
+                "#### Team Discussion Comments",
+                "- [List comments](https://developer.github.com/v3/teams/discussion_comments/#list-comments)",
+                "- [Get a single comment](https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment)",
+                "- [Create a comment](https://developer.github.com/v3/teams/discussion_comments/#create-a-comment)",
+                "- [Edit a comment](https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment)",
+                "- [Delete a comment](https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment)",
                 "",
-                "#### Commits",
-                "- [Get a Commit](https://developer.github.com/v3/git/commits/#get-a-commit)",
-                "- [Create a Commit](https://developer.github.com/v3/git/commits/#create-a-commit)",
-                "- [List commits on a repository](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository)",
-                "- [Get a single commit](https://developer.github.com/v3/repos/commits/#get-a-single-commit)",
-                "- [Get the SHA-1 of a commit reference](https://developer.github.com/v3/repos/commits/#get-the-sha-1-of-a-commit-reference)",
+                "#### Team Discussions",
+                "- [List discussions](https://developer.github.com/v3/teams/discussions/#list-discussions)",
+                "- [Get a single discussion](https://developer.github.com/v3/teams/discussions/#get-a-single-discussion)",
+                "- [Create a discussion](https://developer.github.com/v3/teams/discussions/#create-a-discussion)",
+                "- [Edit a discussion](https://developer.github.com/v3/teams/discussions/#edit-a-discussion)",
+                "- [Delete a discussion](https://developer.github.com/v3/teams/discussions/#delete-a-discussion)",
                 "",
-                "#### Tags",
-                "- [Get a Tag](https://developer.github.com/v3/git/tags/#get-a-tag)",
-                "- [Create a Tag Object](https://developer.github.com/v3/git/tags/#create-a-tag-object)",
+                "#### Team Members",
+                "- [List team members](https://developer.github.com/v3/teams/members/#list-team-members)",
+                "- [Get team member](https://developer.github.com/v3/teams/members/#get-team-member)",
+                "- [Get team membership](https://developer.github.com/v3/teams/members/#get-team-membership)",
+                "- [Add or update team membership](https://developer.github.com/v3/teams/members/#add-or-update-team-membership)",
+                "- [Remove team membership](https://developer.github.com/v3/teams/members/#remove-team-membership)",
+                "- [List pending team invitations](https://developer.github.com/v3/teams/members/#list-pending-team-invitations)",
                 "",
-                "#### Blobs",
-                "- [Get a Blob](https://developer.github.com/v3/git/blobs/#get-a-blob)",
-                "- [Create a Blob](https://developer.github.com/v3/git/blobs/#create-a-blob)",
-                "",
-                "#### Trees",
-                "- [Get a Tree](https://developer.github.com/v3/git/trees/#get-a-tree)",
-                "- [Create a Tree](https://developer.github.com/v3/git/trees/#create-a-tree)",
-                "",
-                "#### References",
-                "- [Get a Reference](https://developer.github.com/v3/git/refs/#get-a-reference)",
-                "- [Get all References](https://developer.github.com/v3/git/refs/#get-all-references)",
-                "- [Create a Reference](https://developer.github.com/v3/git/refs/#create-a-reference)",
-                "- [Update a Reference](https://developer.github.com/v3/git/refs/#update-a-reference)",
-                "- [Delete a Reference](https://developer.github.com/v3/git/refs/#delete-a-reference)",
-                "",
-                "#### Issues",
-                "- [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository)",
-                "- [Get a single issue](https://developer.github.com/v3/issues/#get-a-single-issue)",
-                "- [Create an issue](https://developer.github.com/v3/issues/#create-an-issue)",
-                "- [Edit an issue](https://developer.github.com/v3/issues/#edit-an-issue)",
-                "- [Lock an issue](https://developer.github.com/v3/issues/#lock-an-issue)",
-                "- [Unlock an issue](https://developer.github.com/v3/issues/#unlock-an-issue)",
-                "",
-                "#### Source Imports",
-                "- [Start an import](https://developer.github.com/v3/migration/source_imports/#start-an-import)",
-                "- [Get import progress](https://developer.github.com/v3/migration/source_imports/#get-import-progress)",
-                "- [Update existing import](https://developer.github.com/v3/migration/source_imports/#update-existing-import)",
-                "- [Get commit authors](https://developer.github.com/v3/migration/source_imports/#get-commit-authors)",
-                "- [Map a commit author](https://developer.github.com/v3/migration/source_imports/#map-a-commit-author)",
-                "- [Set Git LFS preference](https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference)",
-                "- [Get large files](https://developer.github.com/v3/migration/source_imports/#get-large-files)",
-                "- [Cancel an import](https://developer.github.com/v3/migration/source_imports/#cancel-an-import)",
-                "",
-                "#### Organizations",
-                "- [List all organizations](https://developer.github.com/v3/orgs/#list-all-organizations)",
-                "- [List user organizations](https://developer.github.com/v3/orgs/#list-user-organizations)",
-                "",
-                "#### Watching",
-                "- [List watchers](https://developer.github.com/v3/activity/watching/#list-watchers)",
+                "#### Feeds",
+                "- [List Feeds](https://developer.github.com/v3/activity/feeds/#list-feeds)",
                 "",
                 "#### Starring",
                 "- [List Stargazers](https://developer.github.com/v3/activity/starring/#list-stargazers)",
@@ -36370,59 +37054,37 @@
                 "- [List events for a repository](https://developer.github.com/v3/issues/events/#list-events-for-a-repository)",
                 "- [Get a single event](https://developer.github.com/v3/issues/events/#get-a-single-event)",
                 "",
-                "#### Feeds",
-                "- [List Feeds](https://developer.github.com/v3/activity/feeds/#list-feeds)",
+                "#### Watching",
+                "- [List watchers](https://developer.github.com/v3/activity/watching/#list-watchers)",
                 "",
-                "#### Meta",
-                "- [Meta](https://developer.github.com/v3/meta/#meta)",
+                "#### References",
+                "- [Get a Reference](https://developer.github.com/v3/git/refs/#get-a-reference)",
+                "- [Get all References](https://developer.github.com/v3/git/refs/#get-all-references)",
+                "- [Create a Reference](https://developer.github.com/v3/git/refs/#create-a-reference)",
+                "- [Update a Reference](https://developer.github.com/v3/git/refs/#update-a-reference)",
+                "- [Delete a Reference](https://developer.github.com/v3/git/refs/#delete-a-reference)",
                 "",
-                "#### Codes of Conduct",
-                "- [List all codes of conduct](https://developer.github.com/v3/codes_of_conduct/#list-all-codes-of-conduct)",
-                "- [Get an individual code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-an-individual-code-of-conduct)",
-                "- [Get a repository's code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-a-repositorys-code-of-conduct)",
+                "#### Commits",
+                "- [Get a Commit](https://developer.github.com/v3/git/commits/#get-a-commit)",
+                "- [Create a Commit](https://developer.github.com/v3/git/commits/#create-a-commit)",
+                "- [List commits on a repository](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository)",
+                "- [Get a single commit](https://developer.github.com/v3/repos/commits/#get-a-single-commit)",
+                "- [Get the SHA-1 of a commit reference](https://developer.github.com/v3/repos/commits/#get-the-sha-1-of-a-commit-reference)",
                 "",
-                "#### Labels",
-                "- [List all labels for this repository](https://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository)",
-                "- [Get a single label](https://developer.github.com/v3/issues/labels/#get-a-single-label)",
-                "- [Create a label](https://developer.github.com/v3/issues/labels/#create-a-label)",
-                "- [Update a label](https://developer.github.com/v3/issues/labels/#update-a-label)",
-                "- [Delete a label](https://developer.github.com/v3/issues/labels/#delete-a-label)",
-                "- [List labels on an issue](https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue)",
-                "- [Add labels to an issue](https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue)",
-                "- [Remove a label from an issue](https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue)",
-                "- [Replace all labels for an issue](https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue)",
-                "- [Remove all labels from an issue](https://developer.github.com/v3/issues/labels/#remove-all-labels-from-an-issue)",
-                "- [Get labels for every issue in a milestone](https://developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone)",
+                "#### Trees",
+                "- [Get a Tree](https://developer.github.com/v3/git/trees/#get-a-tree)",
+                "- [Create a Tree](https://developer.github.com/v3/git/trees/#create-a-tree)",
                 "",
-                "#### Comments",
-                "- [List comments on an issue](https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue)",
-                "- [List comments in a repository](https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository)",
-                "- [Get a single comment](https://developer.github.com/v3/issues/comments/#get-a-single-comment)",
-                "- [Create a comment](https://developer.github.com/v3/issues/comments/#create-a-comment)",
-                "- [Edit a comment](https://developer.github.com/v3/issues/comments/#edit-a-comment)",
-                "- [Delete a comment](https://developer.github.com/v3/issues/comments/#delete-a-comment)",
-                "- [List commit comments for a repository](https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository)",
-                "- [List comments for a single commit](https://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit)",
-                "- [Create a commit comment](https://developer.github.com/v3/repos/comments/#create-a-commit-comment)",
-                "- [Get a single commit comment](https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment)",
-                "- [Update a commit comment](https://developer.github.com/v3/repos/comments/#update-a-commit-comment)",
-                "- [Delete a commit comment](https://developer.github.com/v3/repos/comments/#delete-a-commit-comment)",
+                "#### Blobs",
+                "- [Get a Blob](https://developer.github.com/v3/git/blobs/#get-a-blob)",
+                "- [Create a Blob](https://developer.github.com/v3/git/blobs/#create-a-blob)",
                 "",
-                "#### Assignees",
-                "- [List assignees](https://developer.github.com/v3/issues/assignees/#list-assignees)",
-                "- [Check assignee](https://developer.github.com/v3/issues/assignees/#check-assignee)",
-                "- [Add assignees to an issue](https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue)",
-                "- [Remove assignees from an issue](https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue)",
+                "#### Tags",
+                "- [Get a Tag](https://developer.github.com/v3/git/tags/#get-a-tag)",
+                "- [Create a Tag Object](https://developer.github.com/v3/git/tags/#create-a-tag-object)",
                 "",
-                "#### Milestones",
-                "- [List milestones for a repository](https://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository)",
-                "- [Get a single milestone](https://developer.github.com/v3/issues/milestones/#get-a-single-milestone)",
-                "- [Create a milestone](https://developer.github.com/v3/issues/milestones/#create-a-milestone)",
-                "- [Update a milestone](https://developer.github.com/v3/issues/milestones/#update-a-milestone)",
-                "- [Delete a milestone](https://developer.github.com/v3/issues/milestones/#delete-a-milestone)",
-                "",
-                "#### Timeline",
-                "- [List events for an issue](https://developer.github.com/v3/issues/timeline/#list-events-for-an-issue)",
+                "#### Miscellaneous",
+                "- [Emojis](https://developer.github.com/v3/misc/#emojis)",
                 "",
                 "#### Pull Requests",
                 "- [List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)",
@@ -36433,47 +37095,59 @@
                 "- [List pull requests files](https://developer.github.com/v3/pulls/#list-pull-requests-files)",
                 "- [Get if a pull request has been merged](https://developer.github.com/v3/pulls/#get-if-a-pull-request-has-been-merged)",
                 "",
-                "#### Miscellaneous",
-                "- [Emojis](https://developer.github.com/v3/misc/#emojis)",
+                "#### Issues",
+                "- [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository)",
+                "- [Get a single issue](https://developer.github.com/v3/issues/#get-a-single-issue)",
+                "- [Create an issue](https://developer.github.com/v3/issues/#create-an-issue)",
+                "- [Edit an issue](https://developer.github.com/v3/issues/#edit-an-issue)",
+                "- [Lock an issue](https://developer.github.com/v3/issues/#lock-an-issue)",
+                "- [Unlock an issue](https://developer.github.com/v3/issues/#unlock-an-issue)",
                 "",
-                "#### Installations",
-                "- [List repositories](https://developer.github.com/v3/apps/installations/#list-repositories)",
-                "",
-                "#### GitHub Apps",
-                "- [Get a single GitHub App](https://developer.github.com/v3/apps/#get-a-single-github-app)",
-                "- [Get the authenticated GitHub App](https://developer.github.com/v3/apps/#get-the-authenticated-github-app)",
-                "- [Find installations](https://developer.github.com/v3/apps/#find-installations)",
-                "- [Get a single installation](https://developer.github.com/v3/apps/#get-a-single-installation)",
-                "- [Create a new installation token](https://developer.github.com/v3/apps/#create-a-new-installation-token)",
-                "",
-                "#### Users",
-                "- [Get a single user](https://developer.github.com/v3/users/#get-a-single-user)",
-                "- [Get all users](https://developer.github.com/v3/users/#get-all-users)",
-                "",
-                "#### Projects",
-                "- [List repository projects](https://developer.github.com/v3/projects/#list-repository-projects)",
-                "- [List organization projects](https://developer.github.com/v3/projects/#list-organization-projects)",
-                "- [Get a project](https://developer.github.com/v3/projects/#get-a-project)",
-                "- [Create a repository project](https://developer.github.com/v3/projects/#create-a-repository-project)",
-                "- [Create an organization project](https://developer.github.com/v3/projects/#create-an-organization-project)",
-                "- [Update a project](https://developer.github.com/v3/projects/#update-a-project)",
-                "- [Delete a project](https://developer.github.com/v3/projects/#delete-a-project)",
+                "#### Organizations",
+                "- [List all organizations](https://developer.github.com/v3/orgs/#list-all-organizations)",
+                "- [List user organizations](https://developer.github.com/v3/orgs/#list-user-organizations)",
                 "",
                 "#### Rate Limit",
                 "- [Get your current rate limit status](https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status)",
                 "",
-                "#### Markdown",
-                "- [Render an arbitrary Markdown document](https://developer.github.com/v3/markdown/#render-an-arbitrary-markdown-document)",
-                "- [Render a Markdown document in raw mode](https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode)",
+                "#### Source Imports",
+                "- [Start an import](https://developer.github.com/v3/migration/source_imports/#start-an-import)",
+                "- [Get import progress](https://developer.github.com/v3/migration/source_imports/#get-import-progress)",
+                "- [Update existing import](https://developer.github.com/v3/migration/source_imports/#update-existing-import)",
+                "- [Get commit authors](https://developer.github.com/v3/migration/source_imports/#get-commit-authors)",
+                "- [Map a commit author](https://developer.github.com/v3/migration/source_imports/#map-a-commit-author)",
+                "- [Set Git LFS preference](https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference)",
+                "- [Get large files](https://developer.github.com/v3/migration/source_imports/#get-large-files)",
+                "- [Cancel an import](https://developer.github.com/v3/migration/source_imports/#cancel-an-import)",
                 "",
-                "#### Forks",
-                "- [List forks](https://developer.github.com/v3/repos/forks/#list-forks)",
-                "- [Create a fork](https://developer.github.com/v3/repos/forks/#create-a-fork)",
+                "#### Repositories",
+                "- [List user repositories](https://developer.github.com/v3/repos/#list-user-repositories)",
+                "- [List all public repositories](https://developer.github.com/v3/repos/#list-all-public-repositories)",
+                "- [Create](https://developer.github.com/v3/repos/#create)",
+                "- [Get](https://developer.github.com/v3/repos/#get)",
+                "- [Edit](https://developer.github.com/v3/repos/#edit)",
+                "- [List all topics for a repository](https://developer.github.com/v3/repos/#list-all-topics-for-a-repository)",
+                "- [Replace all topics for a repository](https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository)",
+                "- [List contributors](https://developer.github.com/v3/repos/#list-contributors)",
+                "- [List languages](https://developer.github.com/v3/repos/#list-languages)",
+                "- [List teams](https://developer.github.com/v3/repos/#list-teams)",
+                "- [List tags](https://developer.github.com/v3/repos/#list-tags)",
+                "- [Delete a repository](https://developer.github.com/v3/repos/#delete-a-repository)",
                 "",
-                "#### Statuses",
-                "- [Create a status](https://developer.github.com/v3/repos/statuses/#create-a-status)",
-                "- [List statuses for a specific ref](https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref)",
-                "- [Get the combined status for a specific ref](https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref)",
+                "#### Project columns",
+                "- [Get a project column](https://developer.github.com/v3/projects/columns/#get-a-project-column)",
+                "- [Create a project column](https://developer.github.com/v3/projects/columns/#create-a-project-column)",
+                "- [Update a project column](https://developer.github.com/v3/projects/columns/#update-a-project-column)",
+                "- [Delete a project column](https://developer.github.com/v3/projects/columns/#delete-a-project-column)",
+                "- [Move a project column](https://developer.github.com/v3/projects/columns/#move-a-project-column)",
+                "",
+                "#### Project cards",
+                "- [List project cards](https://developer.github.com/v3/projects/cards/#list-project-cards)",
+                "- [Get a project card](https://developer.github.com/v3/projects/cards/#get-a-project-card)",
+                "- [Create a project card](https://developer.github.com/v3/projects/cards/#create-a-project-card)",
+                "- [Update a project card](https://developer.github.com/v3/projects/cards/#update-a-project-card)",
+                "- [Delete a project card](https://developer.github.com/v3/projects/cards/#delete-a-project-card)",
+                "- [Move a project card](https://developer.github.com/v3/projects/cards/#move-a-project-card)",
                 "",
                 "#### Branches",
                 "- [List branches](https://developer.github.com/v3/repos/branches/#list-branches)",
@@ -36508,11 +37182,46 @@
                 "- [Add user restrictions of protected branch](https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch)",
                 "- [Remove user restrictions of protected branch](https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch)",
                 "",
-                "#### Deploy Keys",
-                "- [List deploy keys](https://developer.github.com/v3/repos/keys/#list-deploy-keys)",
-                "- [Get a deploy key](https://developer.github.com/v3/repos/keys/#get-a-deploy-key)",
-                "- [Add a new deploy key](https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key)",
-                "- [Remove a deploy key](https://developer.github.com/v3/repos/keys/#remove-a-deploy-key)",
+                "#### Forks",
+                "- [List forks](https://developer.github.com/v3/repos/forks/#list-forks)",
+                "- [Create a fork](https://developer.github.com/v3/repos/forks/#create-a-fork)",
+                "",
+                "#### Comments",
+                "- [List commit comments for a repository](https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository)",
+                "- [List comments for a single commit](https://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit)",
+                "- [Create a commit comment](https://developer.github.com/v3/repos/comments/#create-a-commit-comment)",
+                "- [Get a single commit comment](https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment)",
+                "- [Update a commit comment](https://developer.github.com/v3/repos/comments/#update-a-commit-comment)",
+                "- [Delete a commit comment](https://developer.github.com/v3/repos/comments/#delete-a-commit-comment)",
+                "- [List comments on an issue](https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue)",
+                "- [List comments in a repository](https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository)",
+                "- [Get a single comment](https://developer.github.com/v3/issues/comments/#get-a-single-comment)",
+                "- [Create a comment](https://developer.github.com/v3/issues/comments/#create-a-comment)",
+                "- [Edit a comment](https://developer.github.com/v3/issues/comments/#edit-a-comment)",
+                "- [Delete a comment](https://developer.github.com/v3/issues/comments/#delete-a-comment)",
+                "",
+                "#### Merging",
+                "- [Perform a merge](https://developer.github.com/v3/repos/merging/#perform-a-merge)",
+                "",
+                "#### Contents",
+                "- [Get the README](https://developer.github.com/v3/repos/contents/#get-the-readme)",
+                "- [Get contents](https://developer.github.com/v3/repos/contents/#get-contents)",
+                "- [Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)",
+                "- [Update a file](https://developer.github.com/v3/repos/contents/#update-a-file)",
+                "- [Delete a file](https://developer.github.com/v3/repos/contents/#delete-a-file)",
+                "- [Get archive link](https://developer.github.com/v3/repos/contents/#get-archive-link)",
+                "",
+                "#### Statuses",
+                "- [Create a status](https://developer.github.com/v3/repos/statuses/#create-a-status)",
+                "- [List statuses for a specific ref](https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref)",
+                "- [Get the combined status for a specific ref](https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref)",
+                "",
+                "#### Pages",
+                "- [Get information about a Pages site](https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site)",
+                "- [Request a page build](https://developer.github.com/v3/repos/pages/#request-a-page-build)",
+                "- [List Pages builds](https://developer.github.com/v3/repos/pages/#list-pages-builds)",
+                "- [List latest Pages build](https://developer.github.com/v3/repos/pages/#list-latest-pages-build)",
+                "- [List a specific Pages build](https://developer.github.com/v3/repos/pages/#list-a-specific-pages-build)",
                 "",
                 "#### Community Profile",
                 "- [Retrieve community profile metrics](https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics)",
@@ -36525,13 +37234,18 @@
                 "- [Get a single deployment status](https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status)",
                 "- [Create a deployment status](https://developer.github.com/v3/repos/deployments/#create-a-deployment-status)",
                 "",
-                "#### Contents",
-                "- [Get the README](https://developer.github.com/v3/repos/contents/#get-the-readme)",
-                "- [Get contents](https://developer.github.com/v3/repos/contents/#get-contents)",
-                "- [Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)",
-                "- [Update a file](https://developer.github.com/v3/repos/contents/#update-a-file)",
-                "- [Delete a file](https://developer.github.com/v3/repos/contents/#delete-a-file)",
-                "- [Get archive link](https://developer.github.com/v3/repos/contents/#get-archive-link)",
+                "#### Deploy Keys",
+                "- [List deploy keys](https://developer.github.com/v3/repos/keys/#list-deploy-keys)",
+                "- [Get a deploy key](https://developer.github.com/v3/repos/keys/#get-a-deploy-key)",
+                "- [Add a new deploy key](https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key)",
+                "- [Remove a deploy key](https://developer.github.com/v3/repos/keys/#remove-a-deploy-key)",
+                "",
+                "#### Statistics",
+                "- [Get contributors list with additions, deletions, and commit counts](https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts)",
+                "- [Get the last year of commit activity data](https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data)",
+                "- [Get the number of additions and deletions per week](https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week)",
+                "- [Get the weekly commit count for the repository owner and everyone else](https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else)",
+                "- [Get the number of commits per hour in each day](https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day)",
                 "",
                 "#### Releases",
                 "- [List releases for a repository](https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository)",
@@ -36554,35 +37268,35 @@
                 "- [Add user as a collaborator](https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator)",
                 "- [Remove user as a collaborator](https://developer.github.com/v3/repos/collaborators/#remove-user-as-a-collaborator)",
                 "",
-                "#### Statistics",
-                "- [Get contributors list with additions, deletions, and commit counts](https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts)",
-                "- [Get the last year of commit activity data](https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data)",
-                "- [Get the number of additions and deletions per week](https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week)",
-                "- [Get the weekly commit count for the repository owner and everyone else](https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else)",
-                "- [Get the number of commits per hour in each day](https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day)",
+                "#### Search",
+                "- [Search repositories](https://developer.github.com/v3/search/#search-repositories)",
+                "- [Search commits](https://developer.github.com/v3/search/#search-commits)",
+                "- [Search code](https://developer.github.com/v3/search/#search-code)",
+                "- [Search issues](https://developer.github.com/v3/search/#search-issues)",
+                "- [Search users](https://developer.github.com/v3/search/#search-users)",
+                "- [Search topics](https://developer.github.com/v3/search/#search-topics)",
+                "- [Search labels](https://developer.github.com/v3/search/#search-labels)",
                 "",
-                "#### Merging",
-                "- [Perform a merge](https://developer.github.com/v3/repos/merging/#perform-a-merge)",
+                "#### Meta",
+                "- [Meta](https://developer.github.com/v3/meta/#meta)",
                 "",
-                "#### Pages",
-                "- [Get information about a Pages site](https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site)",
-                "- [Request a page build](https://developer.github.com/v3/repos/pages/#request-a-page-build)",
-                "- [List Pages builds](https://developer.github.com/v3/repos/pages/#list-pages-builds)",
-                "- [List latest Pages build](https://developer.github.com/v3/repos/pages/#list-latest-pages-build)",
-                "- [List a specific Pages build](https://developer.github.com/v3/repos/pages/#list-a-specific-pages-build)",
+                "#### Codes of Conduct",
+                "- [List all codes of conduct](https://developer.github.com/v3/codes_of_conduct/#list-all-codes-of-conduct)",
+                "- [Get an individual code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-an-individual-code-of-conduct)",
+                "- [Get a repository's code of conduct](https://developer.github.com/v3/codes_of_conduct/#get-a-repositorys-code-of-conduct)",
                 "",
-                "#### Members",
-                "- [Members list](https://developer.github.com/v3/orgs/members/#members-list)",
-                "- [Check membership](https://developer.github.com/v3/orgs/members/#check-membership)",
-                "- [Remove a member](https://developer.github.com/v3/orgs/members/#remove-a-member)",
-                "- [Get organization membership](https://developer.github.com/v3/orgs/members/#get-organization-membership)",
-                "- [Add or update organization membership](https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership)",
-                "- [Remove organization membership](https://developer.github.com/v3/orgs/members/#remove-organization-membership)",
+                "#### Public Keys",
+                "- [List public keys for a user](https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user)",
                 "",
-                "#### Outside Collaborators",
-                "- [List outside collaborators](https://developer.github.com/v3/orgs/outside_collaborators/#list-outside-collaborators)",
-                "- [Remove outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator)",
-                "- [Convert member to outside collaborator](https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator)",
+                "#### GitHub Apps",
+                "- [Get a single GitHub App](https://developer.github.com/v3/apps/#get-a-single-github-app)",
+                "- [Get the authenticated GitHub App](https://developer.github.com/v3/apps/#get-the-authenticated-github-app)",
+                "- [Find installations](https://developer.github.com/v3/apps/#find-installations)",
+                "- [Get a single installation](https://developer.github.com/v3/apps/#get-a-single-installation)",
+                "- [Create a new installation token](https://developer.github.com/v3/apps/#create-a-new-installation-token)",
+                "",
+                "#### Installations",
+                "- [List repositories](https://developer.github.com/v3/apps/installations/#list-repositories)",
                 "",
                 "#### Licenses",
                 "- [List all licenses](https://developer.github.com/v3/licenses/#list-all-licenses)",
@@ -36596,71 +37310,38 @@
                 "- [List reactions for a team discussion](https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion)",
                 "- [List reactions for a team discussion comment](https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment)",
                 "",
-                "#### Public Keys",
-                "- [List public keys for a user](https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user)",
+                "#### Markdown",
+                "- [Render an arbitrary Markdown document](https://developer.github.com/v3/markdown/#render-an-arbitrary-markdown-document)",
+                "- [Render a Markdown document in raw mode](https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode)",
                 "",
-                "#### Team Members",
-                "- [List team members](https://developer.github.com/v3/teams/members/#list-team-members)",
-                "- [Get team member](https://developer.github.com/v3/teams/members/#get-team-member)",
-                "- [Get team membership](https://developer.github.com/v3/teams/members/#get-team-membership)",
-                "- [Add or update team membership](https://developer.github.com/v3/teams/members/#add-or-update-team-membership)",
-                "- [Remove team membership](https://developer.github.com/v3/teams/members/#remove-team-membership)",
-                "- [List pending team invitations](https://developer.github.com/v3/teams/members/#list-pending-team-invitations)",
+                "#### Milestones",
+                "- [List milestones for a repository](https://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository)",
+                "- [Get a single milestone](https://developer.github.com/v3/issues/milestones/#get-a-single-milestone)",
+                "- [Create a milestone](https://developer.github.com/v3/issues/milestones/#create-a-milestone)",
+                "- [Update a milestone](https://developer.github.com/v3/issues/milestones/#update-a-milestone)",
+                "- [Delete a milestone](https://developer.github.com/v3/issues/milestones/#delete-a-milestone)",
                 "",
-                "#### Team Discussion Comments",
-                "- [List comments](https://developer.github.com/v3/teams/discussion_comments/#list-comments)",
-                "- [Get a single comment](https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment)",
-                "- [Create a comment](https://developer.github.com/v3/teams/discussion_comments/#create-a-comment)",
-                "- [Edit a comment](https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment)",
-                "- [Delete a comment](https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment)",
+                "#### Labels",
+                "- [List all labels for this repository](https://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository)",
+                "- [Get a single label](https://developer.github.com/v3/issues/labels/#get-a-single-label)",
+                "- [Create a label](https://developer.github.com/v3/issues/labels/#create-a-label)",
+                "- [Update a label](https://developer.github.com/v3/issues/labels/#update-a-label)",
+                "- [Delete a label](https://developer.github.com/v3/issues/labels/#delete-a-label)",
+                "- [List labels on an issue](https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue)",
+                "- [Add labels to an issue](https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue)",
+                "- [Remove a label from an issue](https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue)",
+                "- [Replace all labels for an issue](https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue)",
+                "- [Remove all labels from an issue](https://developer.github.com/v3/issues/labels/#remove-all-labels-from-an-issue)",
+                "- [Get labels for every issue in a milestone](https://developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone)",
                 "",
-                "#### Team Discussions",
-                "- [List discussions](https://developer.github.com/v3/teams/discussions/#list-discussions)",
-                "- [Get a single discussion](https://developer.github.com/v3/teams/discussions/#get-a-single-discussion)",
-                "- [Create a discussion](https://developer.github.com/v3/teams/discussions/#create-a-discussion)",
-                "- [Edit a discussion](https://developer.github.com/v3/teams/discussions/#edit-a-discussion)",
-                "- [Delete a discussion](https://developer.github.com/v3/teams/discussions/#delete-a-discussion)",
+                "#### Timeline",
+                "- [List events for an issue](https://developer.github.com/v3/issues/timeline/#list-events-for-an-issue)",
                 "",
-                "#### Overview",
-                "- [Root endpoint](https://developer.github.com/v3/#root-endpoint)",
-                "",
-                "#### Repositories",
-                "- [List user repositories](https://developer.github.com/v3/repos/#list-user-repositories)",
-                "- [List all public repositories](https://developer.github.com/v3/repos/#list-all-public-repositories)",
-                "- [Create](https://developer.github.com/v3/repos/#create)",
-                "- [Get](https://developer.github.com/v3/repos/#get)",
-                "- [Edit](https://developer.github.com/v3/repos/#edit)",
-                "- [List all topics for a repository](https://developer.github.com/v3/repos/#list-all-topics-for-a-repository)",
-                "- [Replace all topics for a repository](https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository)",
-                "- [List contributors](https://developer.github.com/v3/repos/#list-contributors)",
-                "- [List languages](https://developer.github.com/v3/repos/#list-languages)",
-                "- [List teams](https://developer.github.com/v3/repos/#list-teams)",
-                "- [List tags](https://developer.github.com/v3/repos/#list-tags)",
-                "- [Delete a repository](https://developer.github.com/v3/repos/#delete-a-repository)",
-                "",
-                "#### Project columns",
-                "- [Get a project column](https://developer.github.com/v3/projects/columns/#get-a-project-column)",
-                "- [Create a project column](https://developer.github.com/v3/projects/columns/#create-a-project-column)",
-                "- [Update a project column](https://developer.github.com/v3/projects/columns/#update-a-project-column)",
-                "- [Delete a project column](https://developer.github.com/v3/projects/columns/#delete-a-project-column)",
-                "- [Move a project column](https://developer.github.com/v3/projects/columns/#move-a-project-column)",
-                "",
-                "#### Project cards",
-                "- [List project cards](https://developer.github.com/v3/projects/cards/#list-project-cards)",
-                "- [Get a project card](https://developer.github.com/v3/projects/cards/#get-a-project-card)",
-                "- [Create a project card](https://developer.github.com/v3/projects/cards/#create-a-project-card)",
-                "- [Update a project card](https://developer.github.com/v3/projects/cards/#update-a-project-card)",
-                "- [Delete a project card](https://developer.github.com/v3/projects/cards/#delete-a-project-card)",
-                "- [Move a project card](https://developer.github.com/v3/projects/cards/#move-a-project-card)",
-                "",
-                "#### Search",
-                "- [Search repositories](https://developer.github.com/v3/search/#search-repositories)",
-                "- [Search commits](https://developer.github.com/v3/search/#search-commits)",
-                "- [Search code](https://developer.github.com/v3/search/#search-code)",
-                "- [Search issues](https://developer.github.com/v3/search/#search-issues)",
-                "- [Search users](https://developer.github.com/v3/search/#search-users)",
-                "- [Search topics](https://developer.github.com/v3/search/#search-topics)",
-                "- [Search labels](https://developer.github.com/v3/search/#search-labels)",
+                "#### Assignees",
+                "- [List assignees](https://developer.github.com/v3/issues/assignees/#list-assignees)",
+                "- [Check assignee](https://developer.github.com/v3/issues/assignees/#check-assignee)",
+                "- [Add assignees to an issue](https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue)",
+                "- [Remove assignees from an issue](https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue)",
                 "",
                 "# [GitHub Marketplace](https://developer.github.com/v3/apps/marketplace/)",
                 "",
@@ -37178,6 +37859,11 @@
             "x-swgg-descriptionLineList": [
                 "# [Projects](https://developer.github.com/v3/projects/)",
                 "",
+                "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                "```",
+                "application/vnd.github.inertia-preview+json",
+                "```",
+                "",
                 "**Note:** To help with migrating from our REST API v3 to GraphQL API v4, we're introducing a preview period to include the [GraphQL ```node_id```](https://developer.github.com/v3/#graphql-global-relay-ids) in the response for many REST API v3 resources. See the [blog post](https://developer.github.com/changes/2017-12-19-graphql-node-id) for full details. To access ```node_id``` during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
                 "```",
                 "application/vnd.github.jean-grey-preview+json",
@@ -37185,30 +37871,17 @@
                 "",
                 "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
                 "",
-                "The Projects API is currently available for developers to preview.   During the preview period, the API may change without advance notice. Please   see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details.",
-                "",
-                "To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
-                "```",
-                "application/vnd.github.inertia-preview+json",
-                "```",
-                "",
                 "# [Project cards](https://developer.github.com/v3/projects/cards/)",
                 "",
-                "The Projects API is currently available for developers to preview.   During the preview period, the API may change without advance notice. Please   see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details.",
+                "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact).",
                 "",
-                "To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
-                "```",
-                "application/vnd.github.inertia-preview+json",
-                "```",
+                "# [Project collaborators](https://developer.github.com/v3/projects/collaborators/)",
+                "",
+                "This API allows you to interact with an organization's projects.",
                 "",
                 "# [Project columns](https://developer.github.com/v3/projects/columns/)",
                 "",
-                "The Projects API is currently available for developers to preview.   During the preview period, the API may change without advance notice. Please   see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details.",
-                "",
-                "To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
-                "```",
-                "application/vnd.github.inertia-preview+json",
-                "```"
+                "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact)."
             ]
         },
         "github-pulls": {
@@ -37260,7 +37933,14 @@
                 "",
                 "# [Reviews](https://developer.github.com/v3/pulls/reviews/)",
                 "",
-                "Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment."
+                "Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment.",
+                "",
+                "**Note:** To help with migrating from our REST API v3 to GraphQL API v4, we're introducing a preview period to include the [GraphQL ```node_id```](https://developer.github.com/v3/#graphql-global-relay-ids) in the response for many REST API v3 resources. See the [blog post](https://developer.github.com/changes/2017-12-19-graphql-node-id) for full details. To access ```node_id``` during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                "```",
+                "application/vnd.github.jean-grey-preview+json",
+                "```",
+                "",
+                "**Warning:** The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact [GitHub support](https://github.com/contact)."
             ]
         },
         "github-reactions": {
@@ -37544,6 +38224,11 @@
                 "# [Organization Teams](https://developer.github.com/v3/teams/)",
                 "",
                 "This API is only available to authenticated members of the team's [organization](https://developer.github.com/v3/orgs). OAuth access tokens require the ```read:org``` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+                "",
+                "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
+                "```",
+                "application/vnd.github.inertia-preview+json",
+                "```",
                 "",
                 "**Note:** To help with migrating from our REST API v3 to GraphQL API v4, we're introducing a preview period to include the [GraphQL ```node_id```](https://developer.github.com/v3/#graphql-global-relay-ids) in the response for many REST API v3 resources. See the [blog post](https://developer.github.com/changes/2017-12-19-graphql-node-id) for full details. To access ```node_id``` during the preview period, you must provide a custom [media type](https://developer.github.com/v3/media) in the ```Accept``` header:",
                 "```",
