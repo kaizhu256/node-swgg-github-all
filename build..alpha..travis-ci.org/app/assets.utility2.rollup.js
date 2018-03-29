@@ -1167,7 +1167,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
         } else {
             // require builtins
             Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^sys$/).test(key)) {
+                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
                     local[key] = require(key);
                 }
             });
@@ -1276,7 +1276,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                         }
                     });
                     element = element.slice(0, 3).join('---- ');
-                    if (ii === 0) {
+                    if (!ii) {
                         element = element.replace((/-/g), ' ');
                     }
                     console.log(element);
@@ -1339,42 +1339,42 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
              * this function will recursively JSON.stringify the jsonObj,
              * with object-keys sorted and circular-references removed
              */
-                // if jsonObj is an object, then recurse its items with object-keys sorted
-                if (jsonObj &&
+                // if jsonObj is not an object or function, then JSON.stringify as normal
+                if (!(jsonObj &&
                         typeof jsonObj === 'object' &&
-                        typeof jsonObj.toJSON !== 'function') {
-                    // ignore circular-reference
-                    if (circularList.indexOf(jsonObj) >= 0) {
-                        return;
-                    }
-                    circularList.push(jsonObj);
-                    // if jsonObj is an array, then recurse its jsonObjs
-                    if (Array.isArray(jsonObj)) {
-                        return '[' + jsonObj.map(function (jsonObj) {
-                            // recurse
-                            tmp = stringify(jsonObj);
-                            return typeof tmp === 'string'
-                                ? tmp
-                                : 'null';
-                        }).join(',') + ']';
-                    }
-                    return '{' + Object.keys(jsonObj)
-                        // sort object-keys
-                        .sort()
-                        .map(function (key) {
-                            // recurse
-                            tmp = stringify(jsonObj[key]);
-                            if (typeof tmp === 'string') {
-                                return JSON.stringify(key) + ':' + tmp;
-                            }
-                        })
-                        .filter(function (jsonObj) {
-                            return typeof jsonObj === 'string';
-                        })
-                        .join(',') + '}';
+                        typeof jsonObj.toJSON !== 'function')) {
+                    return JSON.stringify(jsonObj);
                 }
-                // else JSON.stringify as normal
-                return JSON.stringify(jsonObj);
+                // ignore circular-reference
+                if (circularList.indexOf(jsonObj) >= 0) {
+                    return;
+                }
+                circularList.push(jsonObj);
+                // if jsonObj is an array, then recurse its jsonObjs
+                if (Array.isArray(jsonObj)) {
+                    return '[' + jsonObj.map(function (jsonObj) {
+                        // recurse
+                        tmp = stringify(jsonObj);
+                        return typeof tmp === 'string'
+                            ? tmp
+                            : 'null';
+                    }).join(',') + ']';
+                }
+                // if jsonObj is not an array, then recurse its items with object-keys sorted
+                return '{' + Object.keys(jsonObj)
+                    // sort object-keys
+                    .sort()
+                    .map(function (key) {
+                        // recurse
+                        tmp = stringify(jsonObj[key]);
+                        if (typeof tmp === 'string') {
+                            return JSON.stringify(key) + ':' + tmp;
+                        }
+                    })
+                    .filter(function (jsonObj) {
+                        return typeof jsonObj === 'string';
+                    })
+                    .join(',') + '}';
             };
             circularList = [];
             // try to derefernce all properties in jsonObj
@@ -1449,13 +1449,10 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                 // then recurse with arg2 and overrides2
                 if (depth > 1 &&
                         // arg2 is a non-null and non-array object
-                        (arg2 &&
-                        typeof arg2 === 'object' &&
-                        !Array.isArray(arg2)) &&
+                        typeof arg2 === 'object' && arg2 && !Array.isArray(arg2) &&
                         // overrides2 is a non-null and non-array object
-                        (overrides2 &&
-                        typeof overrides2 === 'object' &&
-                        !Array.isArray(overrides2))) {
+                        typeof overrides2 === 'object' && overrides2 &&
+                        !Array.isArray(overrides2)) {
                     local.objectSetOverride(arg2, overrides2, depth - 1, env);
                     return;
                 }
@@ -23582,6 +23579,7 @@ local.templateUiMain = '\
     style="background: none; border: 0;"\n\
 ></div>\n\
 <div class="info reset">\n\
+    {{#if info}}\n\
     {{#if info.x-swgg-homepage}}\n\
     <h2 class="hx">\n\
         <a href="{{info.x-swgg-homepage}}" target="_blank">{{info.title}} ({{info.version}})</a>\n\
@@ -23635,6 +23633,7 @@ local.templateUiMain = '\
         <li><a target="_blank" href="{{info.license.url}}">{{info.license.name}}</a></li>\n\
         {{/if info.license}}\n\
     </ul>\n\
+    {{/if info}}\n\
 </div>\n\
 {{#if urlSwaggerJson}}\n\
 <h4 class="label">nodejs initialization</h4>\n\
@@ -24092,35 +24091,33 @@ local.assetsDict['/assets.swgg.html'] = local.assetsDict['/assets.index.default.
 /* validateLineSortedReset */\n\
 /* margin */\n\
 .swggUiContainer li {\n\
-    margin-bottom: 10px;\n\
+    margin-top: 10px;\n\
 }\n\
 .swggUiContainer ol,\n\
-.swggUiContainer ul {\n\
+.swggUiContainer ul,\n\
+.swggUiContainer .td {\n\
     margin-left: 20px;\n\
 }\n\
 .swggUiContainer .description,\n\
+.swggUiContainer .label,\n\
 .swggUiContainer .operation,\n\
+.swggUiContainer .operation > form > div,\n\
+.swggUiContainer .operation > form > pre,\n\
 .swggUiContainer .resource,\n\
 .swggUiContainer > div,\n\
 .swggUiContainer > ol,\n\
 .swggUiContainer > pre,\n\
 .swggUiContainer > .info > div,\n\
+.swggUiContainer > .info > ul,\n\
 .swggUiContainer > .info > .button,\n\
 .swggUiContainer > .info > .hx {\n\
-    margin-bottom: 20px;\n\
+    margin-top: 20px;\n\
 }\n\
 .swggUiContainer .label {\n\
-    margin-bottom: 1px;\n\
-}\n\
-.swggUiContainer .operation:last-child {\n\
-    margin-bottom: 0;\n\
-}\n\
-.swggUiContainer .operation > form > div,\n\
-.swggUiContainer .operation > form > pre {\n\
-    margin-bottom: 20px;\n\
+    margin-bottom: -19px;\n\
 }\n\
 .swggUiContainer .operation > form > .button {\n\
-    margin: 50px 0;\n\
+    margin: 40px 0 20px 0;\n\
 }\n\
 .swggUiContainer .resource > ol,\n\
 .swggUiContainer .resource > .thead > .td,\n\
@@ -24128,8 +24125,8 @@ local.assetsDict['/assets.swgg.html'] = local.assetsDict['/assets.index.default.
 .swggUiContainer > ol {\n\
     margin-left: 0;\n\
 }\n\
-.swggUiContainer .td {\n\
-    margin-left: 20px;\n\
+.swggUiContainer .resource > ol > .description {\n\
+    margin-top: 0;\n\
 }\n\
 /* validateLineSortedReset */\n\
 /* padding */\n\
@@ -24152,7 +24149,7 @@ local.assetsDict['/assets.swgg.html'] = local.assetsDict['/assets.index.default.
     padding: 20px;\n\
 }\n\
 .swggUiContainer .operation > form {\n\
-    padding: 20px 20px 0 20px;\n\
+    padding: 0 20px;\n\
 }\n\
 .swggUiContainer .operation > form .td1 {\n\
     padding-left: 0;\n\
@@ -24227,7 +24224,6 @@ local.assetsDict['/assets.swgg.html'] = local.assetsDict['/assets.index.default.
 ' + local.templateRender(local.templateUiMain, {
     ajaxProgressText: 'loading script',
     apiKeyValue: '',
-    info: { 'title': 'title', version: 'version' },
     urlSwaggerJson: ''
 }) + '\
 </div>\n\

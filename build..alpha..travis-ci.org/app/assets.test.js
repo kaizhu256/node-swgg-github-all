@@ -363,6 +363,9 @@ swaggerJson =
                         description.replace((
                             /(Comma-separated list of values)|Can be one of/
                         ), function (match0, match1) {
+                            if (schemaP.type === 'boolean') {
+                                return;
+                            }
                             match0 = match1;
                             if (match0) {
                                 schemaP.items = { type: 'string' };

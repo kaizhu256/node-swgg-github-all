@@ -5,7 +5,7 @@
 
 <tspan x="10" y="42"></tspan>
 
-<tspan x="10" y="58">  0.  2018-03-29 15:33:32 +0900 11289759 bytes  .</tspan>
+<tspan x="10" y="58">  0.  2018-03-29 21:45:27 +0900 11289585 bytes  .</tspan>
 
 <tspan x="10" y="74">  1.  2018-03-29 15:33:32 +0900  7691936 bytes  .apidoc.raw.html</tspan>
 
@@ -17,9 +17,9 @@
 
 <tspan x="10" y="138">  5.  2018-03-29 15:17:12 +0900    21964 bytes  README.md</tspan>
 
-<tspan x="10" y="154">  6.  2018-03-29 15:33:32 +0900  1982628 bytes  assets.swgg.swagger.json</tspan>
+<tspan x="10" y="154">  6.  2018-03-29 21:45:27 +0900  1982478 bytes  assets.swgg.swagger.json</tspan>
 
-<tspan x="10" y="170">  7.  2018-03-29 15:17:12 +0900  1563159 bytes  assets.utility2.rollup.js</tspan>
+<tspan x="10" y="170">  7.  2018-03-29 21:45:27 +0900  1563003 bytes  assets.utility2.rollup.js</tspan>
 
 <tspan x="10" y="186">  8.  2018-03-29 15:17:12 +0900     2033 bytes  lib.swgg_github_all.js</tspan>
 
@@ -27,7 +27,7 @@
 
 <tspan x="10" y="218"> 10.  2018-03-27 00:34:16 +0900     1748 bytes  package.json</tspan>
 
-<tspan x="10" y="234"> 11.  2018-03-29 15:17:12 +0900    21880 bytes  test.js</tspan>
+<tspan x="10" y="234"> 11.  2018-03-29 21:45:27 +0900    22012 bytes  test.js</tspan>
 
 </text>
 </svg>
