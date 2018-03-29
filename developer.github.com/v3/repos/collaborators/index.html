@@ -43,6 +43,8 @@
           <div id="js-version-picker" class="dropdown-menu">
             <a class="dropdown-menu-item" data-proofer-ignore>GitHub.com</a>
             
+            <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.13</a>
+            
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.12</a>
             
             <a class="dropdown-menu-item" data-proofer-ignore>Enterprise 2.11</a>
@@ -65,6 +67,28 @@
 
 
   <div class="container">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="sub-nav mt-5 mb-3">
       <h2><a href="/v3/">REST API v3</a></h2>
       <ul>
@@ -175,6 +199,9 @@
   <optgroup label="Projects">
     <option value="/v3/projects/">Projects overview</a></h3>
     <option value="/v3/projects/cards/">Cards</option>
+    
+    <option value="/v3/projects/collaborators/">Collaborators</option>
+    
     <option value="/v3/projects/columns/">Columns</option>
   </optgroup>
 
@@ -301,12 +328,12 @@
 
 </div>
 
-<pre><code>GET /repos/:owner/:repo/collaborators
-</code></pre>
-
-<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p>
+<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p>
 
 <p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p>
+
+<pre><code>GET /repos/:owner/:repo/collaborators
+</code></pre>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
@@ -386,12 +413,12 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
 
 </div>
 
-<pre><code>GET /repos/:owner/:repo/collaborators/:username
-</code></pre>
-
-<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p>
+<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p>
 
 <p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p>
+
+<pre><code>GET /repos/:owner/:repo/collaborators/:username
+</code></pre>
 
 <h3>
 <a id="response-if-user-is-a-collaborator" class="anchor" href="#response-if-user-is-a-collaborator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response if user is a collaborator</h3>
@@ -609,6 +636,9 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
   <optgroup label="Projects">
     <option value="/v3/projects/">Projects overview</a></h3>
     <option value="/v3/projects/cards/">Cards</option>
+    
+    <option value="/v3/projects/collaborators/">Collaborators</option>
+    
     <option value="/v3/projects/columns/">Columns</option>
   </optgroup>
 
@@ -805,6 +835,9 @@ Link: &lt;https://api.github.com/resource?page=2&gt;; rel="next",
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/v3/projects/">Projects</a></h3>
         <ul class="js-guides">
           <li><a href="/v3/projects/cards/">Cards</a></li>
+          
+          <li><a href="/v3/projects/collaborators/">Collaborators</a></li>
+          
           <li><a href="/v3/projects/columns/">Columns</a></li>
         </ul>
       </li>
