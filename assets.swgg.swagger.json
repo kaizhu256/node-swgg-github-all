@@ -494,11 +494,6 @@
                     ]
                 },
                 "public": {
-                    "enum": [
-                        "admin",
-                        "true",
-                        "false"
-                    ],
                     "type": "boolean",
                     "x-swgg-descriptionLineList": [
                         "Sets visibility of the project within the organization. Updating a project's visibility requires ```admin``` access to the project. Setting visibility is only available for organization projects. Can be one of:",
