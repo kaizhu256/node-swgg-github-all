@@ -24560,7 +24560,8 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                     tmp[tag.name] = local.objectSetOverride(tmp[tag.name], tag);
                 });
             });
-            tmp = Object.keys(tmp).sort().map(function (key) {
+            local.swaggerJson['x-swgg-tagNameList'] = Object.keys(tmp).sort();
+            tmp = local.swaggerJson['x-swgg-tagNameList'].map(function (key) {
                 return tmp[key];
             });
             // merge swaggerJson into local.swaggerJson
