@@ -88,6 +88,9 @@ textarea {
     text-align: center;
     text-decoration: underline;
 }
+.colorError {
+    color: #d00;
+}
 .uiAnimateShake {
     animation-duration: 500ms;
     animation-name: uiAnimateShake;
@@ -456,14 +459,11 @@ textarea {
 }
 .swggUiContainer input.hasError,
 .swggUiContainer select.hasError {
-    border: 5px solid #c00;
-}
-.swggUiContainer .errorMessage {
-    color: #c00;
+    border: 5px solid #d00;
 }
 </style>
 </head>
-<body style="background: #ddf; font-family: Arial, Helvetica, sans-serif; margin: 0 40px;">
+<body style="background: #eef; font-family: Arial, Helvetica, sans-serif; margin: 0 40px;">
 <div id="ajaxProgressDiv1" style="background: #d00; height: 2px; left: 0; margin: 0; padding: 0; position: fixed; top: 0; transition: background 500ms, width 1500ms; width: 0%; z-index: 1;"></div>
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>
 <code style="display: none;"></code><div class="button uiAnimateShake uiAnimateSlide utility2FooterDiv zeroPixel" style="display: none;"></div><pre style="display: none;"></pre><textarea readonly style="display: none;"></textarea>
@@ -539,7 +539,7 @@ textarea {
     </button>
 </h2>
 <div
-    class="errorMessage"
+    class="colorError"
     id="swggUiReloadErrorDiv1"
     style="background: none; border: 0;"
 ></div>
