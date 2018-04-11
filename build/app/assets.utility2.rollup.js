@@ -26088,13 +26088,13 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
             });
             Object.keys(pathDict).forEach(function (key) {
                 Object.keys(pathDict[key]).sort().forEach(function (path, ii) {
+                    // fix error.semanticUniquePath
                     if (ii && swaggerJson['x-swgg-fixErrorSemanticUniquePath']) {
                         swaggerJson.paths[path + '#' + ii] = swaggerJson.paths[path];
                         delete swaggerJson.paths[path];
                     }
                 });
             });
-            // auto-create operationId from path
             Object.keys(swaggerJson.paths).forEach(function (path) {
                 Object.keys(swaggerJson.paths[path]).forEach(function (method) {
                     tmp = swaggerJson.paths[path][method];

@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">[MODE_BUILD=buildApp] - 2018-04-11T01:21:50.052Z - npm-testing /home/travis/build/kaizhu256/node\</tspan>
+<tspan x="10" y="42">[MODE_BUILD=buildApp] - 2018-04-11T15:23:13.909Z - npm-testing /home/travis/build/kaizhu256/node\</tspan>
 <tspan x="10" y="58">-swgg-github-all</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -74,7 +74,7 @@
 
 <tspan x="10" y="666">  statusCode: 400 }</tspan>
 
-<tspan x="10" y="682">&gt; server listening on http-port 60824</tspan>
+<tspan x="10" y="682">&gt; server listening on http-port 34619</tspan>
 
 <tspan x="10" y="698">{ Error: error.semanticOperations3 - Operation parameters swaggerJson["paths"]["/&amp;lt;upload_url&amp;\</tspan>
 <tspan x="10" y="714">gt;/repos/{owner}/{repo}/releases/{id}/assets"]["post"]["parameters"] = [{"$ref":"#/parameters/g\</tspan>
@@ -156,7 +156,7 @@
 
 <tspan x="10" y="1402">  statusCode: 400 }</tspan>
 
-<tspan x="10" y="1418">&gt; server listening on http-port 48589</tspan>
+<tspan x="10" y="1418">&gt; server listening on http-port 35278</tspan>
 
 <tspan x="10" y="1434">[node test-case 1 of 1 passed] - testCase_buildApp_default</tspan>
 
@@ -169,23 +169,23 @@
 
 <tspan x="10" y="1514">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1530">| test-report - buildApidoc - node - linux v9.11.1 - 2018-04-11T01:20:50.323Z</tspan>
+<tspan x="10" y="1530">| test-report - buildApidoc - node - linux v9.11.1 - 2018-04-11T15:22:14.144Z</tspan>
 
-<tspan x="10" y="1546">|   67259 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="1546">|   67709 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="1562">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="1578">| test-report - npmTest - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_64) AppleW\</tspan>
 <tspan x="10" y="1594">ebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2018-04-11\</tspan>
-<tspan x="10" y="1610">T01:20:32.834Z</tspan>
+<tspan x="10" y="1610">T15:21:56.753Z</tspan>
 
-<tspan x="10" y="1626">|      33 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="1626">|      17 ms            0 failed        8 passed      |</tspan>
 
 <tspan x="10" y="1642">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1658">| test-report - npmTest - node - linux v9.11.1 - 2018-04-11T01:20:21.551Z</tspan>
+<tspan x="10" y="1658">| test-report - npmTest - node - linux v9.11.1 - 2018-04-11T15:21:46.003Z</tspan>
 
-<tspan x="10" y="1674">|   24976 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="1674">|   24563 ms            0 failed        8 passed      |</tspan>
 
 <tspan x="10" y="1690">-------------------------------------------------------</tspan>
 
@@ -204,7 +204,7 @@
 
 <tspan x="10" y="1818"></tspan>
 
-<tspan x="10" y="1834">[MODE_BUILD=buildApp] - 2018-04-11T01:22:00.051Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="1834">[MODE_BUILD=buildApp] - 2018-04-11T15:23:24.218Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

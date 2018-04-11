@@ -1,129 +1,147 @@
-<svg height="1022" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="1022" fill="#555" width="720"></rect>
+<svg height="1166" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1166" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">2018-04-11 09:18:05 +0800</tspan>
+<tspan x="10" y="26">2018-04-11 23:18:33 +0800</tspan>
 
 <tspan x="10" y="42">update.build</tspan>
 
 <tspan x="10" y="58"></tspan>
 
-<tspan x="10" y="74">2018-04-04 20:50:12 +0800</tspan>
+<tspan x="10" y="74">2018-04-11 23:14:50 +0800</tspan>
 
-<tspan x="10" y="90">update.build</tspan>
+<tspan x="10" y="90">slushy</tspan>
 
 <tspan x="10" y="106"></tspan>
 
-<tspan x="10" y="122">2018-03-31 13:58:18 +0000</tspan>
+<tspan x="10" y="122">2018-04-11 10:03:30 +0800</tspan>
 
-<tspan x="10" y="138">[ci skip] [build appSwgg]</tspan>
+<tspan x="10" y="138">update.build</tspan>
 
 <tspan x="10" y="154"></tspan>
 
-<tspan x="10" y="170">2018-03-31 21:44:24 +0800</tspan>
+<tspan x="10" y="170">2018-04-11 09:18:05 +0800</tspan>
 
-<tspan x="10" y="186">[build appSwgg]</tspan>
+<tspan x="10" y="186">update.build</tspan>
 
-<tspan x="10" y="202">2018-03-29 21:45:27 +0900</tspan>
+<tspan x="10" y="202"></tspan>
 
-<tspan x="10" y="218">update.build</tspan>
+<tspan x="10" y="218">2018-04-04 20:50:12 +0800</tspan>
 
-<tspan x="10" y="234"></tspan>
+<tspan x="10" y="234">update.build</tspan>
 
-<tspan x="10" y="250">2018-03-29 15:33:32 +0900</tspan>
+<tspan x="10" y="250"></tspan>
 
-<tspan x="10" y="266">add.subtag.collaborators</tspan>
+<tspan x="10" y="266">2018-03-31 13:58:18 +0000</tspan>
 
-<tspan x="10" y="282"></tspan>
+<tspan x="10" y="282">[ci skip] [build appSwgg]</tspan>
 
-<tspan x="10" y="298">2018-03-29 15:17:12 +0900</tspan>
+<tspan x="10" y="298"></tspan>
 
-<tspan x="10" y="314">update.build</tspan>
+<tspan x="10" y="314">2018-03-31 21:44:24 +0800</tspan>
 
-<tspan x="10" y="330"></tspan>
+<tspan x="10" y="330">[build appSwgg]</tspan>
 
-<tspan x="10" y="346">2018-03-27 00:34:16 +0900</tspan>
+<tspan x="10" y="346">2018-03-29 21:45:27 +0900</tspan>
 
-<tspan x="10" y="362">[build clean]</tspan>
+<tspan x="10" y="362">update.build</tspan>
 
 <tspan x="10" y="378"></tspan>
 
-<tspan x="10" y="394">2018-03-26 23:45:27 +0900</tspan>
+<tspan x="10" y="394">2018-03-29 15:33:32 +0900</tspan>
 
-<tspan x="10" y="410">[npm publish] - npm publish v2018.3.25</tspan>
+<tspan x="10" y="410">add.subtag.collaborators</tspan>
 
-<tspan x="10" y="426">- update shell-function shNpmScriptApidocRawFetch to use local.ajax instead of wget</tspan>
+<tspan x="10" y="426"></tspan>
 
-<tspan x="10" y="442">- fix whitespace bugs in markdown description</tspan>
+<tspan x="10" y="442">2018-03-29 15:17:12 +0900</tspan>
 
-<tspan x="10" y="458">- enable required-flag for preview headers</tspan>
+<tspan x="10" y="458">update.build</tspan>
 
-<tspan x="10" y="474">- fix ascii-diagrams in descriptions</tspan>
+<tspan x="10" y="474"></tspan>
 
-<tspan x="10" y="490"></tspan>
+<tspan x="10" y="490">2018-03-27 00:34:16 +0900</tspan>
 
-<tspan x="10" y="506">2018-02-13 09:18:57 +0700</tspan>
+<tspan x="10" y="506">[build clean]</tspan>
 
-<tspan x="10" y="522">[npm publish] - npm publish v2018.2.12</tspan>
+<tspan x="10" y="522"></tspan>
 
-<tspan x="10" y="538">- update file .apidoc.raw.html and added github-teams webapi</tspan>
+<tspan x="10" y="538">2018-03-26 23:45:27 +0900</tspan>
 
-<tspan x="10" y="554">- programmatically create general enum</tspan>
+<tspan x="10" y="554">[npm publish] - npm publish v2018.3.25</tspan>
 
-<tspan x="10" y="570">- programmatically enum custom media types</tspan>
+<tspan x="10" y="570">- update shell-function shNpmScriptApidocRawFetch to use local.ajax instead of wget</tspan>
 
-<tspan x="10" y="586">- revamp build-process with function swaggerJsonFromAjax</tspan>
+<tspan x="10" y="586">- fix whitespace bugs in markdown description</tspan>
 
-<tspan x="10" y="602"></tspan>
+<tspan x="10" y="602">- enable required-flag for preview headers</tspan>
 
-<tspan x="10" y="618">2018-02-02 12:24:25 +0700</tspan>
+<tspan x="10" y="618">- fix ascii-diagrams in descriptions</tspan>
 
-<tspan x="10" y="634">[npm publish] - npm publish 2018.2.2</tspan>
+<tspan x="10" y="634"></tspan>
 
-<tspan x="10" y="650">- fix npm test for published packaged</tspan>
+<tspan x="10" y="650">2018-02-13 09:18:57 +0700</tspan>
 
-<tspan x="10" y="666"></tspan>
+<tspan x="10" y="666">[npm publish] - npm publish v2018.2.12</tspan>
 
-<tspan x="10" y="682">2018-02-02 11:34:29 +0700</tspan>
+<tspan x="10" y="682">- update file .apidoc.raw.html and added github-teams webapi</tspan>
 
-<tspan x="10" y="698">[npm publish] - npm publish 2018.2.1</tspan>
+<tspan x="10" y="698">- programmatically create general enum</tspan>
 
-<tspan x="10" y="714">- documented all github v3 api's as of 2018.1.31</tspan>
+<tspan x="10" y="714">- programmatically enum custom media types</tspan>
 
-<tspan x="10" y="730">- directly access github-api through cors instead of proxy</tspan>
+<tspan x="10" y="730">- revamp build-process with function swaggerJsonFromAjax</tspan>
 
-<tspan x="10" y="746">- procedurally generate assets.swgg.swagger.json in function testCase_buildReadme_default</tspan>
+<tspan x="10" y="746"></tspan>
 
-<tspan x="10" y="762">- add swaggerJson property x-swgg-descriptionLineList</tspan>
+<tspan x="10" y="762">2018-02-02 12:24:25 +0700</tspan>
 
-<tspan x="10" y="778">- add file .apidoc.raw.html</tspan>
+<tspan x="10" y="778">[npm publish] - npm publish 2018.2.2</tspan>
 
-<tspan x="10" y="794">- add github-migrations-migrations web-apis</tspan>
+<tspan x="10" y="794">- fix npm test for published packaged</tspan>
 
-<tspan x="10" y="810">- add github-migrations-source-imports web-apis</tspan>
+<tspan x="10" y="810"></tspan>
 
-<tspan x="10" y="826">- enable heroku-demo</tspan>
+<tspan x="10" y="826">2018-02-02 11:34:29 +0700</tspan>
 
-<tspan x="10" y="842">- ignore env var $npm_package_swggAll and $npm_package_swggTags0 if package-name has -all sufix</tspan>
+<tspan x="10" y="842">[npm publish] - npm publish 2018.2.1</tspan>
 
-<tspan x="10" y="858"></tspan>
+<tspan x="10" y="858">- documented all github v3 api's as of 2018.1.31</tspan>
 
-<tspan x="10" y="874">2018-01-20 13:40:08 +0700</tspan>
+<tspan x="10" y="874">- directly access github-api through cors instead of proxy</tspan>
 
-<tspan x="10" y="890">[npm publish] - npm publish 2018.1.19</tspan>
+<tspan x="10" y="890">- procedurally generate assets.swgg.swagger.json in function testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="906">- add github-activity-events web-apis</tspan>
+<tspan x="10" y="906">- add swaggerJson property x-swgg-descriptionLineList</tspan>
 
-<tspan x="10" y="922">- add github-gists web-apis</tspan>
+<tspan x="10" y="922">- add file .apidoc.raw.html</tspan>
 
-<tspan x="10" y="938">- add github-gists-comments web-apis</tspan>
+<tspan x="10" y="938">- add github-migrations-migrations web-apis</tspan>
 
-<tspan x="10" y="954">- add github-repositories-contents web-apis</tspan>
+<tspan x="10" y="954">- add github-migrations-source-imports web-apis</tspan>
 
-<tspan x="10" y="970"></tspan>
+<tspan x="10" y="970">- enable heroku-demo</tspan>
 
-<tspan x="10" y="986">2014-03-26 02:31:50 +0700</tspan>
+<tspan x="10" y="986">- ignore env var $npm_package_swggAll and $npm_package_swggTags0 if package-name has -all sufix</tspan>
 
-<tspan x="10" y="1002">add blank README.md</tspan>
+<tspan x="10" y="1002"></tspan>
+
+<tspan x="10" y="1018">2018-01-20 13:40:08 +0700</tspan>
+
+<tspan x="10" y="1034">[npm publish] - npm publish 2018.1.19</tspan>
+
+<tspan x="10" y="1050">- add github-activity-events web-apis</tspan>
+
+<tspan x="10" y="1066">- add github-gists web-apis</tspan>
+
+<tspan x="10" y="1082">- add github-gists-comments web-apis</tspan>
+
+<tspan x="10" y="1098">- add github-repositories-contents web-apis</tspan>
+
+<tspan x="10" y="1114"></tspan>
+
+<tspan x="10" y="1130">2014-03-26 02:31:50 +0700</tspan>
+
+<tspan x="10" y="1146">add blank README.md</tspan>
 
 </text>
 </svg>

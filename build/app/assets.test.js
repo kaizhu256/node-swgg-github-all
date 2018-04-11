@@ -431,6 +431,20 @@ swaggerJson =
                     });
                 });
             });
+            Object.keys(swaggerJson.paths).forEach(function (path) {
+                Object.keys(swaggerJson.paths[path]).forEach(function (method, operation) {
+                    // normalize parameters
+                    tmp = {};
+                    operation = swaggerJson.paths[path][method];
+                    operation.parameters = operation.parameters.filter(function (schemaP) {
+                        if (!schemaP.$ref && tmp[schemaP.name + ' ' + schemaP.in]) {
+                            return;
+                        }
+                        tmp[schemaP.name + ' ' + schemaP.in] = true;
+                        return true;
+                    });
+                });
+            });
             // init tags
             swaggerJson.tags = Object.keys(swaggerJson['x-swgg-tags0-override'])
                 .sort(function (aa, bb) {
