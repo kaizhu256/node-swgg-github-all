@@ -131,7 +131,7 @@
 swaggerJson =
 {
     "basePath": "/",
-    //!! "definitions": {},
+    "definitions": {},
     "info": {
         "title": "",
         "version": ""
@@ -329,8 +329,6 @@ swaggerJson =
                         "$ref": "#/parameters/github-all.user-agent"
                     }, schemaPMediaType].concat(operation.parameters);
                     operation['x-swgg-sortValue'] = operation['x-swgg-descriptionLineList'][0];
-                    /* jslint-ignore-next-line */
-                    return;
                     // init definition
                     definition = swaggerJson.definitions[operation.operationId + '.body'];
                     textOperation.split('\n</table>\n')[0].replace(new RegExp('<tr>\\n' +
@@ -433,6 +431,20 @@ swaggerJson =
                     });
                 });
             });
+            Object.keys(swaggerJson.paths).forEach(function (path) {
+                Object.keys(swaggerJson.paths[path]).forEach(function (method, operation) {
+                    // normalize parameters
+                    tmp = {};
+                    operation = swaggerJson.paths[path][method];
+                    operation.parameters = operation.parameters.filter(function (schemaP) {
+                        if (!schemaP.$ref && tmp[schemaP.name + ' ' + schemaP.in]) {
+                            return;
+                        }
+                        tmp[schemaP.name + ' ' + schemaP.in] = true;
+                        return true;
+                    });
+                });
+            });
             // init tags
             swaggerJson.tags = Object.keys(swaggerJson['x-swgg-tags0-override'])
                 .sort(function (aa, bb) {
@@ -464,27 +476,13 @@ swaggerJson =
                         'x-swgg-descriptionLineList': tagDict['x-swgg-descriptionLineList']
                     };
                 });
-            //!! // bug-workaround - misc
-            //!! [
-                //!! '_2Forgs_2F_7Borg_7D_2Fhooks_2F_7Bid_7D_20PATCH.body',
-                //!! '_2Forgs_2F_7Borg_7D_2Finvitations_20POST.body',
-                //!! '_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fhooks_2F_7Bid_7D_20PATCH.body'
-            //!! ].forEach(function (key) {
-                //!! swaggerJson.definitions[key].required = undefined;
-            //!! });
-            Object.keys(swaggerJson.paths).forEach(function (path) {
-                Object.keys(swaggerJson.paths[path]).forEach(function (method, operation) {
-                    // normalize parameters
-                    tmp = {};
-                    operation = swaggerJson.paths[path][method];
-                    operation.parameters = operation.parameters.filter(function (schemaP) {
-                        if (!schemaP.$ref && tmp[schemaP.name + ' ' + schemaP.in]) {
-                            return;
-                        }
-                        tmp[schemaP.name + ' ' + schemaP.in] = true;
-                        return true;
-                    });
-                });
+            // bug-workaround - misc
+            [
+                '_2Forgs_2F_7Borg_7D_2Fhooks_2F_7Bid_7D_20PATCH.body',
+                '_2Forgs_2F_7Borg_7D_2Finvitations_20POST.body',
+                '_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fhooks_2F_7Bid_7D_20PATCH.body'
+            ].forEach(function (key) {
+                swaggerJson.definitions[key].required = undefined;
             });
             // normalize swaggerJson
             local.normalizeSwaggerJson(swaggerJson);
