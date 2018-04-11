@@ -1,0 +1,190 @@
+<svg height="1726" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1726" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26"></tspan>
+
+<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-03-29T06:48:17.991Z - npm-testing /home/travis/build/kaizhu256/n\</tspan>
+<tspan x="10" y="58">ode-swgg-github-all</tspan>
+
+<tspan x="10" y="74"></tspan>
+
+<tspan x="10" y="90"></tspan>
+
+<tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-swgg-github-all/tmp\</tspan>
+<tspan x="10" y="122">/build/test-report.json</tspan>
+
+<tspan x="10" y="138">override assets assets.swgg.swagger.json</tspan>
+
+<tspan x="10" y="154">{ Error: error.itemType - value schema&lt;{"$ref":"#/definitions/_2Fprojects_2F_7Bproject_id_7D_20P\</tspan>
+<tspan x="10" y="170">ATCH.body"}&gt;["public"] = "admin" is not a valid boolean</tspan>
+
+<tspan x="10" y="186">    at Object.local.throwSwaggerError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.\</tspan>
+<tspan x="10" y="202">utility2.rollup.js:26352:21)</tspan>
+
+<tspan x="10" y="218">    at Object.local.validateBySwaggerSchema (/home/travis/build/kaizhu256/node-swgg-github-all/a\</tspan>
+<tspan x="10" y="234">ssets.utility2.rollup.js:27320:19)</tspan>
+
+<tspan x="10" y="250">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:27475:31</tspan>
+
+<tspan x="10" y="266">    at Array.forEach (native)</tspan>
+
+<tspan x="10" y="282">    at Object.local.validateBySwaggerSchema (/home/travis/build/kaizhu256/node-swgg-github-all/a\</tspan>
+<tspan x="10" y="298">ssets.utility2.rollup.js:27470:35)</tspan>
+
+<tspan x="10" y="314">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:24976:23</tspan>
+
+<tspan x="10" y="330">    at Object.local.tryCatchOnError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
+<tspan x="10" y="346">ility2.rollup.js:22045:26)</tspan>
+
+<tspan x="10" y="362">    at Object.local.dbRowRandomCreate (/home/travis/build/kaizhu256/node-swgg-github-all/assets.\</tspan>
+<tspan x="10" y="378">utility2.rollup.js:24975:19)</tspan>
+
+<tspan x="10" y="394">    at Object.local.dbFieldRandomCreate (/home/travis/build/kaizhu256/node-swgg-github-all/asset\</tspan>
+<tspan x="10" y="410">s.utility2.rollup.js:24918:31)</tspan>
+
+<tspan x="10" y="426">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:25780:33</tspan>
+
+<tspan x="10" y="442">  messageShort: 'value undefined is not a valid boolean',</tspan>
+
+<tspan x="10" y="458">  options: </tspan>
+
+<tspan x="10" y="474">   { data: 'admin',</tspan>
+
+<tspan x="10" y="490">     errorType: 'itemType',</tspan>
+
+<tspan x="10" y="506">     prefix: </tspan>
+
+<tspan x="10" y="522">      [ 'schema&lt;{"$ref":"#/definitions/_2Fprojects_2F_7Bproject_id_7D_20PATCH.body"}&gt;',</tspan>
+
+<tspan x="10" y="538">        'public' ],</tspan>
+
+<tspan x="10" y="554">     schema: </tspan>
+
+<tspan x="10" y="570">      { enum: [Object],</tspan>
+
+<tspan x="10" y="586">        type: 'boolean',</tspan>
+
+<tspan x="10" y="602">        'x-swgg-descriptionLineList': [Object],</tspan>
+
+<tspan x="10" y="618">        description: 'Sets visibility of the project within the organization. Updating a project\</tspan>
+<tspan x="10" y="634">\'s visibility requires ```admin``` access to the project. Setting visibility is only available \</tspan>
+<tspan x="10" y="650">for organization projects. Can be one of:\n* ```true``` - Anyone that can view the organization \</tspan>
+<tspan x="10" y="666">can see the project.\n* ```false``` - The project must be an organization project to set project\</tspan>
+<tspan x="10" y="682"> visibility.' },</tspan>
+
+<tspan x="10" y="698">     typeof: 'string',</tspan>
+
+<tspan x="10" y="714">     prefix0: 'schema&lt;{"$ref":"#/definitions/_2Fprojects_2F_7Bproject_id_7D_20PATCH.body"}&gt;["pub\</tspan>
+<tspan x="10" y="730">lic"] = "admin"',</tspan>
+
+<tspan x="10" y="746">     prefix2: 'undefined',</tspan>
+
+<tspan x="10" y="762">     schema2: '{"enum":["admin","true","false"],"type":"boolean","x-swgg-descriptionLineList":["\</tspan>
+<tspan x="10" y="778">Sets visibility of the project within the organization. Updating a project\'s visibility require\</tspan>
+<tspan x="10" y="794">s ```admin``` access to the project. Setting visibility is only available for organization proje\</tspan>
+<tspan x="10" y="810">cts. Can be one of:","* ```true``` - Anyone that can view the organization can see the project."\</tspan>
+<tspan x="10" y="826">,"* ```false``` - The project must be an organization project to set project visibility."],"desc\</tspan>
+<tspan x="10" y="842">ription":"Sets visibility of the...',</tspan>
+
+<tspan x="10" y="858">     type2: 'boolean' },</tspan>
+
+<tspan x="10" y="874">  statusCode: 400 }</tspan>
+
+<tspan x="10" y="890">&gt; server listening on http-port 39348</tspan>
+
+<tspan x="10" y="906">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package.json</tspan>
+
+<tspan x="10" y="922">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.apidoc.raw.html</tspan>
+
+<tspan x="10" y="938">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/assets.swgg.swagger\</tspan>
+<tspan x="10" y="954">.json</tspan>
+
+<tspan x="10" y="970">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.gitignore</tspan>
+
+<tspan x="10" y="986">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/lib.swgg_github_all\</tspan>
+<tspan x="10" y="1002">.js</tspan>
+
+<tspan x="10" y="1018">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/LICENSE</tspan>
+
+<tspan x="10" y="1034">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/npm_scripts.sh</tspan>
+
+<tspan x="10" y="1050">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package.json</tspan>
+
+<tspan x="10" y="1066">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/README.md</tspan>
+
+<tspan x="10" y="1082">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/test.js</tspan>
+
+<tspan x="10" y="1098">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.travis.yml</tspan>
+
+<tspan x="10" y="1114">apidocCreate - requiring /home/travis/build/kaizhu256/node-swgg-github-all ...</tspan>
+
+<tspan x="10" y="1130">apidocCreate - ... required /home/travis/build/kaizhu256/node-swgg-github-all</tspan>
+
+<tspan x="10" y="1146">created apidoc file /home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/apidoc.html</tspan>
+
+<tspan x="10" y="1162"></tspan>
+
+<tspan x="10" y="1178">[node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+
+<tspan x="10" y="1194"></tspan>
+
+<tspan x="10" y="1210">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-swgg-github-all/tmp\</tspan>
+<tspan x="10" y="1226">/build/test-report.json</tspan>
+
+<tspan x="10" y="1242"></tspan>
+
+<tspan x="10" y="1258">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1274">| test-report - buildApidoc - node - linux v6.14.0 - 2018-03-29T06:48:18.220Z</tspan>
+
+<tspan x="10" y="1290">|    4517 ms            0 failed        1 passed      |</tspan>
+
+<tspan x="10" y="1306">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1322">| test-report - npmTest - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_64) AppleW\</tspan>
+<tspan x="10" y="1338">ebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2018-03-29\</tspan>
+<tspan x="10" y="1354">T06:48:00.611Z</tspan>
+
+<tspan x="10" y="1370">|      21 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="1386">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1402">| test-report - npmTest - node - linux v6.14.0 - 2018-03-29T06:47:49.331Z</tspan>
+
+<tspan x="10" y="1418">|   25023 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="1434">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1450">| test-report - npmTestPublished - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_6\</tspan>
+<tspan x="10" y="1466">4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2\</tspan>
+<tspan x="10" y="1482">018-03-29T06:46:28.001Z</tspan>
+
+<tspan x="10" y="1498">|      13 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="1514">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1530">| test-report - npmTestPublished - node - linux v6.14.0 - 2018-03-29T06:46:21.095Z</tspan>
+
+<tspan x="10" y="1546">|   20583 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="1562">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1578"></tspan>
+
+<tspan x="10" y="1594">created test-report file /home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/test-report\</tspan>
+<tspan x="10" y="1610">.html</tspan>
+
+<tspan x="10" y="1626"></tspan>
+
+<tspan x="10" y="1642"></tspan>
+
+<tspan x="10" y="1658">buildApidoc - 0 failed tests</tspan>
+
+<tspan x="10" y="1674"></tspan>
+
+<tspan x="10" y="1690"></tspan>
+
+<tspan x="10" y="1706">[MODE_BUILD=buildApidoc] - 2018-03-29T06:48:25.177Z - EXIT_CODE - 0</tspan>
+
+</text>
+</svg>
