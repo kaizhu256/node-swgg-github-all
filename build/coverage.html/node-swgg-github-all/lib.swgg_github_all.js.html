@@ -252,10 +252,10 @@
     </thead>
     <tbody>
         <td>branches: 2</td>
-        <td>100%<br>(21 / 21)</td>
-        <td>100%<br>(23 / 23)</td>
-        <td>100%<br>(4 / 4)</td>
-        <td>100%<br>(21 / 21)</td>
+        <td>100%<br>(50 / 50)</td>
+        <td>100%<br>(19 / 19)</td>
+        <td>100%<br>(3 / 3)</td>
+        <td>100%<br>(50 / 50)</td>
     </tbody>
     </table>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">node-swgg-github-all/</a> &#187; lib.swgg_github_all.js</div>
@@ -329,7 +329,36 @@
 65
 66
 67
-68</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -383,10 +412,39 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">85</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -450,11 +508,40 @@
             local.global.utility2_swgg_github_all = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] &amp;&amp; !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -467,7 +554,7 @@
 </table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 04 2018 12:54:06 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 11 2018 01:20:48 GMT+0000 (UTC)</div>
 </div>
 </body>
 </html>

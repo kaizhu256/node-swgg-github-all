@@ -1,9 +1,9 @@
-<svg height="2238" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="2238" fill="#555" width="720"></rect>
+<svg height="2126" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="2126" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-04-04T12:54:08.412Z - npm-testing /home/travis/build/kaizhu256/n\</tspan>
+<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-04-11T01:20:50.125Z - npm-testing /home/travis/build/kaizhu256/n\</tspan>
 <tspan x="10" y="58">ode-swgg-github-all</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -20,27 +20,27 @@
 <tspan x="10" y="186">v3/#authentication\n\nOAuth2 t... must have unique 'name' + 'in' properties</tspan>
 
 <tspan x="10" y="202">    at Object.local.throwSwaggerError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.\</tspan>
-<tspan x="10" y="218">utility2.rollup.js:27220:21)</tspan>
+<tspan x="10" y="218">utility2.rollup.js:27527:21)</tspan>
 
-<tspan x="10" y="234">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26443:31</tspan>
+<tspan x="10" y="234">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26735:31</tspan>
 
-<tspan x="10" y="250">    at Array.forEach (native)</tspan>
+<tspan x="10" y="250">    at Array.forEach (&lt;anonymous&gt;)</tspan>
 
-<tspan x="10" y="266">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26432:50</tspan>
+<tspan x="10" y="266">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26724:50</tspan>
 
-<tspan x="10" y="282">    at Array.forEach (native)</tspan>
+<tspan x="10" y="282">    at Array.forEach (&lt;anonymous&gt;)</tspan>
 
-<tspan x="10" y="298">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26409:54</tspan>
+<tspan x="10" y="298">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26701:54</tspan>
 
-<tspan x="10" y="314">    at Array.forEach (native)</tspan>
+<tspan x="10" y="314">    at Array.forEach (&lt;anonymous&gt;)</tspan>
 
 <tspan x="10" y="330">    at Object.local.swaggerValidate (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
-<tspan x="10" y="346">ility2.rollup.js:26408:44)</tspan>
+<tspan x="10" y="346">ility2.rollup.js:26700:44)</tspan>
 
-<tspan x="10" y="362">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:24906:23</tspan>
+<tspan x="10" y="362">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:25198:23</tspan>
 
 <tspan x="10" y="378">    at Object.local.tryCatchOnError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
-<tspan x="10" y="394">ility2.rollup.js:22071:26)</tspan>
+<tspan x="10" y="394">ility2.rollup.js:22334:26)</tspan>
 
 <tspan x="10" y="410">  messageShort: 'Operation parameters /user/installations["get"]["parameters"] must have unique \</tspan>
 <tspan x="10" y="426">\'name\' + \'in\' properties',</tspan>
@@ -74,7 +74,7 @@
 
 <tspan x="10" y="666">  statusCode: 400 }</tspan>
 
-<tspan x="10" y="682">&gt; server listening on http-port 37602</tspan>
+<tspan x="10" y="682">&gt; server listening on http-port 48776</tspan>
 
 <tspan x="10" y="698">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package.json</tspan>
 
@@ -94,60 +94,60 @@
 
 <tspan x="10" y="842">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package.json</tspan>
 
-<tspan x="10" y="858">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/README.md</tspan>
+<tspan x="10" y="858">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package-lock.json</tspan>
 
-<tspan x="10" y="874">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/test.js</tspan>
+<tspan x="10" y="874">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/README.md</tspan>
 
-<tspan x="10" y="890">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.travis.yml</tspan>
+<tspan x="10" y="890">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/test.js</tspan>
 
-<tspan x="10" y="906">apidocCreate - requiring /home/travis/build/kaizhu256/node-swgg-github-all ...</tspan>
+<tspan x="10" y="906">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.travis.yml</tspan>
 
-<tspan x="10" y="922">apidocCreate - ... required /home/travis/build/kaizhu256/node-swgg-github-all</tspan>
+<tspan x="10" y="922">apidocCreate - requiring /home/travis/build/kaizhu256/node-swgg-github-all ...</tspan>
 
-<tspan x="10" y="938">created apidoc file /home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/apidoc.html</tspan>
+<tspan x="10" y="938">apidocCreate - ... required /home/travis/build/kaizhu256/node-swgg-github-all</tspan>
 
-<tspan x="10" y="954"></tspan>
+<tspan x="10" y="954">created apidoc file /home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/apidoc.html</tspan>
 
-<tspan x="10" y="970">[node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="970"></tspan>
 
-<tspan x="10" y="986">{ Error: error.semanticOperations3 - Operation parameters swaggerJson["paths"]["/&amp;lt;upload_url&amp;\</tspan>
-<tspan x="10" y="1002">gt;/repos/{owner}/{repo}/releases/{id}/assets"]["post"]["parameters"] = [{"$ref":"#/parameters/g\</tspan>
-<tspan x="10" y="1018">ithub-all.key"},{"$ref":"#/parameters/github-all.user-agent"},{"collectio... must have unique 'n\</tspan>
-<tspan x="10" y="1034">ame' + 'in' properties</tspan>
+<tspan x="10" y="986">[node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="1050">    at Object.local.throwSwaggerError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.\</tspan>
-<tspan x="10" y="1066">utility2.rollup.js:27220:21)</tspan>
+<tspan x="10" y="1002">{ Error: error.semanticOperations3 - Operation parameters swaggerJson["paths"]["/&amp;lt;upload_url&amp;\</tspan>
+<tspan x="10" y="1018">gt;/repos/{owner}/{repo}/releases/{id}/assets"]["post"]["parameters"] = [{"$ref":"#/parameters/g\</tspan>
+<tspan x="10" y="1034">ithub-all.key"},{"$ref":"#/parameters/github-all.user-agent"},{"collectio... must have unique 'n\</tspan>
+<tspan x="10" y="1050">ame' + 'in' properties</tspan>
 
-<tspan x="10" y="1082">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26443:31</tspan>
+<tspan x="10" y="1066">    at Object.local.throwSwaggerError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.\</tspan>
+<tspan x="10" y="1082">utility2.rollup.js:27527:21)</tspan>
 
-<tspan x="10" y="1098">    at Array.forEach (native)</tspan>
+<tspan x="10" y="1098">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26735:31</tspan>
 
-<tspan x="10" y="1114">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26432:50</tspan>
+<tspan x="10" y="1114">    at Array.forEach (&lt;anonymous&gt;)</tspan>
 
-<tspan x="10" y="1130">    at Array.forEach (native)</tspan>
+<tspan x="10" y="1130">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26724:50</tspan>
 
-<tspan x="10" y="1146">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26409:54</tspan>
+<tspan x="10" y="1146">    at Array.forEach (&lt;anonymous&gt;)</tspan>
 
-<tspan x="10" y="1162">    at Array.forEach (native)</tspan>
+<tspan x="10" y="1162">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:26701:54</tspan>
 
-<tspan x="10" y="1178">    at Object.local.swaggerValidate (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
-<tspan x="10" y="1194">ility2.rollup.js:26408:44)</tspan>
+<tspan x="10" y="1178">    at Array.forEach (&lt;anonymous&gt;)</tspan>
 
-<tspan x="10" y="1210">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:20613:40</tspan>
+<tspan x="10" y="1194">    at Object.local.swaggerValidate (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
+<tspan x="10" y="1210">ility2.rollup.js:26700:44)</tspan>
 
-<tspan x="10" y="1226">    at Object.local.tryCatchOnError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
-<tspan x="10" y="1242">ility2.rollup.js:22071:26)</tspan>
+<tspan x="10" y="1226">    at /home/travis/build/kaizhu256/node-swgg-github-all/assets.utility2.rollup.js:20876:40</tspan>
 
-<tspan x="10" y="1258">  messageShort: 'Operation parameters /&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/ass\</tspan>
-<tspan x="10" y="1274">ets["post"]["parameters"] must have unique \'name\' + \'in\' properties',</tspan>
+<tspan x="10" y="1242">    at Object.local.tryCatchOnError (/home/travis/build/kaizhu256/node-swgg-github-all/assets.ut\</tspan>
+<tspan x="10" y="1258">ility2.rollup.js:22334:26)</tspan>
 
-<tspan x="10" y="1290">  options: </tspan>
+<tspan x="10" y="1274">  messageShort: 'Operation parameters /&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/ass\</tspan>
+<tspan x="10" y="1290">ets["post"]["parameters"] must have unique \'name\' + \'in\' properties',</tspan>
 
-<tspan x="10" y="1306">   { data: </tspan>
+<tspan x="10" y="1306">  options: </tspan>
 
-<tspan x="10" y="1322">      [ [Object],</tspan>
+<tspan x="10" y="1322">   { data: </tspan>
 
-<tspan x="10" y="1338">        [Object],</tspan>
+<tspan x="10" y="1338">      [ [Object],</tspan>
 
 <tspan x="10" y="1354">        [Object],</tspan>
 
@@ -161,94 +161,82 @@
 
 <tspan x="10" y="1434">        [Object],</tspan>
 
-<tspan x="10" y="1450">        [Object] ],</tspan>
+<tspan x="10" y="1450">        [Object],</tspan>
 
-<tspan x="10" y="1466">     errorType: 'semanticOperations3',</tspan>
+<tspan x="10" y="1466">        [Object] ],</tspan>
 
-<tspan x="10" y="1482">     prefix: </tspan>
+<tspan x="10" y="1482">     errorType: 'semanticOperations3',</tspan>
 
-<tspan x="10" y="1498">      [ 'swaggerJson',</tspan>
+<tspan x="10" y="1498">     prefix: </tspan>
 
-<tspan x="10" y="1514">        'paths',</tspan>
+<tspan x="10" y="1514">      [ 'swaggerJson',</tspan>
 
-<tspan x="10" y="1530">        '/&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/assets',</tspan>
+<tspan x="10" y="1530">        'paths',</tspan>
 
-<tspan x="10" y="1546">        'post',</tspan>
+<tspan x="10" y="1546">        '/&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/assets',</tspan>
 
-<tspan x="10" y="1562">        'parameters' ],</tspan>
+<tspan x="10" y="1562">        'post',</tspan>
 
-<tspan x="10" y="1578">     prefix0: 'swaggerJson["paths"]["/&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/asse\</tspan>
-<tspan x="10" y="1594">ts"]["post"]["parameters"] = [{"$ref":"#/parameters/github-all.key"},{"$ref":"#/parameters/githu\</tspan>
-<tspan x="10" y="1610">b-all.user-agent"},{"collectio...',</tspan>
+<tspan x="10" y="1578">        'parameters' ],</tspan>
 
-<tspan x="10" y="1626">     prefix2: '/&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/assets["post"]["parameters\</tspan>
-<tspan x="10" y="1642">"]',</tspan>
+<tspan x="10" y="1594">     prefix0: 'swaggerJson["paths"]["/&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/asse\</tspan>
+<tspan x="10" y="1610">ts"]["post"]["parameters"] = [{"$ref":"#/parameters/github-all.key"},{"$ref":"#/parameters/githu\</tspan>
+<tspan x="10" y="1626">b-all.user-agent"},{"collectio...',</tspan>
 
-<tspan x="10" y="1658">     schema2: 'undefined',</tspan>
+<tspan x="10" y="1642">     prefix2: '/&amp;lt;upload_url&amp;gt;/repos/{owner}/{repo}/releases/{id}/assets["post"]["parameters\</tspan>
+<tspan x="10" y="1658">"]',</tspan>
 
-<tspan x="10" y="1674">     type2: 'object' },</tspan>
+<tspan x="10" y="1674">     schema2: 'undefined',</tspan>
 
-<tspan x="10" y="1690">  statusCode: 400 }</tspan>
+<tspan x="10" y="1690">     type2: 'object' },</tspan>
 
-<tspan x="10" y="1706"></tspan>
+<tspan x="10" y="1706">  statusCode: 400 }</tspan>
 
-<tspan x="10" y="1722">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-swgg-github-all/tmp\</tspan>
-<tspan x="10" y="1738">/build/test-report.json</tspan>
+<tspan x="10" y="1722"></tspan>
 
-<tspan x="10" y="1754"></tspan>
+<tspan x="10" y="1738">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-swgg-github-all/tmp\</tspan>
+<tspan x="10" y="1754">/build/test-report.json</tspan>
 
-<tspan x="10" y="1770">-------------------------------------------------------</tspan>
+<tspan x="10" y="1770"></tspan>
 
-<tspan x="10" y="1786">| test-report - buildApidoc - node - linux v6.14.1 - 2018-04-04T12:54:08.665Z</tspan>
+<tspan x="10" y="1786">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1802">|    4878 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="1802">| test-report - buildApidoc - node - linux v9.11.1 - 2018-04-11T01:20:50.323Z</tspan>
 
-<tspan x="10" y="1818">-------------------------------------------------------</tspan>
+<tspan x="10" y="1818">|    4730 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="1834">| test-report - npmTest - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_64) AppleW\</tspan>
-<tspan x="10" y="1850">ebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2018-04-04\</tspan>
-<tspan x="10" y="1866">T12:53:50.912Z</tspan>
+<tspan x="10" y="1834">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1882">|      18 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="1850">| test-report - npmTest - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_64) AppleW\</tspan>
+<tspan x="10" y="1866">ebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2018-04-11\</tspan>
+<tspan x="10" y="1882">T01:20:32.834Z</tspan>
 
-<tspan x="10" y="1898">-------------------------------------------------------</tspan>
+<tspan x="10" y="1898">|      33 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="1914">| test-report - npmTest - node - linux v6.14.1 - 2018-04-04T12:53:38.732Z</tspan>
+<tspan x="10" y="1914">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1930">|   25576 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="1930">| test-report - npmTest - node - linux v9.11.1 - 2018-04-11T01:20:21.551Z</tspan>
 
-<tspan x="10" y="1946">-------------------------------------------------------</tspan>
+<tspan x="10" y="1946">|   24976 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="1962">| test-report - npmTestPublished - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_6\</tspan>
-<tspan x="10" y="1978">4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2\</tspan>
-<tspan x="10" y="1994">018-04-04T12:52:26.221Z</tspan>
+<tspan x="10" y="1962">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2010">|      67 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="1978"></tspan>
 
-<tspan x="10" y="2026">-------------------------------------------------------</tspan>
+<tspan x="10" y="1994">created test-report file /home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/test-report\</tspan>
+<tspan x="10" y="2010">.html</tspan>
 
-<tspan x="10" y="2042">| test-report - npmTestPublished - node - linux v6.14.1 - 2018-04-04T12:52:18.273Z</tspan>
+<tspan x="10" y="2026"></tspan>
 
-<tspan x="10" y="2058">|   21415 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="2042"></tspan>
 
-<tspan x="10" y="2074">-------------------------------------------------------</tspan>
+<tspan x="10" y="2058">buildApidoc - 0 failed tests</tspan>
+
+<tspan x="10" y="2074"></tspan>
 
 <tspan x="10" y="2090"></tspan>
 
-<tspan x="10" y="2106">created test-report file /home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/test-report\</tspan>
-<tspan x="10" y="2122">.html</tspan>
-
-<tspan x="10" y="2138"></tspan>
-
-<tspan x="10" y="2154"></tspan>
-
-<tspan x="10" y="2170">buildApidoc - 0 failed tests</tspan>
-
-<tspan x="10" y="2186"></tspan>
-
-<tspan x="10" y="2202"></tspan>
-
-<tspan x="10" y="2218">[MODE_BUILD=buildApidoc] - 2018-04-04T12:54:16.202Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="2106">[MODE_BUILD=buildApidoc] - 2018-04-11T01:20:57.545Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
