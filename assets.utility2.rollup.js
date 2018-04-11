@@ -26630,42 +26630,6 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
             return { $ref: '#/definitions/' + prefix };
         };
 
-        local.swaggerJsonFromPostBody2 = function (options) {
-        /*
-         * this function will update swaggerJson
-         * with definitions created from the post-body-data
-         */
-            var definition, isArray, schemaP, type, value;
-            definition = { properties: {} };
-            Object.keys(options.data).forEach(function (key) {
-                value = options.data[key];
-                isArray = Array.isArray(value);
-                if (isArray) {
-                    value = value[0];
-                }
-                type = local.isNullOrUndefined(value)
-                    ? 'string'
-                    : typeof value;
-                schemaP = definition.properties[key] = isArray
-                    ? { default: options.data[key], items: { type: type }, type: 'array' }
-                    : { default: value, type: type };
-                if (!(type === 'object' && options.depth > 1)) {
-                    return;
-                }
-                // recurse
-                type = local.swaggerJsonFromPostBody2({
-                    data: value,
-                    depth: options.depth - 1
-                });
-                if (isArray) {
-                    schemaP.items = type;
-                } else {
-                    definition.properties[key] = type;
-                }
-            });
-            return type;
-        };
-
         local.swaggerValidate = function (swaggerJson) {
         /*
          * this function will validate the json-object swaggerJson
