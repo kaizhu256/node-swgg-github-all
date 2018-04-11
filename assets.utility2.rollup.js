@@ -98,11 +98,40 @@
             local.global.utility2_apidoc = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -846,7 +875,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             );
             // init circularList - builtin
             Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!(/\/|^_linklist$|^sys$/).test(key)) {
+                if (!(/\/|\d|^_linklist$|^config$|^sys$/).test(key)) {
                     options.circularList.push(require(key));
                 }
             });
@@ -1173,11 +1202,40 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             local.global.utility2_db = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -3211,11 +3269,40 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             local.global.utility2_github_crud = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -3623,13 +3710,13 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                         return;
                     }
                     // delete tree
-                    local.onParallelList({ list: data }, function (data, onParallel) {
+                    local.onParallelList({ list: data }, function (options2, onParallel) {
                         onParallel.counter += 1;
                         // recurse
                         local.contentDelete({
                             message: options.message,
                             request: options.request,
-                            url: data.element.url
+                            url: options2.element.url
                         }, onParallel);
                     }, options.onNext);
                     break;
@@ -3879,13 +3966,13 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
          * this function will touch options.urlList in parallel
          * https://developer.github.com/v3/repos/contents/#update-a-file
          */
-            local.onParallelList({ list: options.urlList }, function (data, onParallel) {
+            local.onParallelList({ list: options.urlList }, function (options2, onParallel) {
                 onParallel.counter += 1;
                 local.contentTouch({
                     message: options.message,
                     modeErrorIgnore: true,
                     request: options.request,
-                    url: data.element
+                    url: options2.element
                 }, onParallel);
             }, onError);
         };
@@ -4036,11 +4123,40 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             local.global.utility2_istanbul = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -6811,11 +6927,40 @@ local.templateCoverageBadgeSvg =
             local.global.utility2_jslint = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -13470,7 +13615,7 @@ local.CSSLint = CSSLint; local.JSLINT = JSLINT, local.jslintEs6 = jslint; }());
                 current = line.trim();
                 ii += 1;
                 // validate tag.classList sorted
-                tmp = (/class="([^"]+?)"/g).exec(current);
+                tmp = (/class=\\?"([^"]+?)\\?"/g).exec(current);
                 tmp = JSON.stringify(
                     (tmp && tmp[1].match(/\w\S*?\{\{[^}]*?\}\}|\w\S*|\{\{[^}]*?\}\}/g)) || []
                 );
@@ -13514,7 +13659,7 @@ local.CSSLint = CSSLint; local.JSLINT = JSLINT, local.jslintEs6 = jslint; }());
             previous = '';
             script.replace((/^.*?$/gm), function (line) {
                 ii += 1;
-                if (!(/^sh\w+?\(\) \{/).test(line)) {
+                if (!(/^sh\w+? \(\) \{/).test(line)) {
                     return;
                 }
                 // validate previous < line
@@ -14316,11 +14461,40 @@ s=0;s<i;s++)n[r+s]=e[t+s]|0},sjcl.misc.scrypt.blockxor=function(e,t,n,r,i){var s
             local.global.utility2_uglifyjs = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -15154,11 +15328,40 @@ split_lines=split_lines,exports.MAP=MAP,exports.ast_squeeze_more=require("./sque
             local.global.utility2_utility2 = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -15616,11 +15819,40 @@ instruction\n\
         // init exports\n\
         module.exports = local;\n\
         // require builtins\n\
-        Object.keys(process.binding(\'natives\')).forEach(function (key) {\n\
-            if (!local[key] && !(/\\/|^_|^assert|^sys$/).test(key)) {\n\
-                local[key] = require(key);\n\
-            }\n\
-        });\n\
+        // local.assert = require(\'assert\');\n\
+        local.buffer = require(\'buffer\');\n\
+        local.child_process = require(\'child_process\');\n\
+        local.cluster = require(\'cluster\');\n\
+        local.console = require(\'console\');\n\
+        local.constants = require(\'constants\');\n\
+        local.crypto = require(\'crypto\');\n\
+        local.dgram = require(\'dgram\');\n\
+        local.dns = require(\'dns\');\n\
+        local.domain = require(\'domain\');\n\
+        local.events = require(\'events\');\n\
+        local.fs = require(\'fs\');\n\
+        local.http = require(\'http\');\n\
+        local.https = require(\'https\');\n\
+        local.module = require(\'module\');\n\
+        local.net = require(\'net\');\n\
+        local.os = require(\'os\');\n\
+        local.path = require(\'path\');\n\
+        local.process = require(\'process\');\n\
+        local.punycode = require(\'punycode\');\n\
+        local.querystring = require(\'querystring\');\n\
+        local.readline = require(\'readline\');\n\
+        local.repl = require(\'repl\');\n\
+        local.stream = require(\'stream\');\n\
+        local.string_decoder = require(\'string_decoder\');\n\
+        local.timers = require(\'timers\');\n\
+        local.tls = require(\'tls\');\n\
+        local.tty = require(\'tty\');\n\
+        local.url = require(\'url\');\n\
+        local.util = require(\'util\');\n\
+        local.v8 = require(\'v8\');\n\
+        local.vm = require(\'vm\');\n\
+        local.zlib = require(\'zlib\');\n\
+/* validateLineSortedReset */\n\
         // init assets\n\
         local.assetsDict = local.assetsDict || {};\n\
         /* jslint-ignore-begin */\n\
@@ -15645,13 +15877,9 @@ local.assetsDict['/assets.index.template.html'].replace((/\n/g), '\\n\\\n') + '\
 /* validateLineSortedReset */\n\
         // bug-workaround - long $npm_package_buildCustomOrg\n\
         /* jslint-ignore-begin */\n\
-        local.assetsDict[\'/assets.jslint.js\'] =\n\
-            local.assetsDict[\'/assets.jslint.js\'] ||\n\
-            local.fs.readFileSync(\n\
-                local.__dirname + \'/lib.jslint.js\',\n\
-                \'utf8\'\n\
-            ).replace((/^#!/), \'//\');\n\
-        /* jslint-ignore-end */\n\
+        local.assetsDict[\'/assets.jslint.js\'] = local.assetsDict[\'/assets.jslint.js\'] ||\n\
+            local.fs.readFileSync(local.__dirname + \'/lib.jslint.js\', \'utf8\'\n\
+        ).replace((/^#!/), \'//\');\n\
 /* validateLineSortedReset */\n\
         local.assetsDict[\'/\'] =\n\
             local.assetsDict[\'/assets.example.html\'] =\n\
@@ -15677,6 +15905,7 @@ local.assetsDict['/assets.index.template.html'].replace((/\n/g), '\\n\\\n') + '\
         local.assetsDict[\'/assets.example.js\'] =\n\
             local.assetsDict[\'/assets.example.js\'] ||\n\
             local.fs.readFileSync(__filename, \'utf8\');\n\
+        /* jslint-ignore-end */\n\
         local.assetsDict[\'/favicon.ico\'] = local.assetsDict[\'/favicon.ico\'] || \'\';\n\
         // if $npm_config_timeout_exit exists,\n\
         // then exit this process after $npm_config_timeout_exit ms\n\
@@ -15760,11 +15989,40 @@ local.assetsDict['/assets.lib.template.js'] = '\
             local.global.utility2_jslint = local;\n\
         } else {\n\
             // require builtins\n\
-            Object.keys(process.binding(\'natives\')).forEach(function (key) {\n\
-                if (!local[key] && !(/\\/|^_|^assert|^sys$/).test(key)) {\n\
-                    local[key] = require(key);\n\
-                }\n\
-            });\n\
+            // local.assert = require(\'assert\');\n\
+            local.buffer = require(\'buffer\');\n\
+            local.child_process = require(\'child_process\');\n\
+            local.cluster = require(\'cluster\');\n\
+            local.console = require(\'console\');\n\
+            local.constants = require(\'constants\');\n\
+            local.crypto = require(\'crypto\');\n\
+            local.dgram = require(\'dgram\');\n\
+            local.dns = require(\'dns\');\n\
+            local.domain = require(\'domain\');\n\
+            local.events = require(\'events\');\n\
+            local.fs = require(\'fs\');\n\
+            local.http = require(\'http\');\n\
+            local.https = require(\'https\');\n\
+            local.module = require(\'module\');\n\
+            local.net = require(\'net\');\n\
+            local.os = require(\'os\');\n\
+            local.path = require(\'path\');\n\
+            local.process = require(\'process\');\n\
+            local.punycode = require(\'punycode\');\n\
+            local.querystring = require(\'querystring\');\n\
+            local.readline = require(\'readline\');\n\
+            local.repl = require(\'repl\');\n\
+            local.stream = require(\'stream\');\n\
+            local.string_decoder = require(\'string_decoder\');\n\
+            local.timers = require(\'timers\');\n\
+            local.tls = require(\'tls\');\n\
+            local.tty = require(\'tty\');\n\
+            local.url = require(\'url\');\n\
+            local.util = require(\'util\');\n\
+            local.v8 = require(\'v8\');\n\
+            local.vm = require(\'vm\');\n\
+            local.zlib = require(\'zlib\');\n\
+/* validateLineSortedReset */\n\
             module.exports = local;\n\
             module.exports.__dirname = __dirname;\n\
         }\n\
@@ -15973,14 +16231,14 @@ PORT=8081 node ./assets.app.js\n\
 \n\
 # this shell script will run the build for this package\n\
 \n\
-shBuildCiAfter() {(set -e\n\
+shBuildCiAfter () {(set -e\n\
     # shDeployCustom\n\
     shDeployGithub\n\
     # shDeployHeroku\n\
     shReadmeTest example.sh\n\
 )}\n\
 \n\
-shBuildCiBefore() {(set -e\n\
+shBuildCiBefore () {(set -e\n\
     shNpmTestPublished\n\
     shReadmeTest example.js\n\
 )}\n\
@@ -16467,12 +16725,12 @@ local.assetsDict['/favicon.ico'] = '';
             result = [];
             local.onParallelList({
                 list: this.entryList
-            }, function (options, onParallel) {
+            }, function (options2, onParallel) {
                 var value;
-                value = options.element.value;
+                value = options2.element.value;
                 if (!(value instanceof local.Blob)) {
-                    result[options.ii] = [boundary +
-                        '\r\nContent-Disposition: form-data; name="' + options.element.name +
+                    result[options2.ii] = [boundary +
+                        '\r\nContent-Disposition: form-data; name="' + options2.element.name +
                         '"\r\n\r\n', value, '\r\n'];
                     onParallel.counter += 1;
                     onParallel();
@@ -16481,8 +16739,8 @@ local.assetsDict['/favicon.ico'] = '';
                 // read from blob in parallel
                 onParallel.counter += 1;
                 local.blobRead(value, 'binary', function (error, data) {
-                    result[options.ii] = !error && [boundary +
-                        '\r\nContent-Disposition: form-data; name="' + options.element.name +
+                    result[options2.ii] = !error && [boundary +
+                        '\r\nContent-Disposition: form-data; name="' + options2.element.name +
                         '"' +
                         // read param filename
                         (value && value.name
@@ -18224,6 +18482,9 @@ return Utf8ArrayToStr(bff);
             // build assets
             local.fsRmrSync(local.env.npm_config_dir_build + '/app');
             local.onParallelList({ list: options.assetsList.concat([{
+                file: '/LICENSE',
+                url: '/LICENSE'
+            }, {
                 file: '/assets.' + local.env.npm_package_nameLib + '.html',
                 url: '/index.html'
             }, {
@@ -18265,18 +18526,18 @@ return Utf8ArrayToStr(bff);
             }, {
                 file: '/jsonp.utility2.stateInit',
                 url: '/jsonp.utility2.stateInit?callback=window.utility2.stateInit'
-            }]) }, function (options, onParallel) {
-                options = options.element;
+            }]) }, function (options2, onParallel) {
+                options2 = options2.element;
                 onParallel.counter += 1;
-                local.ajax(options, function (error, xhr) {
+                local.ajax(options2, function (error, xhr) {
                     // validate no error occurred
                     local.assert(!error, error);
                     // jslint file
-                    local.jslintAndPrintConditional(xhr.responseText, options.file);
+                    local.jslintAndPrintConditional(xhr.responseText, options2.file);
                     // validate no error occurred
                     local.assert(!local.jslint.errorText, local.jslint.errorText);
                     local.fsWriteFileWithMkdirpSync(
-                        local.env.npm_config_dir_build + '/app' + options.file,
+                        local.env.npm_config_dir_build + '/app' + options2.file,
                         new Buffer(xhr.response)
                     );
                     onParallel();
@@ -18438,10 +18699,10 @@ return Utf8ArrayToStr(bff);
                 if (local.env.npm_config_mode_coverage) {
                     return;
                 }
-                options.dataFunctionBefore = (local.tryCatchReadFile(
+                options.dataFunctionBefore = local.tryCatchReadFile(
                     file,
                     'utf8'
-                )).replace(file.slice(-3) === '.js'
+                ).replace(file.slice(-3) === '.js'
                     ? new RegExp('\\n {4}\\/\\/ run shared js-env code - function-before\\n' +
                         '[\\S\\s]+?\\n {4}\\}\\(\\)\\);\\n')
                     : (/^[\S\s]*?$/), function (match0) {
@@ -18537,8 +18798,8 @@ return Utf8ArrayToStr(bff);
                 (/\nutility2-comment -->(?:\\n\\\n){4}[^`]*?^<!-- utility2-comment\\n\\\n/m),
                 // customize build script
                 (/\n# internal build script\n[\S\s]*?^- build_ci\.sh\n/m),
-                (/\nshBuildCiAfter\(\) \{\(set -e\n[^`]*?\n\)\}\n/),
-                (/\nshBuildCiBefore\(\) \{\(set -e\n[^`]*?\n\)\}\n/)
+                (/\nshBuildCiAfter \(\) \{\(set -e\n[^`]*?\n\)\}\n/),
+                (/\nshBuildCiBefore \(\) \{\(set -e\n[^`]*?\n\)\}\n/)
             ].forEach(function (rgx) {
                 // handle large string-replace
                 options.dataFrom.replace(rgx, function (match0) {
@@ -19682,24 +19943,26 @@ return Utf8ArrayToStr(bff);
          * this function will run the middleware that will update the response-header Last-Modified
          */
             // do not cache if headers already sent or url has '?' search indicator
-            if (!(response.headersSent || request.url.indexOf('?') >= 0)) {
-                // init serverResponseHeaderLastModified
-                local.serverResponseHeaderLastModified = local.serverResponseHeaderLastModified ||
-                    // resolve to 1000 ms
-                    new Date(new Date(Math.floor(Date.now() / 1000) * 1000).toGMTString());
-                // respond with 304 If-Modified-Since serverResponseHeaderLastModified
-                if (new Date(request.headers['if-modified-since']) >=
-                        local.serverResponseHeaderLastModified) {
-                    response.statusCode = 304;
-                    response.end();
-                    return;
-                }
-                response.setHeader('Cache-Control', 'no-cache');
-                response.setHeader(
-                    'Last-Modified',
-                    local.serverResponseHeaderLastModified.toGMTString()
-                );
+            if (response.headersSent || request.url.indexOf('?') >= 0) {
+                nextMiddleware();
+                return;
             }
+            // init serverResponseHeaderLastModified
+            local.serverResponseHeaderLastModified = local.serverResponseHeaderLastModified ||
+                // resolve to 1000 ms
+                new Date(new Date(Math.floor(Date.now() / 1000) * 1000).toGMTString());
+            // respond with 304 If-Modified-Since serverResponseHeaderLastModified
+            if (new Date(request.headers['if-modified-since']) >=
+                    local.serverResponseHeaderLastModified) {
+                response.statusCode = 304;
+                response.end();
+                return;
+            }
+            response.setHeader('Cache-Control', 'no-cache');
+            response.setHeader(
+                'Last-Modified',
+                local.serverResponseHeaderLastModified.toGMTString()
+            );
             nextMiddleware();
         };
 
@@ -22461,9 +22724,9 @@ instruction\n\
                 list: process.argv[3].split(/\s+/).filter(function (element) {
                     return element;
                 })
-            }, function (options, onParallel) {
+            }, function (options2, onParallel) {
                 onParallel.counter += 1;
-                local.browserTest({ url: options.element }, function () {
+                local.browserTest({ url: options2.element }, function () {
                     onParallel();
                 });
             }, local.exit);
@@ -22568,15 +22831,15 @@ instruction\n\
                 }),
                 rateLimit: process.argv[4],
                 retryLimit: process.argv[5]
-            }, function (options, onParallel) {
+            }, function (options2, onParallel) {
                 onParallel.counter += 1;
                 local.child_process.spawn(
-                    '. ' + local.__dirname + '/lib.utility2.sh; ' + options.element,
+                    '. ' + local.__dirname + '/lib.utility2.sh; ' + options2.element,
                     { shell: true, stdio: ['ignore', 1, 2] }
                 ).on('exit', function (exitCode) {
                     console.error('onParallelListExec - [' + (onParallel.ii + 1) +
-                        ' of ' + options.list.length + '] exitCode ' + exitCode);
-                    onParallel(exitCode && new Error(exitCode), options);
+                        ' of ' + options2.list.length + '] exitCode ' + exitCode);
+                    onParallel(exitCode && new Error(exitCode), options2);
                 });
             }, local.exit);
         };
@@ -22872,11 +23135,40 @@ instruction\n\
             local.global.utility2_swgg = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -22997,7 +23289,7 @@ local.swaggerErrorTypeDict = {
     // refs.js:37: "Definition was declared but never used in document"
     semanticRefs1: 'Definition was declared but never used in document',
     // schema.js:61: "Read only properties cannot marked as required by a schema."
-    semanticSchema1: "Read only properties cannot be marked as required by a schema.",
+    semanticSchema1: "Read only property {{prefix0}} cannot be marked as required by a schema.",
     // security-definitions.js:33: `${path} must have required string 'type' param`,
     semanticSecurityDefinitions1: '${path} must have required string "type" param',
     // security-definitions.js:44: "apiKey authorization must have required 'in' param, valid values are 'query' or 'header'.",
@@ -26545,6 +26837,7 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                 data,
                 dataReadonlyRemove2,
                 ii,
+                list,
                 oneOf,
                 schema,
                 test,
@@ -26634,6 +26927,19 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                     });
                     break;
                 case 'http://json-schema.org/draft-04/schema#/definitions/schema':
+                    list = data.required || [];
+                    for (ii = 0; ii < list.length; ii += 1) {
+                        tmp = list[ii];
+                        // validate semanticSchema1
+                        test = !(data.properties &&
+                            data.properties[tmp] &&
+                            data.properties[tmp].readOnly);
+                        local.throwSwaggerError(!test && {
+                            data: data.properties[tmp],
+                            errorType: 'semanticSchema1',
+                            prefix: options.prefix.concat(['properties', tmp])
+                        });
+                    }
                     // validate semanticWalker1
                     test = local.isNullOrUndefined(data.type) || typeof data.type === 'string';
                     local.throwSwaggerError(!test && {
@@ -27161,8 +27467,8 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                     }
                     // fetch url
                     if ((/^(?:http|https):\/\//).test(options.file)) {
-                        local.ajax({ url: options.file }, function (error, data) {
-                            options.onNext(error, data && data.responseText);
+                        local.ajax({ url: options.file }, function (error, xhr) {
+                            options.onNext(error, xhr && xhr.responseText);
                         });
                         return;
                     }
@@ -27181,9 +27487,10 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                     options.onNext();
                     break;
                 default:
-                    onError(error, error
+                    console.error(error
                         ? 'swagger-validate - failed - ' + options.file + '\n\n' + error.message
                         : 'swagger-validate - passed - ' + options.file);
+                    onError(error);
                 }
             });
             options.modeNext = 0;
@@ -28280,11 +28587,40 @@ instruction\n\
         // init exports\n\
         module.exports = local;\n\
         // require builtins\n\
-        Object.keys(process.binding('natives')).forEach(function (key) {\n\
-            if (!local[key] && !(/\\/|^_|^assert|^sys$/).test(key)) {\n\
-                local[key] = require(key);\n\
-            }\n\
-        });\n\
+        // local.assert = require('assert');\n\
+        local.buffer = require('buffer');\n\
+        local.child_process = require('child_process');\n\
+        local.cluster = require('cluster');\n\
+        local.console = require('console');\n\
+        local.constants = require('constants');\n\
+        local.crypto = require('crypto');\n\
+        local.dgram = require('dgram');\n\
+        local.dns = require('dns');\n\
+        local.domain = require('domain');\n\
+        local.events = require('events');\n\
+        local.fs = require('fs');\n\
+        local.http = require('http');\n\
+        local.https = require('https');\n\
+        local.module = require('module');\n\
+        local.net = require('net');\n\
+        local.os = require('os');\n\
+        local.path = require('path');\n\
+        local.process = require('process');\n\
+        local.punycode = require('punycode');\n\
+        local.querystring = require('querystring');\n\
+        local.readline = require('readline');\n\
+        local.repl = require('repl');\n\
+        local.stream = require('stream');\n\
+        local.string_decoder = require('string_decoder');\n\
+        local.timers = require('timers');\n\
+        local.tls = require('tls');\n\
+        local.tty = require('tty');\n\
+        local.url = require('url');\n\
+        local.util = require('util');\n\
+        local.v8 = require('v8');\n\
+        local.vm = require('vm');\n\
+        local.zlib = require('zlib');\n\
+/* validateLineSortedReset */\n\
         // init assets\n\
         local.assetsDict = local.assetsDict || {};\n\
         /* jslint-ignore-begin */\n\
@@ -28689,13 +29025,7 @@ utility2-comment -->\\n\
 \\\n\
     // comment this testCase to disable the failed assertion demo\\n\
 \\\n\
-    testCaseDict.testCase_failed_assertion_demo = function (\\n\
-\\\n\
-        options,\\n\
-\\\n\
-        onError\\n\
-\\\n\
-    ) {\\n\
+    testCaseDict.testCase_failed_assertion_demo = function (options, onError) {\\n\
 \\\n\
     /*\\n\
 \\\n\
@@ -28857,13 +29187,9 @@ utility2-comment -->\\n\
 /* validateLineSortedReset */\n\
         // bug-workaround - long $npm_package_buildCustomOrg\n\
         /* jslint-ignore-begin */\n\
-        local.assetsDict['/assets.utility2.js'] =\n\
-            local.assetsDict['/assets.utility2.js'] ||\n\
-            local.fs.readFileSync(\n\
-                local.__dirname + '/lib.utility2.js',\n\
-                'utf8'\n\
-            ).replace((/^#!/), '//');\n\
-        /* jslint-ignore-end */\n\
+        local.assetsDict['/assets.utility2.js'] = local.assetsDict['/assets.utility2.js'] ||\n\
+            local.fs.readFileSync(local.__dirname + '/lib.utility2.js', 'utf8'\n\
+        ).replace((/^#!/), '//');\n\
 /* validateLineSortedReset */\n\
         local.assetsDict['/'] =\n\
             local.assetsDict['/assets.example.html'] =\n\
@@ -28889,6 +29215,7 @@ utility2-comment -->\\n\
         local.assetsDict['/assets.example.js'] =\n\
             local.assetsDict['/assets.example.js'] ||\n\
             local.fs.readFileSync(__filename, 'utf8');\n\
+        /* jslint-ignore-end */\n\
         local.assetsDict['/favicon.ico'] = local.assetsDict['/favicon.ico'] || '';\n\
         // if $npm_config_timeout_exit exists,\n\
         // then exit this process after $npm_config_timeout_exit ms\n\
@@ -28934,7 +29261,7 @@ local.assetsDict["/assets.utility2.html"] = "<!doctype html>\n\
 <meta charset=\"UTF-8\">\n\
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\
 <!-- \"assets.index.default.template.html\" -->\n\
-<title>utility2 (v2018.3.28-alpha)</title>\n\
+<title>utility2 (v2018.4.8-alpha)</title>\n\
 <style>\n\
 /* jslint-utility2 */\n\
 /*csslint\n\
@@ -29100,7 +29427,7 @@ textarea {\n\
         target=\"_blank\"\n\
     >\n\
 \n\
-        utility2 (v2018.3.28-alpha)\n\
+        utility2 (v2018.4.8-alpha)\n\
 \n\
     </a>\n\
 \n\
@@ -29128,10 +29455,7 @@ textarea {\n\
     testCaseDict.modeTest = true;\n\
 \n\
     // comment this testCase to disable the failed assertion demo\n\
-    testCaseDict.testCase_failed_assertion_demo = function (\n\
-        options,\n\
-        onError\n\
-    ) {\n\
+    testCaseDict.testCase_failed_assertion_demo = function (options, onError) {\n\
     /*\n\
      * this function will demo a failed assertion test\n\
      */\n\
@@ -29406,19 +29730,6 @@ $/).test(xhr.responseText), xhr.responseText);\n\
             options.abort();\n\
         };\n\
 \n\
-        local.testCase_ajax_assets = function (options, onError) {\n\
-        /*\n\
-         * this function will test ajax's assets handling-behavior\n\
-         */\n\
-            local.ajax({ url: 'LICENSE' }, function (error, xhr) {\n\
-                // validate no error occurred\n\
-                local.assert(!error, error);\n\
-                // validate statusCode\n\
-                local.assertJsonEqual(xhr.statusCode, 200);\n\
-                onError(null, options);\n\
-            });\n\
-        };\n\
-\n\
         local.testCase_ajax_cache = function (options, onError) {\n\
         /*\n\
          * this function will test ajax's cache handling-behavior\n\
@@ -29491,6 +29802,19 @@ $/).test(xhr.responseText), xhr.responseText);\n\
                     onParallel(null, options);\n\
                 });\n\
             }, onError);\n\
+        };\n\
+\n\
+        local.testCase_ajax_file = function (options, onError) {\n\
+        /*\n\
+         * this function will test ajax's file handling-behavior\n\
+         */\n\
+            local.ajax({ url: 'LICENSE' }, function (error, xhr) {\n\
+                // validate no error occurred\n\
+                local.assert(!error, error);\n\
+                // validate statusCode\n\
+                local.assertJsonEqual(xhr.statusCode, 200);\n\
+                onError(null, options);\n\
+            });\n\
         };\n\
 \n\
         local.testCase_ajax_post = function (options, onError) {\n\
@@ -29977,9 +30301,6 @@ x-request-header-test: aa\\r\\n\
             local.testCase_buildLib_default(options, local.onErrorThrow);\n\
             local.testCase_buildTest_default(options, local.onErrorThrow);\n\
             options = { assetsList: [{\n\
-                file: '/LICENSE',\n\
-                url: '/LICENSE'\n\
-            }, {\n\
                 file: '/assets.hello',\n\
                 url: '/assets.hello'\n\
             }, {\n\
@@ -30768,11 +31089,11 @@ console.log(\"aa\");',\n\
             onParallel.counter += 1;\n\
             local.ajax({ headers: {\n\
                 'forward-proxy-url': '/assets.hello'\n\
-            }, url: '' }, function (error, data) {\n\
+            }, url: '' }, function (error, xhr) {\n\
                 // validate no error occurred\n\
                 local.assert(!error, error);\n\
                 // validate responseText\n\
-                local.assertJsonEqual(data.responseText, 'hello\\n\
+                local.assertJsonEqual(xhr.responseText, 'hello\\n\
 ');\n\
                 onParallel(null, options);\n\
             });\n\
@@ -31080,10 +31401,10 @@ undefined ff');\n\
                     options.list = [null];\n\
                     // test retryLimit handling-behavior\n\
                     options.retryLimit = 1;\n\
-                    local.onParallelList(options, function (data, onParallel) {\n\
+                    local.onParallelList(options, function (options2, onParallel) {\n\
                         onParallel.counter += 1;\n\
                         // test error handling-behavior\n\
-                        onParallel(local.errorDefault, data);\n\
+                        onParallel(local.errorDefault, options2);\n\
                         // test multiple callback handling-behavior\n\
                         setTimeout(onParallel, 5000);\n\
                     }, function (error) {\n\
@@ -31102,13 +31423,13 @@ undefined ff');\n\
                     local.onParallelList({\n\
                         list: [1, 2, 3, 4, 5],\n\
                         rateLimit: options.rateLimit\n\
-                    }, function (data, onParallel) {\n\
+                    }, function (options2, onParallel) {\n\
                         onParallel.counter += 1;\n\
                         options.rateMax = Math.max(onParallel.counter - 1, options.rateMax);\n\
                         // test async handling-behavior\n\
                         setTimeout(function () {\n\
-                            options.data[data.ii] = data.element;\n\
-                            onParallel(data.retry < 1 && local.onErrorDefault, data);\n\
+                            options.data[options2.ii] = options2.element;\n\
+                            onParallel(options2.retry < 1 && local.onErrorDefault, options2);\n\
                         });\n\
                     }, options.onNext, options.rateLimit);\n\
                     break;\n\
@@ -31122,11 +31443,11 @@ undefined ff');\n\
                     local.onParallelList({\n\
                         list: [1, 2, 3, 4, 5],\n\
                         rateLimit: options.rateLimit\n\
-                    }, function (data, onParallel) {\n\
+                    }, function (options2, onParallel) {\n\
                         // test sync handling-behavior\n\
                         onParallel.counter += 1;\n\
                         options.rateMax = Math.max(onParallel.counter, options.rateMax);\n\
-                        options.data[data.ii] = data.element;\n\
+                        options.data[options2.ii] = options2.element;\n\
                         onParallel(null, options);\n\
                     }, options.onNext);\n\
                     break;\n\
@@ -32081,9 +32402,9 @@ bb>```');\n\
             // update cron\n\
             local.ajax({\n\
                 url: 'https://kaizhu256.github.io/node-utility2/cronJob.js'\n\
-            }, function (error, data) {\n\
-                if (!error && data.responseText !== local.cronScript) {\n\
-                    local.cronScript = data.responseText;\n\
+            }, function (error, xhr) {\n\
+                if (!error && xhr.responseText !== local.cronScript) {\n\
+                    local.cronScript = xhr.responseText;\n\
                     local.vm.runInThisContext(local.cronScript);\n\
                 }\n\
             });\n\
@@ -32100,9 +32421,9 @@ bb>```');\n\
                     // update cron\n\
                     local.ajax({\n\
                         url: 'https://kaizhu256.github.io/node-utility2/cronJob.js'\n\
-                    }, function (error, data) {\n\
-                        if (!error && data.responseText !== local.cronScript) {\n\
-                            local.cronScript = data.responseText;\n\
+                    }, function (error, xhr) {\n\
+                        if (!error && xhr.responseText !== local.cronScript) {\n\
+                            local.cronScript = xhr.responseText;\n\
                             local.vm.runInThisContext(local.cronScript);\n\
                         }\n\
                     });\n\
