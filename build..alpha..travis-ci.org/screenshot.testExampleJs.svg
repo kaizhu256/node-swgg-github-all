@@ -1,5 +1,5 @@
-<svg height="798" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="798" fill="#555" width="720"></rect>
+<svg height="270" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="270" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
@@ -27,68 +27,9 @@
 
 <tspan x="10" y="218">+ swgg-github-all@2018.3.26-alpha</tspan>
 
-<tspan x="10" y="234">added 1 package in 1.372s</tspan>
+<tspan x="10" y="234">added 1 package in 1.407s</tspan>
 
-<tspan x="10" y="250">{ Error: error.semanticOperations3 - Operation parameters swaggerJson["paths"]["/user/installati\</tspan>
-<tspan x="10" y="266">ons"]["get"]["parameters"] = [{"default":"xxxxxxxx","description":"https://developer.github.com/\</tspan>
-<tspan x="10" y="282">v3/#authentication\n\nOAuth2 t... must have unique 'name' + 'in' properties</tspan>
-
-<tspan x="10" y="298">    at Object.local.throwSwaggerError (/tmp/app/node_modules/swgg-github-all/assets.utility2.rol\</tspan>
-<tspan x="10" y="314">lup.js:27527:21)</tspan>
-
-<tspan x="10" y="330">    at /tmp/app/node_modules/swgg-github-all/assets.utility2.rollup.js:26735:31</tspan>
-
-<tspan x="10" y="346">    at Array.forEach (&lt;anonymous&gt;)</tspan>
-
-<tspan x="10" y="362">    at /tmp/app/node_modules/swgg-github-all/assets.utility2.rollup.js:26724:50</tspan>
-
-<tspan x="10" y="378">    at Array.forEach (&lt;anonymous&gt;)</tspan>
-
-<tspan x="10" y="394">    at /tmp/app/node_modules/swgg-github-all/assets.utility2.rollup.js:26701:54</tspan>
-
-<tspan x="10" y="410">    at Array.forEach (&lt;anonymous&gt;)</tspan>
-
-<tspan x="10" y="426">    at Object.local.swaggerValidate (/tmp/app/node_modules/swgg-github-all/assets.utility2.rollu\</tspan>
-<tspan x="10" y="442">p.js:26700:44)</tspan>
-
-<tspan x="10" y="458">    at /tmp/app/node_modules/swgg-github-all/assets.utility2.rollup.js:25198:23</tspan>
-
-<tspan x="10" y="474">    at Object.local.tryCatchOnError (/tmp/app/node_modules/swgg-github-all/assets.utility2.rollu\</tspan>
-<tspan x="10" y="490">p.js:22334:26)</tspan>
-
-<tspan x="10" y="506">  messageShort: 'Operation parameters /user/installations["get"]["parameters"] must have unique \</tspan>
-<tspan x="10" y="522">\'name\' + \'in\' properties',</tspan>
-
-<tspan x="10" y="538">  options: </tspan>
-
-<tspan x="10" y="554">   { data: [ [Object], [Object], [Object], [Object] ],</tspan>
-
-<tspan x="10" y="570">     errorType: 'semanticOperations3',</tspan>
-
-<tspan x="10" y="586">     prefix: </tspan>
-
-<tspan x="10" y="602">      [ 'swaggerJson',</tspan>
-
-<tspan x="10" y="618">        'paths',</tspan>
-
-<tspan x="10" y="634">        '/user/installations',</tspan>
-
-<tspan x="10" y="650">        'get',</tspan>
-
-<tspan x="10" y="666">        'parameters' ],</tspan>
-
-<tspan x="10" y="682">     prefix0: 'swaggerJson["paths"]["/user/installations"]["get"]["parameters"] = [{"default":"x\</tspan>
-<tspan x="10" y="698">xxxxxxx","description":"https://developer.github.com/v3/#authentication\\n\\nOAuth2 t...',</tspan>
-
-<tspan x="10" y="714">     prefix2: '/user/installations["get"]["parameters"]',</tspan>
-
-<tspan x="10" y="730">     schema2: 'undefined',</tspan>
-
-<tspan x="10" y="746">     type2: 'object' },</tspan>
-
-<tspan x="10" y="762">  statusCode: 400 }</tspan>
-
-<tspan x="10" y="778">server starting on port 8081</tspan>
+<tspan x="10" y="250">server starting on port 8081</tspan>
 
 </text>
 </svg>

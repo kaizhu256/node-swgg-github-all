@@ -432,12 +432,12 @@ swaggerJson =
                 });
             });
             Object.keys(swaggerJson.paths).forEach(function (path) {
-                Object.keys(swaggerJson.paths[path]).forEach(function (method, operation) {
+                Object.keys(swaggerJson.paths[path]).forEach(function (method) {
                     // normalize parameters
-                    tmp = {};
+                    tmp = { 'access_token query': true };
                     operation = swaggerJson.paths[path][method];
                     operation.parameters = operation.parameters.filter(function (schemaP) {
-                        if (!schemaP.$ref && tmp[schemaP.name + ' ' + schemaP.in]) {
+                        if (schemaP.name && tmp[schemaP.name + ' ' + schemaP.in]) {
                             return;
                         }
                         tmp[schemaP.name + ' ' + schemaP.in] = true;
