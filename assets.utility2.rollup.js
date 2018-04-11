@@ -26731,7 +26731,9 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                             schema: operation
                         });
                         // validate semanticOperations3
-                        test = !tmp.name[schemaP.name + ' ' + schemaP.in];
+                        test = schemaP.name === undefined ||
+                            schemaP.in === undefined ||
+                            !tmp.name[schemaP.name + ' ' + schemaP.in];
                         local.throwSwaggerError(!test && {
                             data: operation.parameters,
                             errorType: 'semanticOperations3',
