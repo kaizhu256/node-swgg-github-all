@@ -26088,13 +26088,13 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
             });
             Object.keys(pathDict).forEach(function (key) {
                 Object.keys(pathDict[key]).sort().forEach(function (path, ii) {
+                    // fix error.semanticUniquePath
                     if (ii && swaggerJson['x-swgg-fixErrorSemanticUniquePath']) {
                         swaggerJson.paths[path + '#' + ii] = swaggerJson.paths[path];
                         delete swaggerJson.paths[path];
                     }
                 });
             });
-            // auto-create operationId from path
             Object.keys(swaggerJson.paths).forEach(function (path) {
                 Object.keys(swaggerJson.paths[path]).forEach(function (method) {
                     tmp = swaggerJson.paths[path][method];
@@ -26628,6 +26628,42 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
                 }
             });
             return { $ref: '#/definitions/' + prefix };
+        };
+
+        local.swaggerJsonFromPostBody2 = function (options) {
+        /*
+         * this function will update swaggerJson
+         * with definitions created from the post-body-data
+         */
+            var definition, isArray, schemaP, type, value;
+            definition = { properties: {} };
+            Object.keys(options.data).forEach(function (key) {
+                value = options.data[key];
+                isArray = Array.isArray(value);
+                if (isArray) {
+                    value = value[0];
+                }
+                type = local.isNullOrUndefined(value)
+                    ? 'string'
+                    : typeof value;
+                schemaP = definition.properties[key] = isArray
+                    ? { default: options.data[key], items: { type: type }, type: 'array' }
+                    : { default: value, type: type };
+                if (!(type === 'object' && options.depth > 1)) {
+                    return;
+                }
+                // recurse
+                type = local.swaggerJsonFromPostBody2({
+                    data: value,
+                    depth: options.depth - 1
+                });
+                if (isArray) {
+                    schemaP.items = type;
+                } else {
+                    definition.properties[key] = type;
+                }
+            });
+            return type;
         };
 
         local.swaggerValidate = function (swaggerJson) {

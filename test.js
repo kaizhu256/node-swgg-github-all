@@ -428,6 +428,15 @@ swaggerJson =
                             definition.required = definition.required || [];
                             definition.required.push(name);
                         }
+                        // normalize parameters
+                        tmp = {};
+                        operation.parameters = operation.parameters.filter(function (schemaP) {
+                            if (!schemaP.$ref && tmp[schemaP.name + ' ' + schemaP.in]) {
+                                return;
+                            }
+                            tmp[schemaP.name + ' ' + schemaP.in] = true;
+                            return true;
+                        });
                     });
                 });
             });
