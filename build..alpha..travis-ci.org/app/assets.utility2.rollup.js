@@ -875,9 +875,9 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             );
             // init circularList - builtin
             Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!(/\/|\d|^_linklist$|^config$|^sys$/).test(key)) {
+                local.tryCatchOnError(function () {
                     options.circularList.push(require(key));
-                }
+                }, local.nop);
             });
             // init circularList - blacklistDict
             Object.keys(options.blacklistDict).forEach(function (key) {
@@ -1028,52 +1028,56 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
         /*
          * this function will add the modules in moduleDict to options.moduleDict
          */
-            var isModule, tmp;
+            var isModule, objectKeys, tmp;
+            objectKeys = function (dict) {
+            /*
+             * this function will return a list of the dict's keys, with valid getters
+             */
+                return Object.keys(dict).sort().filter(function (key) {
+                    return local.tryCatchOnError(function () {
+                        return dict[key] || true;
+                    }, local.nop);
+                });
+            };
             ['child', 'prototype', 'grandchild', 'prototype'].forEach(function (element) {
-                Object.keys(moduleDict).sort().forEach(function (prefix) {
+                objectKeys(moduleDict).forEach(function (prefix) {
                     if (!(/^\w[\w\-.]*?$/).test(prefix)) {
                         return;
                     }
-                    Object.keys(moduleDict[prefix]).forEach(function (key) {
-                        // bug-workaround - buggy electron getter / setter
-                        local.tryCatchOnError(function () {
-                            if (!(/^\w[\w\-.]*?$/).test(key) || !moduleDict[prefix][key]) {
-                                return;
+                    objectKeys(moduleDict[prefix]).forEach(function (key) {
+                        if (!(/^\w[\w\-.]*?$/).test(key) || !moduleDict[prefix][key]) {
+                            return;
+                        }
+                        tmp = element === 'prototype'
+                            ? {
+                                module: moduleDict[prefix][key].prototype,
+                                name: prefix + '.' + key + '.prototype'
                             }
-                            tmp = element === 'prototype'
-                                ? {
-                                    module: moduleDict[prefix][key].prototype,
-                                    name: prefix + '.' + key + '.prototype'
-                                }
-                                : {
-                                    module: moduleDict[prefix][key],
-                                    name: prefix + '.' + key
-                                };
-                            if (!tmp.module ||
-                                    !(typeof tmp.module === 'function' ||
-                                    typeof tmp.module === 'object') ||
-                                    Array.isArray(tmp.module) ||
-                                    options.moduleDict[tmp.name] ||
-                                    options.circularList.indexOf(tmp.module) >= 0) {
-                                return;
-                            }
-                            isModule = [
-                                tmp.module,
-                                tmp.module.prototype
-                            ].some(function (dict) {
-                                return Object.keys(dict || {}).some(function (key) {
-                                    // bug-workaround - buggy electron getter / setter
-                                    return local.tryCatchOnError(function () {
-                                        return typeof dict[key] === 'function';
-                                    }, console.error);
-                                });
+                            : {
+                                module: moduleDict[prefix][key],
+                                name: prefix + '.' + key
+                            };
+                        if (!tmp.module ||
+                                !(typeof tmp.module === 'function' ||
+                                typeof tmp.module === 'object') ||
+                                Array.isArray(tmp.module) ||
+                                options.moduleDict[tmp.name] ||
+                                options.circularList.indexOf(tmp.module) >= 0) {
+                            return;
+                        }
+                        isModule = [
+                            tmp.module,
+                            tmp.module.prototype
+                        ].some(function (dict) {
+                            return objectKeys(dict || {}).some(function (key) {
+                                return typeof dict[key] === 'function';
                             });
-                            if (!isModule) {
-                                return;
-                            }
-                            options.circularList.push(tmp.module);
-                            options.moduleDict[tmp.name] = tmp.module;
-                        }, console.error);
+                        });
+                        if (!isModule) {
+                            return;
+                        }
+                        options.circularList.push(tmp.module);
+                        options.moduleDict[tmp.name] = tmp.module;
                     });
                 });
             });
@@ -16208,7 +16212,7 @@ PORT=8081 node ./assets.app.js\n\
         "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",\n\
         "build-ci": "utility2 shReadmeTest build_ci.sh",\n\
         "env": "env",\n\
-        "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",\n\
+        "heroku-postbuild": "npm install kaizhu256/node-utility2#alpha --prefix . && utility2 shDeployHeroku",\n\
         "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",\n\
         "start": "PORT=${PORT:-8080} utility2 start test.js",\n\
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"\n\
@@ -18451,10 +18455,6 @@ return Utf8ArrayToStr(bff);
         /*
          * this function will build the apidoc
          */
-            if (local.env.npm_package_buildCustomOrg && !options.modeForce) {
-                onError();
-                return;
-            }
             // optimization - do not run if $npm_config_mode_coverage = all
             if (local.env.npm_config_mode_coverage === 'all') {
                 onError();
@@ -18464,6 +18464,10 @@ return Utf8ArrayToStr(bff);
                 blacklistDict: local,
                 require: local.requireInSandbox
             });
+            if (local.env.npm_package_buildCustomOrg && !options.modeForce) {
+                onError();
+                return;
+            }
             // create apidoc.html
             local.fsWriteFileWithMkdirpSync(
                 local.env.npm_config_dir_build + '/apidoc.html',
@@ -18598,11 +18602,9 @@ return Utf8ArrayToStr(bff);
             options.packageJson = JSON.parse(local.fs.readFileSync('package.json', 'utf8'));
             switch (local.env.GITHUB_ORG) {
             case 'npmdoc':
-                local.objectSetOverride(options, {
-                    packageJson: {
-                        keywords: ['documentation', local.env.npm_package_buildCustomOrg]
-                    }
-                }, 2);
+                local.objectSetOverride(options, { packageJson: {
+                    keywords: ['documentation', local.env.npm_package_buildCustomOrg]
+                } }, 2);
                 // build apidoc.html
                 onParallel.counter += 1;
                 local.buildApidoc({
