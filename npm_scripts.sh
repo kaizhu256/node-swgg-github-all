@@ -4,7 +4,7 @@
 shNpmScriptApidocRawCreate () {(set -e
 # this function will create the raw apidoc
     cd tmp/apidoc.raw
-    find developer.github.com/v3 -name index.html -type file | \
+    find developer.github.com/v3 -name index.html -type f | \
         sed -e "s/\/index.html//" | \
         sort | \
         sed -e "s/\(developer.github.com\/.*\)/\1\/index.html/" | \
