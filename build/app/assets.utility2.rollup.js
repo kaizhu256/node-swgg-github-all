@@ -26168,9 +26168,8 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
             ['definitions', 'parameters', 'responses'].forEach(function (schema) {
                 schema = swaggerJson[schema] || {};
                 Object.keys(schema).forEach(function (key) {
-                    if (schema[key]['x-swgg-tags0'] &&
-                            schema[key]['x-swgg-tags0'] !== 'all' &&
-                            schema[key]['x-swgg-tags0'] !== local.env.npm_package_swggTags0) {
+                    tmp = schema[key]['x-swgg-tags0'];
+                    if (tmp && tmp !== 'all' && tmp !== local.env.npm_package_swggTags0) {
                         delete schema[key];
                     }
                 });
@@ -26178,10 +26177,8 @@ window.swgg.uiEventListenerDict[".onEventUiReload"]({ swggInit: true });\n\
             // filter $npm_package_swggTags0 - paths
             Object.keys(swaggerJson.paths).forEach(function (path) {
                 Object.keys(swaggerJson.paths[path]).forEach(function (method) {
-                    tmp = swaggerJson.paths[path][method];
-                    if (tmp['x-swgg-tags0'] &&
-                            tmp['x-swgg-tags0'] !== 'all' &&
-                            tmp['x-swgg-tags0'] !== local.env.npm_package_swggTags0) {
+                    tmp = swaggerJson.paths[path][method]['x-swgg-tags0'];
+                    if (tmp && tmp !== 'all' && tmp !== local.env.npm_package_swggTags0) {
                         delete swaggerJson.paths[path][method];
                         return;
                     }
