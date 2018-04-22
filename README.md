@@ -61,8 +61,8 @@ this zero-dependency package will provide a (nodejs-compatible) swagger-client f
 - programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.3.26-alpha
-- npm publish v2018.3.26-alpha
+#### changelog for v2018.4.22
+- npm publish v2018.4.22
 - update shell-function shNpmScriptApidocRawFetch to use local.ajax instead of wget
 - fix whitespace bugs in markdown description
 - enable required-flag for preview headers
@@ -385,7 +385,7 @@ instruction
     },
     "swggAll": "github-all",
     "swggTags0": "github-all",
-    "version": "2018.3.26-alpha"
+    "version": "2018.4.22"
 }
 ```
 
