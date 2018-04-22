@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-04-21T13:46:10.970Z - npm-testing /home/travis/build/kaizhu256/n\</tspan>
+<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-04-22T00:39:23.062Z - npm-testing /home/travis/build/kaizhu256/n\</tspan>
 <tspan x="10" y="58">ode-swgg-github-all</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -15,7 +15,7 @@
 
 <tspan x="10" y="138">override assets assets.swgg.swagger.json</tspan>
 
-<tspan x="10" y="154">&gt; server listening on http-port 38163</tspan>
+<tspan x="10" y="154">&gt; server listening on http-port 45596</tspan>
 
 <tspan x="10" y="170">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package.json</tspan>
 
@@ -35,11 +35,11 @@
 
 <tspan x="10" y="314">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package.json</tspan>
 
-<tspan x="10" y="330">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/package-lock.json</tspan>
+<tspan x="10" y="330">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/README.md</tspan>
 
-<tspan x="10" y="346">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/README.md</tspan>
+<tspan x="10" y="346">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/test.js</tspan>
 
-<tspan x="10" y="362">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/test.js</tspan>
+<tspan x="10" y="362">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.touch.txt</tspan>
 
 <tspan x="10" y="378">apidocCreate - readExample /home/travis/build/kaizhu256/node-swgg-github-all/.travis.yml</tspan>
 
@@ -53,9 +53,9 @@
 
 <tspan x="10" y="458">[node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="474">(node:6013) ExperimentalWarning: The http2 module is an experimental API.</tspan>
+<tspan x="10" y="474">(node:7086) ExperimentalWarning: The http2 module is an experimental API.</tspan>
 
-<tspan x="10" y="490">(node:6013) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.</tspan>
+<tspan x="10" y="490">(node:7086) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.</tspan>
 
 <tspan x="10" y="506"></tspan>
 
@@ -66,23 +66,23 @@
 
 <tspan x="10" y="570">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="586">| test-report - buildApidoc - node - linux v9.11.1 - 2018-04-21T13:46:11.172Z</tspan>
+<tspan x="10" y="586">| test-report - buildApidoc - node - linux v9.11.1 - 2018-04-22T00:39:23.260Z</tspan>
 
-<tspan x="10" y="602">|    4583 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="602">|    4630 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="618">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="634">| test-report - npmTest - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_64) AppleW\</tspan>
-<tspan x="10" y="650">ebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2018-04-21\</tspan>
-<tspan x="10" y="666">T13:45:53.747Z</tspan>
+<tspan x="10" y="634">| test-report - buildApp - node - linux v9.11.1 - 2018-04-22T00:37:49.370Z</tspan>
 
-<tspan x="10" y="682">|      21 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="650">|   90239 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="698">-------------------------------------------------------</tspan>
+<tspan x="10" y="666">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="714">| test-report - npmTest - node - linux v9.11.1 - 2018-04-21T13:45:42.560Z</tspan>
+<tspan x="10" y="682">| test-report - npmTest - browser - /index.default.html - Mozilla/5.0 (X11; Linux x86_64) AppleW\</tspan>
+<tspan x="10" y="698">ebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.13 Safari/537.36 - 2018-04-22\</tspan>
+<tspan x="10" y="714">T00:39:05.833Z</tspan>
 
-<tspan x="10" y="730">|   24964 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="730">|      21 ms            0 failed        8 passed      |</tspan>
 
 <tspan x="10" y="746">-------------------------------------------------------</tspan>
 
@@ -101,7 +101,7 @@
 
 <tspan x="10" y="874"></tspan>
 
-<tspan x="10" y="890">[MODE_BUILD=buildApidoc] - 2018-04-21T13:46:18.012Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="890">[MODE_BUILD=buildApidoc] - 2018-04-22T00:39:30.179Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
