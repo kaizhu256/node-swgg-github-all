@@ -16096,6 +16096,8 @@ the greatest app in the world!\n\
 - none\n\
 \n\
 #### changelog for v0.0.1\n\
+- npm publish v0.0.1\n\
+- update build\n\
 - none\n\
 \n\
 #### this package requires\n\
@@ -16352,6 +16354,148 @@ local.assetsDict['/assets.readmeCustomOrg.npmtest.template.md'] = '\
 \n\
 # misc\n\
 - this document was created with [utility2](https://github.com/kaizhu256/node-utility2)\n\
+';
+
+
+
+local.assetsDict['/assets.readmeCustomOrg.swgg.template.md'] = '\
+# swgg-github-misc\n\
+this zero-dependency package will provide a (nodejs-compatible) swagger-client for github-misc\'s web-apis, with a working web-demo\n\
+\n\
+# live web demo\n\
+- [https://kaizhu256.github.io/node-swgg-github-misc/build..beta..travis-ci.org/app](https://kaizhu256.github.io/node-swgg-github-misc/build..beta..travis-ci.org/app)\n\
+\n\
+[![screenshot](https://kaizhu256.github.io/node-swgg-github-misc/build/screenshot.deployGithub.browser.%252Fnode-swgg-github-misc%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-swgg-github-misc/build..beta..travis-ci.org/app)\n\
+\n\
+\n\
+\n\
+# cdn download\n\
+- [https://kaizhu256.github.io/node-swgg-github-misc/build..beta..travis-ci.org/app/assets.swgg.swagger.json](https://kaizhu256.github.io/node-swgg-github-misc/build..beta..travis-ci.org/app/assets.swgg.swagger.json)\n\
+\n\
+\n\
+\n\
+#### todo\n\
+- none\n\
+\n\
+#### changelog for v0.0.1\n\
+- npm publish v0.0.1\n\
+- update build\n\
+- none\n\
+\n\
+#### this package requires\n\
+- darwin or linux os\n\
+\n\
+\n\
+\n\
+# quickstart example.js\n\
+[![screenshot](https://kaizhu256.github.io/node-swgg-github-misc/build/screenshot.testExampleJs.browser.%252F.png)](https://kaizhu256.github.io/node-swgg-github-misc/build/app/assets.example.html)\n\
+\n\
+#### to run this example, follow the instruction in the script below\n\
+- [example.js](https://kaizhu256.github.io/node-swgg-github-misc/build..beta..travis-ci.org/example.js)\n\
+```javascript\n\
+/*\n\
+example.js\n\
+\n\
+this script will run a web-demo of swgg-github-misc\n\
+\n\
+instruction\n\
+    1. save this script as example.js\n\
+    2. run the shell command:\n\
+        $ npm install swgg-github-misc && PORT=8081 node example.js\n\
+    3. open a browser to http://127.0.0.1:8081 and play with the web-demo\n\
+    4. edit this script to suit your needs\n\
+*/\n\
+\n\
+\n\
+\n\
+/* istanbul instrument in package swgg_github_misc */\n\
+/* jslint-utility2 */\n\
+/*jslint\n\
+    bitwise: true,\n\
+    browser: true,\n\
+    maxerr: 4,\n\
+    maxlen: 100,\n\
+    node: true,\n\
+    nomen: true,\n\
+    regexp: true,\n\
+    stupid: true\n\
+*/\n\
+(function () {\n\
+    \'use strict\';\n\
+    var local;\n\
+\n\
+\n\
+\n\
+    // run shared js-env code - init-before\n\
+    (function () {\n\
+        // init local\n\
+        local = {};\n\
+        // init modeJs\n\
+        local.modeJs = (function () {\n\
+            try {\n\
+                return typeof navigator.userAgent === \'string\' &&\n\
+                    typeof document.querySelector(\'body\') === \'object\' &&\n\
+                    typeof XMLHttpRequest.prototype.open === \'function\' &&\n\
+                    \'browser\';\n\
+            } catch (errorCaughtBrowser) {\n\
+                return module.exports &&\n\
+                    typeof process.versions.node === \'string\' &&\n\
+                    typeof require(\'http\').createServer === \'function\' &&\n\
+                    \'node\';\n\
+            }\n\
+        }());\n\
+        // init global\n\
+        local.global = local.modeJs === \'browser\'\n\
+            ? window\n\
+            : global;\n\
+        // init utility2_rollup\n\
+        local = local.global.utility2_rollup || (local.modeJs === \'browser\'\n\
+            ? local.global.utility2_swgg_github_misc\n\
+            : require(\'swgg-github-misc\'));\n\
+        // init exports\n\
+        local.global.local = local;\n\
+        // init assets\n\
+        local.assetsDict[\'/assets.index.template.html\'] = local.assetsDict[\'/assets.swgg.html\'];\n\
+    }());\n\
+    switch (local.modeJs) {\n\
+\n\
+\n\
+\n\
+    // run browser js-env code - init-test\n\
+    case \'browser\':\n\
+        break;\n\
+    }\n\
+}());\n\
+```\n\
+\n\
+#### output from browser\n\
+[![screenshot](https://kaizhu256.github.io/node-swgg-github-misc/build/screenshot.testExampleJs.browser.%252F.png)](https://kaizhu256.github.io/node-swgg-github-misc/build/app/assets.example.html)\n\
+\n\
+#### output from shell\n\
+![screenshot](https://kaizhu256.github.io/node-swgg-github-misc/build/screenshot.testExampleJs.svg)\n\
+\n\
+\n\
+\n\
+# package.json\n\
+```json\n\
+{\n\
+    "githubRepoAlias": "swgg-io/node-swgg-github-misc",\n\
+    "keywords": [\n\
+        "github-misc",\n\
+        "swagger-client"\n\
+    ],\n\
+    "name": "swgg-github-misc",\n\
+    "swggAll": "github-all",\n\
+    "swggTags0": "github-misc",\n\
+    "version": "0.0.1"\n\
+}\n\
+```\n\
+\n\
+\n\
+\n\
+    shDeployGithub\n\
+    shReadmeTest example.sh\n\
+    shReadmeTest example.js\n\
 ';
 
 
@@ -22963,10 +23107,9 @@ instruction\n\
             case '/assets.utility2.html':
                 local.assetsDict[key] = '';
                 local.tryCatchOnError(function () {
-                    local.fs.readFileSync(
-                        __dirname + '/README.md',
-                        'utf8'
-                    ).replace((/<!doctype html>[\S\s]*?<\/html>\\n\\\n/), function (match0) {
+                    local.fs.readFileSync(__dirname + '/README.md', 'utf8').replace((
+                        /<!doctype html>[\S\s]*?<\/html>\\n\\\n/
+                    ), function (match0) {
                         local.assetsDict[key] = local.templateRender(match0
                             .replace((/\\n\\$/gm), '')
                             .replace(
@@ -22983,7 +23126,9 @@ instruction\n\
                                 (/<!-- utility2-comment\b([\S\s]+?)\butility2-comment -->/g),
                                 '$1'
                             ), {
-                                env: require(__dirname + '/package.json'),
+                                env: local.objectSetDefault({
+                                    version: '0.0.1'
+                                }, require(__dirname + '/package.json')),
                                 isRollup: true
                             });
                     });
@@ -29262,7 +29407,7 @@ local.assetsDict["/assets.utility2.html"] = "<!doctype html>\n\
 <meta charset=\"UTF-8\">\n\
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\
 <!-- \"assets.index.default.template.html\" -->\n\
-<title>utility2 (v2018.4.8-alpha)</title>\n\
+<title>utility2 (v0.0.1)</title>\n\
 <style>\n\
 /* jslint-utility2 */\n\
 /*csslint\n\
@@ -29428,7 +29573,7 @@ textarea {\n\
         target=\"_blank\"\n\
     >\n\
 \n\
-        utility2 (v2018.4.8-alpha)\n\
+        utility2 (v0.0.1)\n\
 \n\
     </a>\n\
 \n\
