@@ -1,0 +1,1722 @@
+<html lang="en" class="x-istanbul" data-scrape="{
+    &quot;hrefDict&quot;: {
+        &quot;https://github.com/kaizhu256/node-swgg-github-all&quot;: &quot;swgg-github-all (v2018.3.25)&quot;,
+        &quot;https://github.com/kaizhu256/node-utility2&quot;: &quot;utility2&quot;
+    },
+    &quot;href&quot;: &quot;file:///home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/coverage.lib.html&quot;,
+    &quot;url&quot;: &quot;file:///home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/coverage.lib.html&quot;,
+    &quot;bodyTextContent&quot;: &quot;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\n91\n92\n93\n94\n95\n96\n97\n98\n99\n100\n101\n102\n103\n104\n105\n106\n107\n108\n109\n110\n111\n112\n113\n114\n115\n116\n117\n118\n119\n120\n121\n122\n123\n124\n125\n126\n127\n128\n129\n130\n131\n132\n133\n134\n135\n136\n137\n138\n139\n140\n141\n142\n143\n144\n145\n146\n147\n148\n149\n150\n151\n152\n153\n154\n155\n156\n157\n158\n159\n160\n161\n162\n163\n164\n165\n166\n167\n168\n169\n170\n171\n172\n173\n174\n175\n176\n177\n178\n179\n180\n181\n182\n183\n184\n185\n186\n187\n188\n189\n190\n191\n192\n193\n194\n195\n196\n197\n198\n199\n200\n201\n202\n203\n204\n205\n206\n207\n208\n209\n210\n211\n212\n213\n214\n215\n216\n217\n218\n219\n220\n221\n222\n223\n224\n225\n226\n227\n228\n229\n230\n231\n232\n233\n234\n235\n236\n237\n238\n239\n240\n241\n242\n243\n244\n245\n246\n247\n248\n249\n250\n251\n252\n253\n254\n255\n256\n257\n258\n259\n260\n261\n262\n263\n264\n265\n266\n267\n268\n269\n270\n271\n272\n273\n274\n275\n276\n277\n278\n279\n280\n281\n282\n283\n284\n285\n286\n287\n288\n289\n290\n291\n292\n293\n294\n295\n296\n297\n298\n299\n300\n301\n302\n303\n304\n305\n306\n307\n308\n309\n310\n311\n312\n313\n314\n315\n316\n317\n318\n319\n320\n321\n322\n323\n324\n325\n326\n327\n328\n329\n330\n331\n332\n333\n334\n335\n336\n337\n338\n339\n340\n341\n342\n343\n344\n345\n346\n347\n348\n349\n350\n351\n352\n353\n354\n355\n356\n357\n358\n359\n360\n361\n362\n363\n364\n365\n366\n367\n368\n369\n370\n371\n372\n373\n374\n375\n376\n377\n378\n379\n380\n381\n382\n383\n384\n385\n386\n387\n388\n389\n390\n391\n392\n393\n394\n395\n396\n397\n398\n399\n400\n401\n402\n403\n404\n405\n406\n407\n408\n409\n410\n411\n412\n413\n414\n415\n416\n417\n418\n419\n420\n421\n422\n423\n424\n425\n426\n427\n428\n429\n430\n431\n432\n433\n434\n435\n436\n437\n438\n439\n440\n441\n442\n443\n444\n445\n446\n447\n448\n449\n450\n451\n452\n453\n454\n455\n456\n457\n458\n459\n460\n461\n462\n463\n464\n465\n466\n467\n468\n469\n470\n471\n472\n473\n474\n475\n476\n477\n478\n479\n480\n481\n482\n\n&nbsp;/* istanbul instrument in package swgg_github_all */\n/* jslint-utility2 */\n/*jslint\n    bitwise: true,\n    browser: true,\n    maxerr: 8,\n    maxlen: 100,\n    node: true,\n    nomen: true,\n    regexp: true,\n    stupid: true\n*/\n(function () {\n    'use strict';\n    var local;\n\n    // run shared js-env code - init-before\n    (function () {\n        // init local\n        local = {};\n        // init modeJs\n        local.modeJs = (function () {\n            try {\n                return typeof navigator.userAgent === 'string' &amp;&amp;\n                    typeof document.querySelector('body') === 'object' &amp;&amp;\n                    typeof XMLHttpRequest.prototype.open === 'function' &amp;&amp;\n                    'browser';\n            } catch (errorCaughtBrowser) {\n                return module.exports &amp;&amp;\n                    typeof process.versions.node === 'string' &amp;&amp;\n                    typeof require('http').createServer === 'function' &amp;&amp;\n                    'node';\n            }\n        }());\n        // init global\n        local.global = local.modeJs === 'browser'\n            ? window\n            : global;\n        // re-init local\n        local = local.global.local = (local.global.utility2 ||\n            require('./assets.utility2.rollup.js')).requireReadme();\n        // init test\n        local.testRunInit(local);\n    }());\n\n    // run shared js-env code - function\n    (function () {\n        /* istanbul-ignore-next */\n        local.testCase_buildReadme_default = function (options, onError) {\n        /*\n         * this function will test buildReadme's default handling-behavior\n         */\n            var definition,\n                descriptionMediaType,\n                htmlToDescription,\n                operation,\n                operationIdDict,\n                schemaPMediaType,\n                stringUniqueKey,\n                swaggerJson,\n                tagDict,\n                textAll,\n                title,\n                typeDict,\n                tagMain,\n                tagSub,\n                tmp,\n                url;\n            htmlToDescription = function (options) {\n            /*\n             * this function will format options.html to swagger markdown-description\n             */\n                var text;\n                text = options.html\n                    // format whitespace\n                    .replace((/<pre\\b.*?><code>([\\S\\s]*?)<\\/code><\\/pre>/g), '<pre>$1</pre>')\n                    .replace((/<code>([\\S\\s]*?)<\\/code>/g), '<pre>$1</pre>')\n                    .replace((/<pre\\b.*?>[\\S\\s]*?<\\/pre>/g), function (match0) {\n                        return ('```' + match0\n                            .replace((/<[\\S\\s]*?>/g), '')\n                            .trim()\n                            .replace((/^\&quot;([\\S\\s]+?)\&quot;$/), '$1') + '```')\n                            .replace((/^```([\\S\\s]*?\\n[\\S\\s]*?)```$/g), '\\n```\\n$1\\n```\\n')\n                            .replace((/\\n/g), stringUniqueKey);\n                    })\n                    .replace((/\\n+/g), ' ')\n                    .replace((/<(?:dt|li)>(.*?<\\/(?:dt|li)>)/g), '\\n- $1')\n                    .replace((/<\\/dt>[\\S\\s]*?<dd>/g), ' - ')\n                    .replace((/<h.>/g), '\\n\\n#### ')\n                    .replace((/<p>/g), '\\n\\n')\n                    .replace((/<(?:br|pre)>/g), '\\n')\n                    // bug-workaround - format application/vnd.xxx\n                    .replace((/```(application\\/.*?)```/g), '\\n```\\n$1\\n```\\n')\n                    // format <a>\n                    .replace((/<a href=\&quot;\\//g), '<a href=\&quot;https://developer.github.com/')\n                    .replace((/<a href=\&quot;#/g), '<a href=\&quot;' + options.url + '#')\n                    .replace((/<a href=\&quot;(.*?)\&quot;.*?>(.*?)<\\/a>/g), '[$2]($1)')\n                    // format <xxx>\n                    .replace((/<(?:b|strong)>(.*?)<\\/(?:b|strong)>/g), '**$1**')\n                    .replace(new RegExp('<\\\\/?(?:' +\n                        'a|dd|div|dl|em|h.|img|li|p|pre|select|span|t\\\\w*?|ul' +\n                        ')\\\\b[^<>]*?>', 'g'), '')\n                    // format whitespace\n                    .replace((/^ +/gm), '')\n                    .replace((/\\n{3,}/g), '\\n\\n')\n                    .replace(new RegExp(stringUniqueKey, 'g'), '\\n')\n                    .replace((/ +$/gm), '')\n                    .trim();\n                local.assert(\n                    text.indexOf('<') < 0,\n                    [url, local.stringTruncate(text.replace((/[\\S\\s]*?</), '<'), 100)]\n                );\n                return text.split('\\n');\n            };\n            // init options\n            options = options || {};\n            textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');\n            if (!textAll) {\n                onError(null, options);\n                return;\n            }\n            // init stringUniqueKey\n            stringUniqueKey = local.stringUniqueKey(textAll);\n            // init swaggerJson\n            swaggerJson = {};\n/* jslint-ignore-begin */\nswaggerJson =\n{\n    \&quot;basePath\&quot;: \&quot;/\&quot;,\n    \&quot;definitions\&quot;: {},\n    \&quot;info\&quot;: {\n        \&quot;title\&quot;: \&quot;\&quot;,\n        \&quot;version\&quot;: \&quot;\&quot;\n    },\n    \&quot;parameters\&quot;: {\n        \&quot;github-all.key\&quot;: {\n            \&quot;default\&quot;: \&quot;xxxxxxxx\&quot;,\n            \&quot;in\&quot;: \&quot;query\&quot;,\n            \&quot;name\&quot;: \&quot;access_token\&quot;,\n            \&quot;type\&quot;: \&quot;string\&quot;,\n            \&quot;x-swgg-apiKey\&quot;: true,\n            \&quot;x-swgg-descriptionLineList\&quot;: [\n                \&quot;https://developer.github.com/v3/#authentication\&quot;,\n                \&quot;\&quot;,\n                \&quot;OAuth2 token (sent as a parameter)\&quot;,\n            ]\n        },\n        \&quot;github-all.user-agent\&quot;: {\n            \&quot;default\&quot;: \&quot;Awesome-Octocat-App\&quot;,\n            \&quot;description\&quot;: \&quot;user-agent header\&quot;,\n            \&quot;in\&quot;: \&quot;header\&quot;,\n            \&quot;name\&quot;: \&quot;user-agent\&quot;,\n            \&quot;required\&quot;: true,\n            \&quot;type\&quot;: \&quot;string\&quot;,\n            \&quot;x-swgg-descriptionLineList\&quot;: [\n                \&quot;https://developer.github.com/v3/index.html#user-agent-required\&quot;,\n                \&quot;\&quot;,\n                \&quot;All API requests MUST include a valid ```User-Agent``` header. Requests with no ```User-Agent``` header will be rejected. We request that you use your GitHub username, or the name of your application, for the ```User-Agent``` header value. This allows us to contact you if there are problems.\&quot;\n            ]\n        }\n    },\n    \&quot;paths\&quot;: {},\n    \&quot;schemes\&quot;: [\n        \&quot;https\&quot;\n    ],\n    \&quot;swagger\&quot;: \&quot;2.0\&quot;,\n    \&quot;tags\&quot;: [],\n    \&quot;x-swgg-corsForwardProxyHost\&quot;: \&quot;disabled\&quot;,\n    \&quot;x-swgg-fixErrorSemanticUniquePath\&quot;: true,\n    \&quot;x-swgg-operationIdFromPath\&quot;: true,\n    \&quot;x-swgg-tags0-override\&quot;: {}\n}\n;\n/* jslint-ignore-end */\n            operationIdDict = {};\n            tagDict = {};\n            typeDict = {\n                type: 'string',\n                url: 'string'\n            };\n            textAll.split('\\n</html>\\n').slice(0, -1).forEach(function (textPage, ii) {\n                if (ii === 0) {\n                    textPage.replace(new RegExp(\n                        ' data-proofer-ignore><\\\\/a><a href=\&quot;(.*?)\&quot;>(.*?)<\\\\/a><\\\\/h3>\\\\n' +\n                            '([\\\\S\\\\s]*?)<\\\\/ul>',\n                        'g'\n                    ), function (tag, pathname, title, match2) {\n                        if (title === 'Overview') {\n                            return;\n                        }\n                        tag = 'github-' + pathname.split('/')[2];\n                        swaggerJson['x-swgg-tags0-override'][tag] = {\n                            'x-swgg-descriptionLineList': {}\n                        };\n                        tagDict[tag] = tag;\n                        match2.replace((/href=\&quot;\\/v3\\/(.*?)\\/\&quot;/g), function (match0, match1) {\n                            match0 = 'github-' + match1.replace((/\\//g), '-');\n                            tagDict[match0] = tag;\n                        });\n                    });\n                    // bug-workaround - hard-code tagDict.scim\n                    tagDict['github-scim'] = 'github-scim';\n                    swaggerJson['x-swgg-tags0-override']['github-scim'] = {\n                        'x-swgg-descriptionLineList': {}\n                    };\n                    return;\n                }\n                textPage = textPage.trim().replace((/\\s+$/gm), '');\n                tmp = (/^(developer.github.com\\/v3\\/(.*?))\\/index.html\\n/).exec(textPage);\n                // init tagMain\n                tagSub = 'github-' + tmp[2].replace((/\\//g), '-');\n                tagMain = tagDict[tagSub];\n                if (!tagMain) {\n                    return;\n                }\n                // init schemaPMediaType\n                schemaPMediaType = {\n                    collectionFormat: 'csv',\n                    in: 'header',\n                    items: { type: 'string' },\n                    name: 'accept',\n                    type: 'array',\n                    'x-swgg-descriptionLineList': [\n                        'https://developer.github.com/v3/media/',\n                        ''\n                        /* jslint-ignore-next-line */\n                        , \&quot;Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't.\&quot;\n                    ]\n                };\n                // init schemaPMediaType.enum\n                schemaPMediaType.enum = {};\n                textPage.replace((/\\bapplication\\/vnd\\.[\\w\\+\\-\\.]+/g), function (match0) {\n                    match0 = match0.trim().replace('VERSION', 'v3');\n                    schemaPMediaType.enum[match0] = true;\n                    if (match0.indexOf('preview') >= 0) {\n                        schemaPMediaType.default = [match0];\n                        schemaPMediaType.required = true;\n                    }\n                });\n                schemaPMediaType.enum['application/vnd.github.v3+json'] = true;\n                schemaPMediaType.enum = Object.keys(schemaPMediaType.enum);\n                // init descriptionMediaType\n                descriptionMediaType = '';\n                textPage.replace((/<\\/a>Custom media types<[\\S\\s]*?<\\/code>/), function (match0) {\n                    descriptionMediaType = '\\n<p>' + match0;\n                });\n                // init title\n                title = (/<title>(.*?) \\|/).exec(textPage)[1];\n                // init url\n                url = 'https://' + tmp[1] + '/';\n                textPage.split('\\n<h2>\\n').forEach(function (textOperation, ii) {\n                    if (ii === 0) {\n                        // init tag.description\n                        tmp = '';\n                        textOperation.replace((\n                            /(\\n<p>[\\S\\s]*?)(?:$|<option |<pre><code>[A-Z]+ \\/)/\n                        ), function (match0, match1) {\n                            match0 = match1;\n                            if ((/[^\\s<>]<|>[^\\s<>]/).test(match0)) {\n                                tmp += match0;\n                            }\n                        });\n                        tmp += descriptionMediaType;\n                        swaggerJson['x-swgg-tags0-override'][tagMain][\n                            'x-swgg-descriptionLineList'\n                        ][tagSub] = htmlToDescription({\n                            html: '# [' + title + '](' + url + ')\\n<p>' +\n                                (tmp.trim() || 'no description'),\n                            url: url\n                        });\n                    }\n                    tmp = new RegExp('href=\&quot;(#.*?)\&quot; .*?<\\\\/a>(.*?)<.*?\\\\n([\\\\S\\\\s]*?)' +\n                        '<pre><code>([A-Z]+?) +([\\\\w&amp;\\\\-.\\\\/:;=\\\\?]+?)\\\\n').exec(textOperation);\n                    if (!tmp) {\n                        return;\n                    }\n                    // init options\n                    options.method = tmp[4];\n                    options.tags = [tagMain];\n                    options.url = tmp[5].replace((/:([\\w\\-]+)/g), '{$1}');\n                    if (options.url[0] === '/') {\n                        options.url = 'https://api.github.com' + options.url;\n                    }\n                    options['x-swgg-tags0'] = tagMain;\n                    // init options.data\n                    options.data = null;\n                    textOperation.replace((\n                        /<code><span class=\&quot;p\&quot;>(\\{[\\S\\s]+?)<\\/code>[\\S\\s]*?<\\/a>Response<\\/h3>\\n/\n                    ), function (match0, match1) {\n                        match0 = match1;\n                        match0 = match0.replace((/<.*?>/g), '').trim().replace((/'$/g), '');\n                        options.data = JSON.stringify(JSON.parse(match0));\n                    });\n                    // init operation\n                    operation = {};\n                    // init operation.description\n                    operation['x-swgg-descriptionLineList'] = htmlToDescription({\n                        html: '[' + title + '](' + url + tmp[1] + ') - ' + tmp[2] + '\\n<p>' +\n                            tmp[3],\n                        url: url\n                    });\n                    // init operation.operationId\n                    tmp = 0;\n                    while (true) {\n                        operation.operationId = local.operationIdFromAjax(options);\n                        if (!operationIdDict[operation.operationId]) {\n                            break;\n                        }\n                        tmp += 1;\n                        options.url = (options.url + '#').replace((/#.*$/g), '#' + tmp);\n                    }\n                    operationIdDict[operation.operationId] = true;\n                    // init operation from ajax\n                    local.swaggerJsonFromAjax(swaggerJson, options);\n                    tmp = local.urlParseWithBraket(options.url);\n                    operation = local.objectSetDefault(swaggerJson.paths[\n                        tmp.pathname + tmp.hash\n                    ][\n                        options.method.toLowerCase()\n                    ], operation);\n                    // init operation.parameters\n                    operation.parameters = [{\n                        \&quot;$ref\&quot;: \&quot;#/parameters/github-all.key\&quot;\n                    }, {\n                        \&quot;$ref\&quot;: \&quot;#/parameters/github-all.user-agent\&quot;\n                    }, schemaPMediaType].concat(operation.parameters);\n                    operation['x-swgg-sortValue'] = operation['x-swgg-descriptionLineList'][0];\n                    // init definition\n                    definition = swaggerJson.definitions[operation.operationId + '.body'];\n                    textOperation.split('\\n</table>\\n')[0].replace(new RegExp('<tr>\\\\n' +\n                        '<td><code>(.*?)<\\\\/code><\\\\/td>\\\\n' +\n                        '<td><code>(.*?)<\\\\/code><\\\\/td>\\\\n' +\n                        '<td>([\\\\S\\\\s]*?)<\\\\/td>\\\\n' +\n                        '<\\\\/tr>\\\\n', 'g'), function (schemaP, name, type, description) {\n                        type = type.toLowerCase();\n                        // init schemaP\n                        schemaP = {\n                            default: definition &amp;&amp;\n                                definition.properties[name] &amp;&amp;\n                                definition.properties[name].default,\n                            in: 'query',\n                            name: name,\n                            required: description.indexOf('<strong>Required</strong>') > 0,\n                            type: typeDict[type] || type,\n                            'x-swgg-descriptionLineList': htmlToDescription({\n                                html: description,\n                                url: url\n                            })\n                        };\n                        // init default\n                        description.replace((\n                            / Default:.*?<code>(.*?)<\\/code>/\n                        ), function (match0, match1) {\n                            match0 = match1;\n                            schemaP.default = match0.trim().replace((/^\&quot;|\&quot;$/g), '') ||\n                                schemaP.default;\n                        });\n                        // init enum\n                        description.replace((\n                            /(Comma-separated list of values)|Can be one of/\n                        ), function (match0, match1) {\n                            match0 = match1;\n                            if (match0) {\n                                schemaP.items = { type: 'string' };\n                                schemaP.type = 'array';\n                            }\n                            schemaP.enum = {};\n                            description.replace((\n                                /<code>([^,]+?)<\\/code>/g\n                            ), function (match0, match1) {\n                                match0 = match1;\n                                match0 = match0.trim().replace((/^\&quot;|\&quot;$/g), '');\n                                if (match0.indexOf('&amp;lt;') >= 0) {\n                                    schemaP.enum = undefined;\n                                }\n                                if (schemaP.enum) {\n                                    schemaP.enum[match0] = true;\n                                }\n                            });\n                            if (schemaP.enum) {\n                                schemaP.enum = Object.keys(schemaP.enum);\n                            }\n                        });\n                        local.tryCatchOnError(function () {\n                            schemaP.default = JSON.parse(schemaP.default);\n                        }, local.nop);\n                        if (schemaP.type === 'array') {\n                            schemaP.items = { type: schemaP.default\n                                ? typeof schemaP.default[0]\n                                : 'string' };\n                        }\n                        // init parameters\n                        if (operation.parameters.some(function (element) {\n                                if (element.name === schemaP.name) {\n                                    local.objectSetOverride(element, {\n                                        default: element.in === 'body'\n                                            ? undefined\n                                            : schemaP.element,\n                                        required: schemaP.required || undefined,\n                                        'x-swgg-descriptionLineList':\n                                            schemaP['x-swgg-descriptionLineList']\n                                    });\n                                    return true;\n                                }\n                            })) {\n                            return;\n                        }\n                        if (!definition) {\n                            operation.parameters.push(schemaP);\n                            return;\n                        }\n                        definition.properties[name] = definition.properties[name] || {};\n                        local.objectSetOverride(definition.properties[name], {\n                            default: schemaP.default,\n                            enum: schemaP.enum,\n                            items: schemaP.items,\n                            type: schemaP.type,\n                            'x-swgg-descriptionLineList': schemaP['x-swgg-descriptionLineList']\n                        });\n                        if (schemaP.required) {\n                            definition.required = definition.required || [];\n                            definition.required.push(name);\n                        }\n                    });\n                });\n            });\n            // init tags\n            swaggerJson.tags = Object.keys(swaggerJson['x-swgg-tags0-override'])\n                .sort(function (aa, bb) {\n                    return aa < bb\n                        ? -1\n                        : 1;\n                })\n                .map(function (key) {\n                    tagDict = swaggerJson['x-swgg-tags0-override'][key];\n                    tmp = tagDict['x-swgg-descriptionLineList'];\n                    tagDict['x-swgg-descriptionLineList'] = Array.prototype.concat.apply(\n                        [],\n                        Object.keys(tmp)\n                            .sort(function (aa, bb) {\n                                return aa === key\n                                    ? -1\n                                    : bb === key\n                                    ? 1\n                                    : tmp[aa][0] < tmp[bb][0]\n                                    ? -1\n                                    : 1;\n                            })\n                            .map(function (key) {\n                                return [''].concat(tmp[key]);\n                            })\n                    ).slice(1);\n                    return {\n                        name: key,\n                        'x-swgg-descriptionLineList': tagDict['x-swgg-descriptionLineList']\n                    };\n                });\n            // bug-workaround - misc\n            [\n                '_2Forgs_2F_7Borg_7D_2Fhooks_2F_7Bid_7D_20PATCH.body',\n                '_2Forgs_2F_7Borg_7D_2Finvitations_20POST.body',\n                '_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fhooks_2F_7Bid_7D_20PATCH.body'\n            ].forEach(function (key) {\n                swaggerJson.definitions[key].required = undefined;\n            });\n            // normalize swaggerJson\n            local.normalizeSwaggerJson(swaggerJson);\n            // save swaggerJson\n            local.fs.writeFileSync(\n                'assets.swgg.swagger.json',\n                local.jsonStringifyOrdered(swaggerJson, null, 4)\n            );\n            local.buildReadme({}, onError);\n        };\n    }());\n}());&quot;
+}"><head>
+    <title>Code coverage report for node-swgg-github-all/test.js</title>
+    <meta charset="utf-8">
+<style>
+/* jslint-utility2 */
+/*csslint
+    box-model: false,
+    important: false,
+    qualified-headings: false,
+*/
+/* jslint-ignore-begin */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+/* jslint-ignore-end */
+.x-istanbul {
+    font-family: Helvetica Neue, Helvetica,Arial;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+}
+.x-istanbul h1 {
+    font-size: large;
+}
+.x-istanbul pre {
+    font-family: Consolas, Menlo, Monaco, monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    tab-size: 2;
+}
+.x-istanbul .cbranch-no {
+    background: yellow !important;
+    color: #111;
+}
+.x-istanbul .cbranch-skip {
+    background: #ddd !important;
+    color: #111;
+}
+.x-istanbul .com {
+    color: #999 !important;
+}
+.x-istanbul .cover-empty,
+.x-istanbul .cover-fill {
+    background: white;
+    border: 1px solid #444;
+    display: inline-block;
+    height: 12px;
+}
+.x-istanbul .cover-empty {
+    background: white;
+    border-left: none;
+}
+.x-istanbul .cover-fill {
+    background: #ccc;
+    border-right: 1px solid #444;
+}
+.x-istanbul .cover-full {
+    border-right: none !important;
+}
+.x-istanbul .coverage {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0
+}
+.x-istanbul .coverage td {
+    color: #111;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.x-istanbul .coverage td .cline-any {
+    display: inline-block;
+    padding: 0 5px;
+    width: 40px;
+}
+.x-istanbul .coverage td .cline-neutral {
+    background: #eee;
+}
+.x-istanbul .coverage td .cline-no {
+    background: #fc8c84;
+}
+.x-istanbul .coverage td .cline-yes {
+    background: #b5d592;
+    color: #999;
+}
+.x-istanbul .coverage .line-count {
+    padding-right: 5px;
+    text-align: right;
+    width: 50px;
+}
+.x-istanbul .coverage .line-coverage {
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+    color: #777 !important;
+    text-align: right;
+}
+.x-istanbul .coverage-summary {
+    padding: 20px;
+}
+.x-istanbul .coverage-summary table {
+    border-collapse: collapse;
+    margin: auto;
+    table-layout: fixed;
+    text-align: left;
+    width: 100%
+}
+.x-istanbul .coverage-summary td {
+    border: 1px solid #666;
+    margin: 0;
+    padding: 5px;
+    white-space: nowrap;
+}
+.x-istanbul .coverage-summary th {
+    margin: 0;
+    padding: 0 0 2px 0;
+}
+.x-istanbul .cstat-no {
+    background: #fc8c84;
+    color: #111;
+}
+.x-istanbul .cstat-skip {
+    background: #ddd;
+    color: #111;
+}
+.x-istanbul .cstat-yes {
+    color: #111;
+}
+.x-istanbul .entity,
+.x-istanbul .metric {
+    font-weight: bold;
+}
+.x-istanbul .footer,
+.x-istanbul .header {
+    background: #eee;
+    padding: 20px;
+}
+.x-istanbul .footer {
+    border-top: 1px solid #666;
+}
+.x-istanbul .fstat-no {
+    background: #ffc520;
+    color: #111 !important;
+}
+.x-istanbul .fstat-skip {
+    background: #ddd;
+    color: #111 !important;
+}
+.x-istanbul .header {
+    border-bottom: 1px solid #666;
+    top: 0;
+    width: 100%;
+}
+.x-istanbul .high {
+    background: #b5d592 !important;
+}
+.x-istanbul .ignore-none {
+    color: #999;
+    font-weight: normal;
+}
+.x-istanbul .low {
+    background: #fc8c84 !important;
+}
+.x-istanbul .medium {
+    background: #ffe87c !important;
+}
+.x-istanbul .meta {
+    text-align: center;
+}
+.x-istanbul .metric {
+    background: white;
+    border: 1px solid #333;
+    display: inline-block;
+    padding: .3em;
+}
+.x-istanbul .missing-if-branch {
+    background: black;
+    color: yellow;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0 4px;
+    position: relative;
+}
+.x-istanbul .missing-if-branch .typ,
+.x-istanbul .skip-if-branch .typ {
+    color: inherit !important;
+}
+.x-istanbul .prettyprint {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.x-istanbul .skip-if-branch {
+    background: #ccc;
+    color: white;
+    display: none;
+    margin-right: 10px;
+    padding: 0 4px;
+    position: relative;
+}
+/* validateLineSortedReset */
+.x-istanbul a {
+    color: #00d;
+    text-decoration: underline;
+}
+.x-istanbul pre {
+    overflow: visible;
+    white-space: pre
+}
+.x-istanbul .file div {
+    margin-bottom: 2px;
+    overflow-wrap: break-word;
+    white-space: normal;
+    width: 100%;
+}
+.x-istanbul .tableHeader {
+    border-collapse: collapse;
+    margin: 0 auto 10px auto;
+    table-layout: fixed;
+    text-align: left;
+    width: 100%;
+}
+.x-istanbul .tableHeader td {
+    background: #eee;
+    border: 1px solid #666;
+    padding: 5px;
+}
+.x-istanbul .tableHeader th {
+    padding: 0 0 2px 0;
+}
+</style>
+</head>
+<body class="x-istanbul">
+<div class="header high">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/kaizhu256/node-swgg-github-all">swgg-github-all (v2018.3.25)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-swgg-github-all/test.js</span></h1>
+    <table class="tableHeader">
+    <thead>
+    <tr>
+        <th>Ignored</th>
+        <th>Statements</th>
+        <th>Branches</th>
+        <th>Functions</th>
+        <th>Lines</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr><td><span class="ignore-none">none</span></td>
+        <td>100%<br>(156 / 156)</td>
+        <td>100%<br>(79 / 79)</td>
+        <td>100%<br>(26 / 26)</td>
+        <td>100%<br>(156 / 156)</td>
+    </tr></tbody>
+    </table>
+    <div class="path"><a href="../index.html">All files</a> » <a href="index.html">node-swgg-github-all/</a> » test.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tbody><tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1910</span>
+<span class="cline-any cline-yes">1910</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2190</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1910</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1910</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">186</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184</span>
+<span class="cline-any cline-yes">184</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184</span>
+<span class="cline-any cline-yes">184</span>
+<span class="cline-any cline-yes">184</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">424</span>
+<span class="cline-any cline-yes">424</span>
+<span class="cline-any cline-yes">424</span>
+<span class="cline-any cline-yes">332</span>
+<span class="cline-any cline-yes">332</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">1226</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">142</span>
+<span class="cline-any cline-yes">142</span>
+<span class="cline-any cline-yes">138</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1226</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1226</span>
+<span class="cline-any cline-yes">344</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">878</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">156</span>
+<span class="cline-any cline-yes">156</span>
+<span class="cline-any cline-yes">156</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">898</span>
+<span class="cline-any cline-yes">898</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-yes">882</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">218</span>
+<span class="cline-any cline-yes">218</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">288</span>
+<span class="cline-any cline-yes">288</span>
+<span class="cline-any cline-yes">288</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">288</span>
+<span class="cline-any cline-yes">274</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">862</span>
+<span class="cline-any cline-yes">5072</span>
+<span class="cline-any cline-yes">82</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">780</span>
+<span class="cline-any cline-yes">372</span>
+<span class="cline-any cline-yes">372</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">408</span>
+<span class="cline-any cline-yes">408</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">408</span>
+<span class="cline-any cline-yes">114</span>
+<span class="cline-any cline-yes">114</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* istanbul instrument in package swgg_github_all */
+/* jslint-utility2 */
+/*jslint
+    bitwise: true,
+    browser: true,
+    maxerr: 8,
+    maxlen: 100,
+    node: true,
+    nomen: true,
+    regexp: true,
+    stupid: true
+*/
+(function () {
+    'use strict';
+    var local;
+&nbsp;
+&nbsp;
+&nbsp;
+    // run shared js-env code - init-before
+    (function () {
+        // init local
+        local = {};
+        // init modeJs
+        local.modeJs = (function () {
+            try {
+                return typeof navigator.userAgent === 'string' &amp;&amp;
+                    typeof document.querySelector('body') === 'object' &amp;&amp;
+                    typeof XMLHttpRequest.prototype.open === 'function' &amp;&amp;
+                    'browser';
+            } catch (errorCaughtBrowser) {
+                return module.exports &amp;&amp;
+                    typeof process.versions.node === 'string' &amp;&amp;
+                    typeof require('http').createServer === 'function' &amp;&amp;
+                    'node';
+            }
+        }());
+        // init global
+        local.global = local.modeJs === 'browser'
+            ? window
+            : global;
+        // re-init local
+        local = local.global.local = (local.global.utility2 ||
+            require('./assets.utility2.rollup.js')).requireReadme();
+        // init test
+        local.testRunInit(local);
+    }());
+&nbsp;
+&nbsp;
+&nbsp;
+    // run shared js-env code - function
+    (function () {
+        /* istanbul-ignore-next */
+        local.testCase_buildReadme_default = function (options, onError) {
+        /*
+         * this function will test buildReadme's default handling-behavior
+         */
+            var definition,
+                descriptionMediaType,
+                htmlToDescription,
+                operation,
+                operationIdDict,
+                schemaPMediaType,
+                stringUniqueKey,
+                swaggerJson,
+                tagDict,
+                textAll,
+                title,
+                typeDict,
+                tagMain,
+                tagSub,
+                tmp,
+                url;
+            htmlToDescription = function (options) {
+            /*
+             * this function will format options.html to swagger markdown-description
+             */
+                var text;
+                text = options.html
+                    // format whitespace
+                    .replace((/&lt;pre\b.*?&gt;&lt;code&gt;([\S\s]*?)&lt;\/code&gt;&lt;\/pre&gt;/g), '&lt;pre&gt;$1&lt;/pre&gt;')
+                    .replace((/&lt;code&gt;([\S\s]*?)&lt;\/code&gt;/g), '&lt;pre&gt;$1&lt;/pre&gt;')
+                    .replace((/&lt;pre\b.*?&gt;[\S\s]*?&lt;\/pre&gt;/g), function (match0) {
+                        return ('```' + match0
+                            .replace((/&lt;[\S\s]*?&gt;/g), '')
+                            .trim()
+                            .replace((/^"([\S\s]+?)"$/), '$1') + '```')
+                            .replace((/^```([\S\s]*?\n[\S\s]*?)```$/g), '\n```\n$1\n```\n')
+                            .replace((/\n/g), stringUniqueKey);
+                    })
+                    .replace((/\n+/g), ' ')
+                    .replace((/&lt;(?:dt|li)&gt;(.*?&lt;\/(?:dt|li)&gt;)/g), '\n- $1')
+                    .replace((/&lt;\/dt&gt;[\S\s]*?&lt;dd&gt;/g), ' - ')
+                    .replace((/&lt;h.&gt;/g), '\n\n#### ')
+                    .replace((/&lt;p&gt;/g), '\n\n')
+                    .replace((/&lt;(?:br|pre)&gt;/g), '\n')
+                    // bug-workaround - format application/vnd.xxx
+                    .replace((/```(application\/.*?)```/g), '\n```\n$1\n```\n')
+                    // format &lt;a&gt;
+                    .replace((/&lt;a href="\//g), '&lt;a href="https://developer.github.com/')
+                    .replace((/&lt;a href="#/g), '&lt;a href="' + options.url + '#')
+                    .replace((/&lt;a href="(.*?)".*?&gt;(.*?)&lt;\/a&gt;/g), '[$2]($1)')
+                    // format &lt;xxx&gt;
+                    .replace((/&lt;(?:b|strong)&gt;(.*?)&lt;\/(?:b|strong)&gt;/g), '**$1**')
+                    .replace(new RegExp('&lt;\\/?(?:' +
+                        'a|dd|div|dl|em|h.|img|li|p|pre|select|span|t\\w*?|ul' +
+                        ')\\b[^&lt;&gt;]*?&gt;', 'g'), '')
+                    // format whitespace
+                    .replace((/^ +/gm), '')
+                    .replace((/\n{3,}/g), '\n\n')
+                    .replace(new RegExp(stringUniqueKey, 'g'), '\n')
+                    .replace((/ +$/gm), '')
+                    .trim();
+                local.assert(
+                    text.indexOf('&lt;') &lt; 0,
+                    [url, local.stringTruncate(text.replace((/[\S\s]*?&lt;/), '&lt;'), 100)]
+                );
+                return text.split('\n');
+            };
+            // init options
+            options = options || {};
+            textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');
+            if (!textAll) {
+                onError(null, options);
+                return;
+            }
+            // init stringUniqueKey
+            stringUniqueKey = local.stringUniqueKey(textAll);
+            // init swaggerJson
+            swaggerJson = {};
+/* jslint-ignore-begin */
+swaggerJson =
+{
+    "basePath": "/",
+    "definitions": {},
+    "info": {
+        "title": "",
+        "version": ""
+    },
+    "parameters": {
+        "github-all.key": {
+            "default": "xxxxxxxx",
+            "in": "query",
+            "name": "access_token",
+            "type": "string",
+            "x-swgg-apiKey": true,
+            "x-swgg-descriptionLineList": [
+                "https://developer.github.com/v3/#authentication",
+                "",
+                "OAuth2 token (sent as a parameter)",
+            ]
+        },
+        "github-all.user-agent": {
+            "default": "Awesome-Octocat-App",
+            "description": "user-agent header",
+            "in": "header",
+            "name": "user-agent",
+            "required": true,
+            "type": "string",
+            "x-swgg-descriptionLineList": [
+                "https://developer.github.com/v3/index.html#user-agent-required",
+                "",
+                "All API requests MUST include a valid ```User-Agent``` header. Requests with no ```User-Agent``` header will be rejected. We request that you use your GitHub username, or the name of your application, for the ```User-Agent``` header value. This allows us to contact you if there are problems."
+            ]
+        }
+    },
+    "paths": {},
+    "schemes": [
+        "https"
+    ],
+    "swagger": "2.0",
+    "tags": [],
+    "x-swgg-corsForwardProxyHost": "disabled",
+    "x-swgg-fixErrorSemanticUniquePath": true,
+    "x-swgg-operationIdFromPath": true,
+    "x-swgg-tags0-override": {}
+}
+;
+/* jslint-ignore-end */
+            operationIdDict = {};
+            tagDict = {};
+            typeDict = {
+                type: 'string',
+                url: 'string'
+            };
+            textAll.split('\n&lt;/html&gt;\n').slice(0, -1).forEach(function (textPage, ii) {
+                if (ii === 0) {
+                    textPage.replace(new RegExp(
+                        ' data-proofer-ignore&gt;&lt;\\/a&gt;&lt;a href="(.*?)"&gt;(.*?)&lt;\\/a&gt;&lt;\\/h3&gt;\\n' +
+                            '([\\S\\s]*?)&lt;\\/ul&gt;',
+                        'g'
+                    ), function (tag, pathname, title, match2) {
+                        if (title === 'Overview') {
+                            return;
+                        }
+                        tag = 'github-' + pathname.split('/')[2];
+                        swaggerJson['x-swgg-tags0-override'][tag] = {
+                            'x-swgg-descriptionLineList': {}
+                        };
+                        tagDict[tag] = tag;
+                        match2.replace((/href="\/v3\/(.*?)\/"/g), function (match0, match1) {
+                            match0 = 'github-' + match1.replace((/\//g), '-');
+                            tagDict[match0] = tag;
+                        });
+                    });
+                    // bug-workaround - hard-code tagDict.scim
+                    tagDict['github-scim'] = 'github-scim';
+                    swaggerJson['x-swgg-tags0-override']['github-scim'] = {
+                        'x-swgg-descriptionLineList': {}
+                    };
+                    return;
+                }
+                textPage = textPage.trim().replace((/\s+$/gm), '');
+                tmp = (/^(developer.github.com\/v3\/(.*?))\/index.html\n/).exec(textPage);
+                // init tagMain
+                tagSub = 'github-' + tmp[2].replace((/\//g), '-');
+                tagMain = tagDict[tagSub];
+                if (!tagMain) {
+                    return;
+                }
+                // init schemaPMediaType
+                schemaPMediaType = {
+                    collectionFormat: 'csv',
+                    in: 'header',
+                    items: { type: 'string' },
+                    name: 'accept',
+                    type: 'array',
+                    'x-swgg-descriptionLineList': [
+                        'https://developer.github.com/v3/media/',
+                        ''
+                        /* jslint-ignore-next-line */
+                        , "Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't."
+                    ]
+                };
+                // init schemaPMediaType.enum
+                schemaPMediaType.enum = {};
+                textPage.replace((/\bapplication\/vnd\.[\w\+\-\.]+/g), function (match0) {
+                    match0 = match0.trim().replace('VERSION', 'v3');
+                    schemaPMediaType.enum[match0] = true;
+                    if (match0.indexOf('preview') &gt;= 0) {
+                        schemaPMediaType.default = [match0];
+                        schemaPMediaType.required = true;
+                    }
+                });
+                schemaPMediaType.enum['application/vnd.github.v3+json'] = true;
+                schemaPMediaType.enum = Object.keys(schemaPMediaType.enum);
+                // init descriptionMediaType
+                descriptionMediaType = '';
+                textPage.replace((/&lt;\/a&gt;Custom media types&lt;[\S\s]*?&lt;\/code&gt;/), function (match0) {
+                    descriptionMediaType = '\n&lt;p&gt;' + match0;
+                });
+                // init title
+                title = (/&lt;title&gt;(.*?) \|/).exec(textPage)[1];
+                // init url
+                url = 'https://' + tmp[1] + '/';
+                textPage.split('\n&lt;h2&gt;\n').forEach(function (textOperation, ii) {
+                    if (ii === 0) {
+                        // init tag.description
+                        tmp = '';
+                        textOperation.replace((
+                            /(\n&lt;p&gt;[\S\s]*?)(?:$|&lt;option |&lt;pre&gt;&lt;code&gt;[A-Z]+ \/)/
+                        ), function (match0, match1) {
+                            match0 = match1;
+                            if ((/[^\s&lt;&gt;]&lt;|&gt;[^\s&lt;&gt;]/).test(match0)) {
+                                tmp += match0;
+                            }
+                        });
+                        tmp += descriptionMediaType;
+                        swaggerJson['x-swgg-tags0-override'][tagMain][
+                            'x-swgg-descriptionLineList'
+                        ][tagSub] = htmlToDescription({
+                            html: '# [' + title + '](' + url + ')\n&lt;p&gt;' +
+                                (tmp.trim() || 'no description'),
+                            url: url
+                        });
+                    }
+                    tmp = new RegExp('href="(#.*?)" .*?&lt;\\/a&gt;(.*?)&lt;.*?\\n([\\S\\s]*?)' +
+                        '&lt;pre&gt;&lt;code&gt;([A-Z]+?) +([\\w&amp;\\-.\\/:;=\\?]+?)\\n').exec(textOperation);
+                    if (!tmp) {
+                        return;
+                    }
+                    // init options
+                    options.method = tmp[4];
+                    options.tags = [tagMain];
+                    options.url = tmp[5].replace((/:([\w\-]+)/g), '{$1}');
+                    if (options.url[0] === '/') {
+                        options.url = 'https://api.github.com' + options.url;
+                    }
+                    options['x-swgg-tags0'] = tagMain;
+                    // init options.data
+                    options.data = null;
+                    textOperation.replace((
+                        /&lt;code&gt;&lt;span class="p"&gt;(\{[\S\s]+?)&lt;\/code&gt;[\S\s]*?&lt;\/a&gt;Response&lt;\/h3&gt;\n/
+                    ), function (match0, match1) {
+                        match0 = match1;
+                        match0 = match0.replace((/&lt;.*?&gt;/g), '').trim().replace((/'$/g), '');
+                        options.data = JSON.stringify(JSON.parse(match0));
+                    });
+                    // init operation
+                    operation = {};
+                    // init operation.description
+                    operation['x-swgg-descriptionLineList'] = htmlToDescription({
+                        html: '[' + title + '](' + url + tmp[1] + ') - ' + tmp[2] + '\n&lt;p&gt;' +
+                            tmp[3],
+                        url: url
+                    });
+                    // init operation.operationId
+                    tmp = 0;
+                    while (true) {
+                        operation.operationId = local.operationIdFromAjax(options);
+                        if (!operationIdDict[operation.operationId]) {
+                            break;
+                        }
+                        tmp += 1;
+                        options.url = (options.url + '#').replace((/#.*$/g), '#' + tmp);
+                    }
+                    operationIdDict[operation.operationId] = true;
+                    // init operation from ajax
+                    local.swaggerJsonFromAjax(swaggerJson, options);
+                    tmp = local.urlParseWithBraket(options.url);
+                    operation = local.objectSetDefault(swaggerJson.paths[
+                        tmp.pathname + tmp.hash
+                    ][
+                        options.method.toLowerCase()
+                    ], operation);
+                    // init operation.parameters
+                    operation.parameters = [{
+                        "$ref": "#/parameters/github-all.key"
+                    }, {
+                        "$ref": "#/parameters/github-all.user-agent"
+                    }, schemaPMediaType].concat(operation.parameters);
+                    operation['x-swgg-sortValue'] = operation['x-swgg-descriptionLineList'][0];
+                    // init definition
+                    definition = swaggerJson.definitions[operation.operationId + '.body'];
+                    textOperation.split('\n&lt;/table&gt;\n')[0].replace(new RegExp('&lt;tr&gt;\\n' +
+                        '&lt;td&gt;&lt;code&gt;(.*?)&lt;\\/code&gt;&lt;\\/td&gt;\\n' +
+                        '&lt;td&gt;&lt;code&gt;(.*?)&lt;\\/code&gt;&lt;\\/td&gt;\\n' +
+                        '&lt;td&gt;([\\S\\s]*?)&lt;\\/td&gt;\\n' +
+                        '&lt;\\/tr&gt;\\n', 'g'), function (schemaP, name, type, description) {
+                        type = type.toLowerCase();
+                        // init schemaP
+                        schemaP = {
+                            default: definition &amp;&amp;
+                                definition.properties[name] &amp;&amp;
+                                definition.properties[name].default,
+                            in: 'query',
+                            name: name,
+                            required: description.indexOf('&lt;strong&gt;Required&lt;/strong&gt;') &gt; 0,
+                            type: typeDict[type] || type,
+                            'x-swgg-descriptionLineList': htmlToDescription({
+                                html: description,
+                                url: url
+                            })
+                        };
+                        // init default
+                        description.replace((
+                            / Default:.*?&lt;code&gt;(.*?)&lt;\/code&gt;/
+                        ), function (match0, match1) {
+                            match0 = match1;
+                            schemaP.default = match0.trim().replace((/^"|"$/g), '') ||
+                                schemaP.default;
+                        });
+                        // init enum
+                        description.replace((
+                            /(Comma-separated list of values)|Can be one of/
+                        ), function (match0, match1) {
+                            match0 = match1;
+                            if (match0) {
+                                schemaP.items = { type: 'string' };
+                                schemaP.type = 'array';
+                            }
+                            schemaP.enum = {};
+                            description.replace((
+                                /&lt;code&gt;([^,]+?)&lt;\/code&gt;/g
+                            ), function (match0, match1) {
+                                match0 = match1;
+                                match0 = match0.trim().replace((/^"|"$/g), '');
+                                if (match0.indexOf('&amp;lt;') &gt;= 0) {
+                                    schemaP.enum = undefined;
+                                }
+                                if (schemaP.enum) {
+                                    schemaP.enum[match0] = true;
+                                }
+                            });
+                            if (schemaP.enum) {
+                                schemaP.enum = Object.keys(schemaP.enum);
+                            }
+                        });
+                        local.tryCatchOnError(function () {
+                            schemaP.default = JSON.parse(schemaP.default);
+                        }, local.nop);
+                        if (schemaP.type === 'array') {
+                            schemaP.items = { type: schemaP.default
+                                ? typeof schemaP.default[0]
+                                : 'string' };
+                        }
+                        // init parameters
+                        if (operation.parameters.some(function (element) {
+                                if (element.name === schemaP.name) {
+                                    local.objectSetOverride(element, {
+                                        default: element.in === 'body'
+                                            ? undefined
+                                            : schemaP.element,
+                                        required: schemaP.required || undefined,
+                                        'x-swgg-descriptionLineList':
+                                            schemaP['x-swgg-descriptionLineList']
+                                    });
+                                    return true;
+                                }
+                            })) {
+                            return;
+                        }
+                        if (!definition) {
+                            operation.parameters.push(schemaP);
+                            return;
+                        }
+                        definition.properties[name] = definition.properties[name] || {};
+                        local.objectSetOverride(definition.properties[name], {
+                            default: schemaP.default,
+                            enum: schemaP.enum,
+                            items: schemaP.items,
+                            type: schemaP.type,
+                            'x-swgg-descriptionLineList': schemaP['x-swgg-descriptionLineList']
+                        });
+                        if (schemaP.required) {
+                            definition.required = definition.required || [];
+                            definition.required.push(name);
+                        }
+                    });
+                });
+            });
+            // init tags
+            swaggerJson.tags = Object.keys(swaggerJson['x-swgg-tags0-override'])
+                .sort(function (aa, bb) {
+                    return aa &lt; bb
+                        ? -1
+                        : 1;
+                })
+                .map(function (key) {
+                    tagDict = swaggerJson['x-swgg-tags0-override'][key];
+                    tmp = tagDict['x-swgg-descriptionLineList'];
+                    tagDict['x-swgg-descriptionLineList'] = Array.prototype.concat.apply(
+                        [],
+                        Object.keys(tmp)
+                            .sort(function (aa, bb) {
+                                return aa === key
+                                    ? -1
+                                    : bb === key
+                                    ? 1
+                                    : tmp[aa][0] &lt; tmp[bb][0]
+                                    ? -1
+                                    : 1;
+                            })
+                            .map(function (key) {
+                                return [''].concat(tmp[key]);
+                            })
+                    ).slice(1);
+                    return {
+                        name: key,
+                        'x-swgg-descriptionLineList': tagDict['x-swgg-descriptionLineList']
+                    };
+                });
+            // bug-workaround - misc
+            [
+                '_2Forgs_2F_7Borg_7D_2Fhooks_2F_7Bid_7D_20PATCH.body',
+                '_2Forgs_2F_7Borg_7D_2Finvitations_20POST.body',
+                '_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fhooks_2F_7Bid_7D_20PATCH.body'
+            ].forEach(function (key) {
+                swaggerJson.definitions[key].required = undefined;
+            });
+            // normalize swaggerJson
+            local.normalizeSwaggerJson(swaggerJson);
+            // save swaggerJson
+            local.fs.writeFileSync(
+                'assets.swgg.swagger.json',
+                local.jsonStringifyOrdered(swaggerJson, null, 4)
+            );
+            local.buildReadme({}, onError);
+        };
+    }());
+}());
+&nbsp;
+&nbsp;</pre></td></tr>
+</tbody></table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Mar 26 2018 15:42:36 GMT+0000 (UTC)</div>
+</div>
+
+
+</body></html>
