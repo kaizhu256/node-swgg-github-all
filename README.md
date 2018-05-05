@@ -61,8 +61,8 @@ this zero-dependency package will provide a (nodejs-compatible) swagger-client f
 - programmatically add api https://developer.github.com/v3/repos/hooks/#pubsubhubbub
 - none
 
-#### changelog for v2018.4.23
-- npm publish v2018.4.23
+#### changelog 2018.4.23
+- npm publish 2018.4.23
 - update shell-function shNpmScriptApidocRawFetch to use local.ajax instead of wget
 - fix whitespace bugs in markdown description
 - enable required-flag for preview headers
@@ -416,7 +416,7 @@ shBuildCiBefore () {(set -e
 )}
 
 # run shBuildCi
-eval $(utility2 source)
+eval "$(utility2 source)"
 shBuildCi
 ```
 

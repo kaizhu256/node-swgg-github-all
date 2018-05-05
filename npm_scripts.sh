@@ -15,11 +15,14 @@ shNpmScriptApidocRawCreate () {(set -e
 
 shNpmScriptApidocRawFetch () {(set -e
 # this function will fetch the raw apidoc
+    export npm_config_npm_package_name="${npm_config_npm_package_name:-$npm_package_name}"
     mkdir -p tmp/apidoc.raw && cd tmp/apidoc.raw
+    rm -f "apidocRawFetch.$npm_config_npm_package_name.log"
     rm -fr developer.github.com && mkdir -p developer.github.com/v3
     curl -Lfs -o developer.github.com/v3/index.html https://developer.github.com/v3/index.html
     node -e '
 // <script>
+/* jslint-utility2 */
 /*jslint
     bitwise: true,
     browser: true,
@@ -31,25 +34,50 @@ shNpmScriptApidocRawFetch () {(set -e
     stupid: true
 */
 "use strict";
-var local;
+var local, options;
 local = require("../../assets.utility2.rollup.js");
 local.dict = {};
-local.fs.readFileSync("developer.github.com/v3/index.html", "utf8").replace((
-    /href="(\/v3\/.*?)["#]/g
-), function (match0, match1) {
-    match0 = match1;
-    local.dict["developer.github.com" + (match0 + "/").replace("//", "/") + "index.html"] = true;
-});
-local.onParallelList({ list: Object.keys(local.dict).sort() }, function (options, onParallel) {
-    onParallel.counter += 1;
-    local.ajax({ url: "https://" + options.element }, function (error, xhr) {
-        local.fsWriteFileWithMkdirpSync(options.element, xhr.responseText);
-        console.error((options.ii + 1) + ". fetched " + options.element);
-        onParallel(error);
-    });
-}, local.onErrorDefault);
+switch (process.env.npm_config_npm_package_name) {
+case "swgg-google-maps":
+    options = { urlList: ["https://developers.google.com/maps/documentation/"] };
+    break;
+default:
+    options = { urlList: [] };
+}
+local.ajaxCrawl(local.objectSetDefault({
+    dict: local.dict,
+    dir: ".",
+    filter: function (options) {
+        return (/\b(?:rest)\b/).test(options.url) || !new RegExp("\\b(?:" +
+/* jslint-ignore-begin */
+"\
+android|\
+apps-script|\
+dotnet|\
+go|\
+ios|\
+java|\
+javascript|\
+js|\
+nodejs|\
+php|\
+python|\
+ruby|\
+sdk" +
+/* jslint-ignore-end */
+            ")\\b|\\bc\\+\\+").test(options.url);
+    },
+    postProcess: function (data) {
+        return data
+            .replace((/<[^>]*? name="xsrf_token"[^>]*?>/g), "")
+            .replace((/ data-request-elapsed="[^"]*?"/g), "");
+    }
+}, options), local.onErrorDefault);
 // </script>
-' 2>&1 | tee apidocRawFetch.log
+' 2>&1 | tee -a "apidocRawFetch.$npm_config_npm_package_name.log"
+    find . -path ./.git -prune -o -type f | \
+        xargs -I % -n 1 sh -c "[ ! -s % ] && printf 'empty-file %\\n' 1>&2" | \
+        tee -a "apidocRawFetch.$npm_config_npm_package_name.log"
 )}
 
 shNpmScriptPostinstall () {
