@@ -16601,12 +16601,12 @@ PORT=8081 node ./assets.app.js\n\
         "url": "https://github.com/kaizhu256/node-jslint-lite.git"\n\
     },\n\
     "scripts": {\n\
-        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawCreate",\n\
-        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",\n\
+        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",\n\
+        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",\n\
         "build-ci": "utility2 shReadmeTest build_ci.sh",\n\
         "env": "env",\n\
         "heroku-postbuild": "npm install kaizhu256/node-utility2#alpha --prefix . && utility2 shDeployHeroku",\n\
-        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",\n\
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",\n\
         "start": "PORT=${PORT:-8080} utility2 start test.js",\n\
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"\n\
     },\n\
@@ -18121,12 +18121,13 @@ local.assetsDict['/favicon.ico'] = '';
                 case 1:
                     options = local.objectSetDefault(options, {
                         depth: 0,
+                        depthMax: 10,
                         dict: {},
-                        dir: 'tmp/ajaxCrawl',
+                        dir: '.',
                         filter: local.echo,
                         list: [],
                         postProcess: local.echo,
-                        rgx: (/<a\b[\S\s]*?href="(.*?)"/g),
+                        rgxCrawl: (/<a\b[\S\s]*?href="(.*?)"/g),
                         rgxParent0: (/z^/),
                         urlList: []
                     });
@@ -18155,7 +18156,8 @@ local.assetsDict['/favicon.ico'] = '';
                     }
                     if (!(/^https?:\/\//).test(options.url)) {
                         if (options.url[0] !== '/') {
-                            options.url = options.urlParsed0.pathname + '/' + options.url;
+                            options.url = options.urlParsed0.pathname.replace((/\/[^\/]*?$/), '/') +
+                                options.url;
                         }
                         options.url = options.urlParsed0.protocol + '//' + options.urlParsed0.host +
                             '/' + options.url;
@@ -18219,16 +18221,17 @@ local.assetsDict['/favicon.ico'] = '';
                         statusCode: options.xhr.statusCode,
                         timeElapsed: options.xhr.timeElapsed,
                         // extra
-                        responseContentLength: options.xhr.response.length,
+                        responseContentLength: options.xhr.response && options.xhr.response.length,
                         depth: options.depth,
                         ii: options.ii,
                         listLength: options.list.length,
-                        dictSize: Object.keys(options.dict).length
+                        dictSize: Object.keys(options.dict).length,
+                        rgxCrawlMatch1: options.rgxCrawlMatch1
                     }));
                     // save file
                     local.fsWriteFileWithMkdirpSync(
                         options.file,
-                        options.postProcess(options.xhr.responseText)
+                        options.postProcess(options.xhr.responseText.trim() + '\n')
                     );
                     // skip crawl
                     if (!(options.depth < options.depthMax)) {
@@ -18236,12 +18239,13 @@ local.assetsDict['/favicon.ico'] = '';
                         return;
                     }
                     // crawl file
-                    options.xhr.responseText.replace(options.rgx, function (match0, match1) {
+                    options.xhr.responseText.replace(options.rgxCrawl, function (match0, match1) {
                         match0 = match1;
                         // recurse - push
                         local.ajaxCrawl(local.objectSetDefault({
                             depth: options.depth + 1,
                             modeNext: 1,
+                            rgxCrawlMatch1: match1,
                             url: match0,
                             urlParsed0: options.xhr.urlParsed
                         }, options), local.nop);

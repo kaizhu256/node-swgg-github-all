@@ -5,7 +5,7 @@
 
 <tspan x="10" y="42">&gt; swgg-github-all@2018.4.23 postinstall /tmp/app/node_modules/swgg-github-all</tspan>
 
-<tspan x="10" y="58">&gt; [ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall</tspan>
+<tspan x="10" y="58">&gt; [ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event</tspan>
 
 <tspan x="10" y="74"></tspan>
 
@@ -27,7 +27,7 @@
 
 <tspan x="10" y="218">+ swgg-github-all@2018.4.23</tspan>
 
-<tspan x="10" y="234">added 1 package in 1.369s</tspan>
+<tspan x="10" y="234">added 1 package in 1.291s</tspan>
 
 <tspan x="10" y="250">server starting on port 8081</tspan>
 
