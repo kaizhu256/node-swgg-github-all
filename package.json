@@ -29,12 +29,12 @@
         "url": "https://github.com/kaizhu256/node-swgg-github-all.git"
     },
     "scripts": {
-        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawCreate",
-        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",
+        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",
+        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm install kaizhu256/node-utility2#alpha --prefix . && utility2 shDeployHeroku",
-        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },

@@ -241,7 +241,8 @@ instruction
         /* jslint-ignore-begin */
         local.assetsDict['/assets.swgg_github_all.js'] = local.assetsDict['/assets.swgg_github_all.js'] ||
             local.fs.readFileSync(local.__dirname + '/lib.swgg_github_all.js', 'utf8'
-        ).replace((/^#!/), '//');
+        ).replace((/^#!\//), '// ');
+        /* jslint-ignore-end */
 /* validateLineSortedReset */
         local.assetsDict['/'] =
             local.assetsDict['/assets.example.html'] =
@@ -267,7 +268,6 @@ instruction
         local.assetsDict['/assets.example.js'] =
             local.assetsDict['/assets.example.js'] ||
             local.fs.readFileSync(__filename, 'utf8');
-        /* jslint-ignore-end */
         local.assetsDict['/favicon.ico'] = local.assetsDict['/favicon.ico'] || '';
         // if $npm_config_timeout_exit exists,
         // then exit this process after $npm_config_timeout_exit ms
@@ -374,12 +374,12 @@ instruction
         "url": "https://github.com/kaizhu256/node-swgg-github-all.git"
     },
     "scripts": {
-        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawCreate",
-        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",
+        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",
+        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm install kaizhu256/node-utility2#alpha --prefix . && utility2 shDeployHeroku",
-        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh $npm_lifecycle_event",
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
