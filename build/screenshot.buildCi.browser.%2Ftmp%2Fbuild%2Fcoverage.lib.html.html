@@ -1,12 +1,4 @@
-<html lang="en" class="x-istanbul" data-scrape="{
-    &quot;hrefDict&quot;: {
-        &quot;https://github.com/kaizhu256/node-swgg-github-all&quot;: &quot;swgg-github-all (v2018.4.23)&quot;,
-        &quot;https://github.com/kaizhu256/node-utility2&quot;: &quot;utility2&quot;
-    },
-    &quot;href&quot;: &quot;file:///home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/coverage.lib.html&quot;,
-    &quot;url&quot;: &quot;file:///home/travis/build/kaizhu256/node-swgg-github-all/tmp/build/coverage.lib.html&quot;,
-    &quot;bodyTextContent&quot;: &quot;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\n91\n92\n93\n94\n95\n96\n97\n98\n99\n100\n101\n102\n103\n104\n105\n106\n107\n108\n109\n110\n111\n112\n113\n114\n115\n116\n117\n118\n119\n120\n121\n122\n123\n124\n125\n126\n127\n128\n129\n130\n131\n132\n133\n134\n135\n136\n137\n138\n139\n140\n141\n142\n143\n144\n145\n146\n147\n148\n149\n150\n151\n152\n153\n154\n155\n156\n157\n158\n159\n160\n161\n162\n163\n164\n165\n166\n167\n168\n169\n170\n171\n172\n173\n174\n175\n176\n177\n178\n179\n180\n181\n182\n183\n184\n185\n186\n187\n188\n189\n190\n191\n192\n193\n194\n195\n196\n197\n198\n199\n200\n201\n202\n203\n204\n205\n206\n207\n208\n209\n210\n211\n212\n213\n214\n215\n216\n217\n218\n219\n220\n221\n222\n223\n224\n225\n226\n227\n228\n229\n230\n231\n232\n233\n234\n235\n236\n237\n238\n239\n240\n241\n242\n243\n244\n245\n246\n247\n248\n249\n250\n251\n252\n253\n254\n255\n256\n257\n258\n259\n260\n261\n262\n263\n264\n265\n266\n267\n268\n269\n270\n271\n272\n273\n274\n275\n276\n277\n278\n279\n280\n281\n282\n283\n284\n285\n286\n287\n288\n289\n290\n291\n292\n293\n294\n295\n296\n297\n298\n299\n300\n301\n302\n303\n304\n305\n306\n307\n308\n309\n310\n311\n312\n313\n314\n315\n316\n317\n318\n319\n320\n321\n322\n323\n324\n325\n326\n327\n328\n329\n330\n331\n332\n333\n334\n335\n336\n337\n338\n339\n340\n341\n342\n343\n344\n345\n346\n347\n348\n349\n350\n351\n352\n353\n354\n355\n356\n357\n358\n359\n360\n361\n362\n363\n364\n365\n366\n367\n368\n369\n370\n371\n372\n373\n374\n375\n376\n377\n378\n379\n380\n381\n382\n383\n384\n385\n386\n387\n388\n389\n390\n391\n392\n393\n394\n395\n396\n397\n398\n399\n400\n401\n402\n403\n404\n405\n406\n407\n408\n409\n410\n411\n412\n413\n414\n415\n416\n417\n418\n419\n420\n421\n422\n423\n424\n425\n426\n427\n428\n429\n430\n431\n432\n433\n434\n435\n436\n437\n438\n439\n440\n441\n442\n443\n444\n445\n446\n447\n448\n449\n450\n451\n452\n453\n454\n455\n456\n457\n458\n459\n460\n461\n462\n463\n464\n465\n466\n467\n468\n469\n470\n471\n472\n473\n474\n475\n476\n477\n478\n479\n480\n481\n482\n483\n484\n485\n486\n487\n488\n489\n490\n491\n492\n493\n494\n495\n496\n497\n498\n499\n\n&nbsp;/* istanbul instrument in package swgg_github_all */\n/* jslint-utility2 */\n/*jslint\n    bitwise: true,\n    browser: true,\n    maxerr: 4,\n    maxlen: 100,\n    node: true,\n    nomen: true,\n    regexp: true,\n    stupid: true\n*/\n(function () {\n    'use strict';\n    var local;\n\n    // run shared js-env code - init-before\n    (function () {\n        // init local\n        local = {};\n        // init modeJs\n        local.modeJs = (function () {\n            try {\n                return typeof navigator.userAgent === 'string' &amp;&amp;\n                    typeof document.querySelector('body') === 'object' &amp;&amp;\n                    typeof XMLHttpRequest.prototype.open === 'function' &amp;&amp;\n                    'browser';\n            } catch (errorCaughtBrowser) {\n                return module.exports &amp;&amp;\n                    typeof process.versions.node === 'string' &amp;&amp;\n                    typeof require('http').createServer === 'function' &amp;&amp;\n                    'node';\n            }\n        }());\n        // init global\n        local.global = local.modeJs === 'browser'\n            ? window\n            : global;\n        // re-init local\n        local = local.global.local = (local.global.utility2 ||\n            require('./assets.utility2.rollup.js')).requireReadme();\n        // init test\n        local.testRunInit(local);\n    }());\n\n    // run shared js-env code - function\n    (function () {\n        /* istanbul-ignore-next */\n        local.testCase_buildReadme_default = function (options, onError) {\n        /*\n         * this function will test buildReadme's default handling-behavior\n         */\n            var definition,\n                descriptionMediaType,\n                htmlToDescription,\n                operation,\n                operationIdDict,\n                schemaPMediaType,\n                stringUniqueKey,\n                swaggerJson,\n                tagDict,\n                textAll,\n                title,\n                typeDict,\n                tagMain,\n                tagSub,\n                tmp,\n                url;\n            htmlToDescription = function (options) {\n            /*\n             * this function will format options.html to swagger markdown-description\n             */\n                var text;\n                text = options.html\n                    // format whitespace\n                    .replace((/<pre\\b.*?><code>([\\S\\s]*?)<\\/code><\\/pre>/g), '<pre>$1</pre>')\n                    .replace((/<code>([\\S\\s]*?)<\\/code>/g), '<pre>$1</pre>')\n                    .replace((/<pre\\b.*?>[\\S\\s]*?<\\/pre>/g), function (match0) {\n                        return ('```' + match0\n                            .replace((/<[\\S\\s]*?>/g), '')\n                            .trim()\n                            .replace((/^\&quot;([\\S\\s]+?)\&quot;$/), '$1') + '```')\n                            .replace((/^```([\\S\\s]*?\\n[\\S\\s]*?)```$/g), '\\n```\\n$1\\n```\\n')\n                            .replace((/\\n/g), stringUniqueKey);\n                    })\n                    .replace((/\\n+/g), ' ')\n                    .replace((/<(?:dt|li)>(.*?<\\/(?:dt|li)>)/g), '\\n- $1')\n                    .replace((/<\\/dt>[\\S\\s]*?<dd>/g), ' - ')\n                    .replace((/<h.>/g), '\\n\\n#### ')\n                    .replace((/<p>/g), '\\n\\n')\n                    .replace((/<(?:br|pre)>/g), '\\n')\n                    // bug-workaround - format application/vnd.xxx\n                    .replace((/```(application\\/.*?)```/g), '\\n```\\n$1\\n```\\n')\n                    // format <a>\n                    .replace((/<a href=\&quot;\\//g), '<a href=\&quot;https://developer.github.com/')\n                    .replace((/<a href=\&quot;#/g), '<a href=\&quot;' + options.url + '#')\n                    .replace((/<a href=\&quot;(.*?)\&quot;.*?>(.*?)<\\/a>/g), '[$2]($1)')\n                    // format <xxx>\n                    .replace((/<(?:b|strong)>(.*?)<\\/(?:b|strong)>/g), '**$1**')\n                    .replace(new RegExp('<\\\\/?(?:' +\n                        'a|dd|div|dl|em|h.|img|li|p|pre|select|span|t\\\\w*?|ul' +\n                        ')\\\\b[^<>]*?>', 'g'), '')\n                    // format whitespace\n                    .replace((/^ +/gm), '')\n                    .replace((/\\n{3,}/g), '\\n\\n')\n                    .replace(new RegExp(stringUniqueKey, 'g'), '\\n')\n                    .replace((/ +$/gm), '')\n                    .trim();\n                local.assert(\n                    text.indexOf('<') < 0,\n                    [url, local.stringTruncate(text.replace((/[\\S\\s]*?</), '<'), 100)]\n                );\n                return text.split('\\n');\n            };\n            // init options\n            options = options || {};\n            textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');\n            if (!textAll) {\n                onError(null, options);\n                return;\n            }\n            // init stringUniqueKey\n            stringUniqueKey = local.stringUniqueKey(textAll);\n            // init swaggerJson\n            swaggerJson = {};\n/* jslint-ignore-begin */\nswaggerJson =\n{\n    \&quot;basePath\&quot;: \&quot;/\&quot;,\n    \&quot;definitions\&quot;: {},\n    \&quot;info\&quot;: {\n        \&quot;title\&quot;: \&quot;\&quot;,\n        \&quot;version\&quot;: \&quot;\&quot;\n    },\n    \&quot;parameters\&quot;: {\n        \&quot;github-all.key\&quot;: {\n            \&quot;default\&quot;: \&quot;xxxxxxxx\&quot;,\n            \&quot;in\&quot;: \&quot;query\&quot;,\n            \&quot;name\&quot;: \&quot;access_token\&quot;,\n            \&quot;type\&quot;: \&quot;string\&quot;,\n            \&quot;x-swgg-apiKey\&quot;: true,\n            \&quot;x-swgg-descriptionLineList\&quot;: [\n                \&quot;https://developer.github.com/v3/#authentication\&quot;,\n                \&quot;\&quot;,\n                \&quot;OAuth2 token (sent as a parameter)\&quot;,\n            ]\n        },\n        \&quot;github-all.user-agent\&quot;: {\n            \&quot;default\&quot;: \&quot;Awesome-Octocat-App\&quot;,\n            \&quot;description\&quot;: \&quot;user-agent header\&quot;,\n            \&quot;in\&quot;: \&quot;header\&quot;,\n            \&quot;name\&quot;: \&quot;user-agent\&quot;,\n            \&quot;required\&quot;: true,\n            \&quot;type\&quot;: \&quot;string\&quot;,\n            \&quot;x-swgg-descriptionLineList\&quot;: [\n                \&quot;https://developer.github.com/v3/index.html#user-agent-required\&quot;,\n                \&quot;\&quot;,\n                \&quot;All API requests MUST include a valid ```User-Agent``` header. Requests with no ```User-Agent``` header will be rejected. We request that you use your GitHub username, or the name of your application, for the ```User-Agent``` header value. This allows us to contact you if there are problems.\&quot;\n            ]\n        }\n    },\n    \&quot;paths\&quot;: {},\n    \&quot;schemes\&quot;: [\n        \&quot;https\&quot;\n    ],\n    \&quot;swagger\&quot;: \&quot;2.0\&quot;,\n    \&quot;tags\&quot;: [],\n    \&quot;x-swgg-corsForwardProxyHost\&quot;: \&quot;disabled\&quot;,\n    \&quot;x-swgg-fixErrorSemanticUniquePath\&quot;: true,\n    \&quot;x-swgg-operationIdFromPath\&quot;: true,\n    \&quot;x-swgg-tags0-override\&quot;: {}\n}\n;\n/* jslint-ignore-end */\n            operationIdDict = {};\n            tagDict = {};\n            typeDict = {\n                type: 'string',\n                url: 'string'\n            };\n            textAll.split('\\n</html>\\n').slice(0, -1).forEach(function (textPage, ii) {\n                if (ii === 0) {\n                    textPage.replace(new RegExp(\n                        ' data-proofer-ignore><\\\\/a><a href=\&quot;(.*?)\&quot;>(.*?)<\\\\/a><\\\\/h3>\\\\n' +\n                            '([\\\\S\\\\s]*?)<\\\\/ul>',\n                        'g'\n                    ), function (tag, pathname, title, match2) {\n                        if (title === 'Overview') {\n                            return;\n                        }\n                        tag = 'github-' + pathname.split('/')[2];\n                        swaggerJson['x-swgg-tags0-override'][tag] = {\n                            'x-swgg-descriptionLineList': {}\n                        };\n                        tagDict[tag] = tag;\n                        match2.replace((/href=\&quot;\\/v3\\/(.*?)\\/\&quot;/g), function (match0, match1) {\n                            match0 = 'github-' + match1.replace((/\\//g), '-');\n                            tagDict[match0] = tag;\n                        });\n                    });\n                    // bug-workaround - hard-code tagDict.scim\n                    tagDict['github-scim'] = 'github-scim';\n                    swaggerJson['x-swgg-tags0-override']['github-scim'] = {\n                        'x-swgg-descriptionLineList': {}\n                    };\n                    return;\n                }\n                textPage = textPage.trim().replace((/\\s+$/gm), '');\n                tmp = (/^(developer.github.com\\/v3\\/(.*?))\\/index.html\\n/).exec(textPage);\n                // init tagMain\n                tagSub = 'github-' + tmp[2].replace((/\\//g), '-');\n                tagMain = tagDict[tagSub];\n                if (!tagMain) {\n                    return;\n                }\n                // init schemaPMediaType\n                schemaPMediaType = {\n                    collectionFormat: 'csv',\n                    in: 'header',\n                    items: { type: 'string' },\n                    name: 'accept',\n                    type: 'array',\n                    'x-swgg-descriptionLineList': [\n                        'https://developer.github.com/v3/media/',\n                        ''\n                        /* jslint-ignore-next-line */\n                        , \&quot;Custom media types are used in the API to let consumers choose the format of the data they wish to receive. This is done by adding one or more of the following types to the ```Accept``` header when you make a request. Media types are specific to resources, allowing them to change independently and support formats that other resources don't.\&quot;\n                    ]\n                };\n                // init schemaPMediaType.enum\n                schemaPMediaType.enum = {};\n                textPage.replace((/\\bapplication\\/vnd\\.[\\w\\+\\-\\.]+/g), function (match0) {\n                    match0 = match0.trim().replace('VERSION', 'v3');\n                    schemaPMediaType.enum[match0] = true;\n                    if (match0.indexOf('preview') >= 0) {\n                        schemaPMediaType.default = [match0];\n                        schemaPMediaType.required = true;\n                    }\n                });\n                schemaPMediaType.enum['application/vnd.github.v3+json'] = true;\n                schemaPMediaType.enum = Object.keys(schemaPMediaType.enum);\n                // init descriptionMediaType\n                descriptionMediaType = '';\n                textPage.replace((/<\\/a>Custom media types<[\\S\\s]*?<\\/code>/), function (match0) {\n                    descriptionMediaType = '\\n<p>' + match0;\n                });\n                // init title\n                title = (/<title>(.*?) \\|/).exec(textPage)[1];\n                // init url\n                url = 'https://' + tmp[1] + '/';\n                textPage.split('\\n<h2>\\n').forEach(function (textOperation, ii) {\n                    if (ii === 0) {\n                        // init tag.description\n                        tmp = '';\n                        textOperation.replace((\n                            /(\\n<p>[\\S\\s]*?)(?:$|<option |<pre><code>[A-Z]+ \\/)/\n                        ), function (match0, match1) {\n                            match0 = match1;\n                            if ((/[^\\s<>]<|>[^\\s<>]/).test(match0)) {\n                                tmp += match0;\n                            }\n                        });\n                        tmp += descriptionMediaType;\n                        swaggerJson['x-swgg-tags0-override'][tagMain][\n                            'x-swgg-descriptionLineList'\n                        ][tagSub] = htmlToDescription({\n                            html: '# [' + title + '](' + url + ')\\n<p>' +\n                                (tmp.trim() || 'no description'),\n                            url: url\n                        });\n                    }\n                    tmp = new RegExp('href=\&quot;(#.*?)\&quot; .*?<\\\\/a>(.*?)<.*?\\\\n([\\\\S\\\\s]*?)' +\n                        '<pre><code>([A-Z]+?) +([\\\\w&amp;\\\\-.\\\\/:;=\\\\?]+?)\\\\n').exec(textOperation);\n                    if (!tmp) {\n                        return;\n                    }\n                    // init options\n                    options.method = tmp[4];\n                    options.tags = [tagMain];\n                    options.url = tmp[5].replace((/:([\\w\\-]+)/g), '{$1}');\n                    if (options.url[0] === '/') {\n                        options.url = 'https://api.github.com' + options.url;\n                    }\n                    options['x-swgg-tags0'] = tagMain;\n                    // init options.data\n                    options.data = null;\n                    textOperation.replace((\n                        /<code><span class=\&quot;p\&quot;>(\\{[\\S\\s]+?)<\\/code>[\\S\\s]*?<\\/a>Response<\\/h3>\\n/\n                    ), function (match0, match1) {\n                        match0 = match1;\n                        match0 = match0.replace((/<.*?>/g), '').trim().replace((/'$/g), '');\n                        options.data = JSON.stringify(JSON.parse(match0));\n                    });\n                    // init operation\n                    operation = {};\n                    // init operation.description\n                    operation['x-swgg-descriptionLineList'] = htmlToDescription({\n                        html: '[' + title + '](' + url + tmp[1] + ') - ' + tmp[2] + '\\n<p>' +\n                            tmp[3],\n                        url: url\n                    });\n                    // init operation.operationId\n                    tmp = 0;\n                    while (true) {\n                        operation.operationId = local.operationIdFromAjax(options);\n                        if (!operationIdDict[operation.operationId]) {\n                            break;\n                        }\n                        tmp += 1;\n                        options.url = (options.url + '#').replace((/#.*$/g), '#' + tmp);\n                    }\n                    operationIdDict[operation.operationId] = true;\n                    // init operation from ajax\n                    local.swaggerJsonFromAjax(swaggerJson, options);\n                    tmp = local.urlParseWithBraket(options.url);\n                    operation = local.objectSetDefault(swaggerJson.paths[\n                        tmp.pathname + tmp.hash\n                    ][\n                        options.method.toLowerCase()\n                    ], operation);\n                    // init operation.parameters\n                    operation.parameters = [{\n                        \&quot;$ref\&quot;: \&quot;#/parameters/github-all.key\&quot;\n                    }, {\n                        \&quot;$ref\&quot;: \&quot;#/parameters/github-all.user-agent\&quot;\n                    }, schemaPMediaType].concat(operation.parameters);\n                    operation['x-swgg-sortValue'] = operation['x-swgg-descriptionLineList'][0];\n                    // init definition\n                    definition = swaggerJson.definitions[operation.operationId + '.body'];\n                    textOperation.split('\\n</table>\\n')[0].replace(new RegExp('<tr>\\\\n' +\n                        '<td><code>(.*?)<\\\\/code><\\\\/td>\\\\n' +\n                        '<td><code>(.*?)<\\\\/code><\\\\/td>\\\\n' +\n                        '<td>([\\\\S\\\\s]*?)<\\\\/td>\\\\n' +\n                        '<\\\\/tr>\\\\n', 'g'), function (schemaP, name, type, description) {\n                        type = type.toLowerCase();\n                        // init schemaP\n                        schemaP = {\n                            default: definition &amp;&amp;\n                                definition.properties[name] &amp;&amp;\n                                definition.properties[name].default,\n                            in: 'query',\n                            name: name,\n                            required: description.indexOf('<strong>Required</strong>') > 0,\n                            type: typeDict[type] || type,\n                            'x-swgg-descriptionLineList': htmlToDescription({\n                                html: description,\n                                url: url\n                            })\n                        };\n                        // init default\n                        description.replace((\n                            / Default:.*?<code>(.*?)<\\/code>/\n                        ), function (match0, match1) {\n                            match0 = match1;\n                            schemaP.default = match0.trim().replace((/^\&quot;|\&quot;$/g), '') ||\n                                schemaP.default;\n                        });\n                        // init enum\n                        description.replace((\n                            /(Comma-separated list of values)|Can be one of/\n                        ), function (match0, match1) {\n                            if (schemaP.type === 'boolean') {\n                                return;\n                            }\n                            match0 = match1;\n                            if (match0) {\n                                schemaP.items = { type: 'string' };\n                                schemaP.type = 'array';\n                            }\n                            schemaP.enum = {};\n                            description.replace((\n                                /<code>([^,]+?)<\\/code>/g\n                            ), function (match0, match1) {\n                                match0 = match1;\n                                match0 = match0.trim().replace((/^\&quot;|\&quot;$/g), '');\n                                if (match0.indexOf('&amp;lt;') >= 0) {\n                                    schemaP.enum = undefined;\n                                }\n                                if (schemaP.enum) {\n                                    schemaP.enum[match0] = true;\n                                }\n                            });\n                            if (schemaP.enum) {\n                                schemaP.enum = Object.keys(schemaP.enum);\n                            }\n                        });\n                        local.tryCatchOnError(function () {\n                            schemaP.default = JSON.parse(schemaP.default);\n                        }, local.nop);\n                        if (schemaP.type === 'array') {\n                            schemaP.items = { type: schemaP.default\n                                ? typeof schemaP.default[0]\n                                : 'string' };\n                        }\n                        // init parameters\n                        if (operation.parameters.some(function (element) {\n                                if (element.name === schemaP.name) {\n                                    local.objectSetOverride(element, {\n                                        default: element.in === 'body'\n                                            ? undefined\n                                            : schemaP.element,\n                                        required: schemaP.required || undefined,\n                                        'x-swgg-descriptionLineList':\n                                            schemaP['x-swgg-descriptionLineList']\n                                    });\n                                    return true;\n                                }\n                            })) {\n                            return;\n                        }\n                        if (!definition) {\n                            operation.parameters.push(schemaP);\n                            return;\n                        }\n                        definition.properties[name] = definition.properties[name] || {};\n                        local.objectSetOverride(definition.properties[name], {\n                            default: schemaP.default,\n                            enum: schemaP.enum,\n                            items: schemaP.items,\n                            type: schemaP.type,\n                            'x-swgg-descriptionLineList': schemaP['x-swgg-descriptionLineList']\n                        });\n                        if (schemaP.required) {\n                            definition.required = definition.required || [];\n                            definition.required.push(name);\n                        }\n                    });\n                });\n            });\n            Object.keys(swaggerJson.paths).forEach(function (path) {\n                Object.keys(swaggerJson.paths[path]).forEach(function (method) {\n                    // normalize parameters\n                    tmp = { 'access_token query': true };\n                    operation = swaggerJson.paths[path][method];\n                    operation.parameters = operation.parameters.filter(function (schemaP) {\n                        if (schemaP.name &amp;&amp; tmp[schemaP.name + ' ' + schemaP.in]) {\n                            return;\n                        }\n                        tmp[schemaP.name + ' ' + schemaP.in] = true;\n                        return true;\n                    });\n                });\n            });\n            // init tags\n            swaggerJson.tags = Object.keys(swaggerJson['x-swgg-tags0-override'])\n                .sort(function (aa, bb) {\n                    return aa < bb\n                        ? -1\n                        : 1;\n                })\n                .map(function (key) {\n                    tagDict = swaggerJson['x-swgg-tags0-override'][key];\n                    tmp = tagDict['x-swgg-descriptionLineList'];\n                    tagDict['x-swgg-descriptionLineList'] = Array.prototype.concat.apply(\n                        [],\n                        Object.keys(tmp)\n                            .sort(function (aa, bb) {\n                                return aa === key\n                                    ? -1\n                                    : bb === key\n                                    ? 1\n                                    : tmp[aa][0] < tmp[bb][0]\n                                    ? -1\n                                    : 1;\n                            })\n                            .map(function (key) {\n                                return [''].concat(tmp[key]);\n                            })\n                    ).slice(1);\n                    return {\n                        name: key,\n                        'x-swgg-descriptionLineList': tagDict['x-swgg-descriptionLineList']\n                    };\n                });\n            // bug-workaround - misc\n            [\n                '_2Forgs_2F_7Borg_7D_2Fhooks_2F_7Bid_7D_20PATCH.body',\n                '_2Forgs_2F_7Borg_7D_2Finvitations_20POST.body',\n                '_2Frepos_2F_7Bowner_7D_2F_7Brepo_7D_2Fhooks_2F_7Bid_7D_20PATCH.body'\n            ].forEach(function (key) {\n                swaggerJson.definitions[key].required = undefined;\n            });\n            // normalize swaggerJson\n            local.normalizeSwaggerJson(swaggerJson);\n            // save swaggerJson\n            local.fs.writeFileSync(\n                'assets.swgg.swagger.json',\n                local.jsonStringifyOrdered(swaggerJson, null, 4)\n            );\n            local.buildReadme({}, onError);\n        };\n    }());\n}());&quot;
-}"><head>
+<html lang="en" class="x-istanbul"><head>
     <title>Code coverage report for node-swgg-github-all/test.js</title>
     <meta charset="utf-8">
 <style>
@@ -231,7 +223,7 @@
     width: 100%;
 }
 .x-istanbul .tableHeader td {
-    background: #eee;
+    background: #fff;
     border: 1px solid #666;
     padding: 5px;
 }
@@ -241,9 +233,37 @@
 </style>
 </head>
 <body class="x-istanbul">
+<script>
+// init domOnEventSelectAllWithinPre
+(function () {
+/*
+ * this function will limit select-all within <pre tabIndex="0"> elements
+ * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
+ */
+    "use strict";
+    if (window.domOnEventSelectAllWithinPre) {
+        return;
+    }
+    window.domOnEventSelectAllWithinPre = function (event) {
+        var range, selection;
+        if (event &&
+                event.code === "KeyA" &&
+                (event.ctrlKey || event.metaKey) &&
+                event.target.closest("pre")) {
+            range = document.createRange();
+            range.selectNodeContents(event.target.closest("pre"));
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            event.preventDefault();
+        }
+    };
+    document.addEventListener("keydown", window.domOnEventSelectAllWithinPre);
+}());
+</script>
 <div class="header high">
     <h1 style="font-weight: bold;">
-        <a href="https://github.com/kaizhu256/node-swgg-github-all">swgg-github-all (v2018.4.23)</a>
+        <a href="https://github.com/kaizhu256/node-swgg-github-all">swgg-github-all (2018.4.23)</a>
     </h1>
     <h1>Code coverage report for <span class="entity">node-swgg-github-all/test.js</span></h1>
     <table class="tableHeader">
@@ -258,10 +278,10 @@
     </thead>
     <tbody>
         <tr><td><span class="ignore-none">none</span></td>
-        <td>100%<br>(167 / 167)</td>
-        <td>100%<br>(85 / 85)</td>
+        <td>98.8%<br>(165 / 167)</td>
+        <td>94.12%<br>(80 / 85)</td>
         <td>100%<br>(29 / 29)</td>
-        <td>100%<br>(167 / 167)</td>
+        <td>98.8%<br>(165 / 167)</td>
     </tr></tbody>
     </table>
     <div class="path"><a href="../index.html">All files</a> » <a href="index.html">node-swgg-github-all/</a> » test.js</div>
@@ -778,20 +798,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -803,42 +823,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -885,11 +905,11 @@
 <span class="cline-any cline-yes">1938</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -1264,7 +1284,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* istanbul instrument in package swgg_github_all */
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js" tabindex="0">/* istanbul instrument in package swgg_github_all */
 /* jslint-utility2 */
 /*jslint
     bitwise: true,
@@ -1290,9 +1310,9 @@
         local.modeJs = (function () {
             try {
                 return typeof navigator.userAgent === 'string' &amp;&amp;
-                    typeof document.querySelector('body') === 'object' &amp;&amp;
-                    typeof XMLHttpRequest.prototype.open === 'function' &amp;&amp;
-                    'browser';
+<span class="branch-1 cbranch-no" title="branch not covered">                    typeof document.querySelector('body') === 'object' </span>&amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered">                    typeof XMLHttpRequest.prototype.open === 'function' </span>&amp;&amp;
+<span class="branch-3 cbranch-no" title="branch not covered">                    'browser';</span>
             } catch (errorCaughtBrowser) {
                 return module.exports &amp;&amp;
                     typeof process.versions.node === 'string' &amp;&amp;
@@ -1302,7 +1322,7 @@
         }());
         // init global
         local.global = local.modeJs === 'browser'
-            ? window
+            ? <span class="branch-0 cbranch-no" title="branch not covered">window</span>
             : global;
         // re-init local
         local = local.global.local = (local.global.utility2 ||
@@ -1385,9 +1405,9 @@
             // init options
             options = options || {};
             textAll = local.tryCatchReadFile('.apidoc.raw.html', 'utf8');
-            if (!textAll) {
-                onError(null, options);
-                return;
+            <span class="missing-if-branch" title="if path not taken">I</span>if (!textAll) {
+<span class="cstat-no" title="statement not covered">                onError(null, options);</span>
+<span class="cstat-no" title="statement not covered">                return;</span>
             }
             // init stringUniqueKey
             stringUniqueKey = local.stringUniqueKey(textAll);
@@ -1766,7 +1786,7 @@ swaggerJson =
 </tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sun Apr 22 2018 08:26:06 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat May 05 2018 13:00:41 GMT+0000 (UTC)</div>
 </div>
 
 

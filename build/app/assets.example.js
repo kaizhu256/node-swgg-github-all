@@ -241,7 +241,8 @@ instruction
         /* jslint-ignore-begin */
         local.assetsDict['/assets.swgg_github_all.js'] = local.assetsDict['/assets.swgg_github_all.js'] ||
             local.fs.readFileSync(local.__dirname + '/lib.swgg_github_all.js', 'utf8'
-        ).replace((/^#!/), '//');
+        ).replace((/^#!\//), '// ');
+        /* jslint-ignore-end */
 /* validateLineSortedReset */
         local.assetsDict['/'] =
             local.assetsDict['/assets.example.html'] =
@@ -267,7 +268,6 @@ instruction
         local.assetsDict['/assets.example.js'] =
             local.assetsDict['/assets.example.js'] ||
             local.fs.readFileSync(__filename, 'utf8');
-        /* jslint-ignore-end */
         local.assetsDict['/favicon.ico'] = local.assetsDict['/favicon.ico'] || '';
         // if $npm_config_timeout_exit exists,
         // then exit this process after $npm_config_timeout_exit ms
